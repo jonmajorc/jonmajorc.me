@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Jon Major Portfolio',
+    author: 'Jon Major Condon',
+    description: 'Portfolio to show who I am.',
+    siteUrl: 'https://jonmajorc.me',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -11,6 +11,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content`,
         name: 'pages',
       },
     },
@@ -53,5 +60,6 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'gatsby-plugin-emotion',
   ],
 }

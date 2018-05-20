@@ -1,75 +1,45 @@
+// modules
 import React from 'react'
 import Link from 'gatsby-link'
-
+import { ThemeProvider } from 'emotion-theming'
+import styled, { css } from 'react-emotion'
 import { rhythm, scale } from '../utils/typography'
+import PropTypes from 'prop-types'
 
-class Template extends React.Component {
+// components
+import theme from '../utils/theme'
+import Header from '../components/Header'
+
+const App = styled('main')`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(40)};
+  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+`
+
+const Children = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(27)};
+`
+
+class DefaultLayout extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
+    const { children } = this.props
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
-
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
-        {children()}
-      </div>
+      <ThemeProvider theme={theme}>
+        <App>
+          <Header />
+          <Children>{children()}</Children>
+        </App>
+      </ThemeProvider>
     )
   }
 }
 
-export default Template
+DefaultLayout.propTypes = {
+  children: PropTypes.func,
+}
+
+export default DefaultLayout
