@@ -1,0 +1,25 @@
+.quote {
+  &--bg {
+    background-color: transparentize($color: #fef8e5, $amount: 0.46);
+    max-width: 420px;
+    padding-bottom: 20px;
+    display: inline-block;
+    position: absolute;
+    bottom: -40px;
+  }
+
+  > div {
+    position: relative;
+    right: -80px;
+    display: flex;
+  }
+
+  &__mark {
+    margin: 0;
+    align-self: start;
+  }
+
+  &__text {
+    align-self: baseline;
+  }
+}
