@@ -20,7 +20,7 @@ class Bio extends React.Component {
               />
             </div>
           </div>
-          <Quote />
+          <Quote className="bio__quote" />
         </Fragment>
       </Section>
     )

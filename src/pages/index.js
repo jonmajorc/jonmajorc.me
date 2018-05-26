@@ -10,6 +10,7 @@ import { rhythm } from '../utils/typography'
 
 // import typefaces
 import 'typeface-raleway'
+import Projects from '../components/projects'
 
 class Index extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class Index extends React.Component {
       <div>
         <Helmet title={siteTitle} />
         <Bio />
+        <Projects />
         {/*{posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (

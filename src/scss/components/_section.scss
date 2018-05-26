@@ -7,6 +7,7 @@
   .section--bg {
     background-color: $beige;
     margin: $section-bg-margin;
+    min-height: inherit;
   }
   /************************************\
   font-sizing between the section :after content
@@ -19,6 +20,7 @@
 
   &__content {
     padding: 50px 25px;
+    min-height: inherit;
   }
 
   &:after {
@@ -60,5 +62,14 @@
         content: ' = \007b';
       }
     }
+  }
+
+  .coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: $grey;
+    font-size: 2.5em;
   }
 }
