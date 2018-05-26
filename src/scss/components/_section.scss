@@ -1,8 +1,13 @@
 .section {
-  background-color: $beige;
+  $section-bg-margin: 40px;
+
   position: relative;
   min-height: 200px;
 
+  .section--bg {
+    background-color: $beige;
+    margin: $section-bg-margin;
+  }
   /************************************\
   font-sizing between the section :after content
   and the assignmet class
@@ -19,7 +24,7 @@
   &:after {
     position: absolute;
     bottom: 0;
-    left: 5px;
+    left: $section-bg-margin + 5px;
     color: $grey;
     font-weight: bold;
   }
@@ -34,7 +39,6 @@
 
   .assignment {
     position: absolute;
-    left: -60px;
 
     &__key {
       color: $grey;

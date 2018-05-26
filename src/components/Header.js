@@ -11,10 +11,10 @@ export class Header extends Component {
     return (
       <header className="header">
         <LetVar semi="true" />
-        <div className="header--wrapper">
+        {/* <div className="header--wrapper">
           <MajorBlazer className="major-blazer" />
           <Nav />
-        </div>
+        </div> */}
       </header>
     )
   }

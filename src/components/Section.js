@@ -20,7 +20,9 @@ const Section = props => {
           {props.section || 'section'}
         </span>
       </header>
-      <div className="section__content">{props.children}</div>
+      <div className="section--bg">
+        <div className="section__content">{props.children}</div>
+      </div>
     </section>
   )
 }
