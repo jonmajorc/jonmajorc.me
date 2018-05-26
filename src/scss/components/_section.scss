@@ -1,0 +1,59 @@
+.section {
+  background-color: $beige;
+  position: relative;
+  min-height: 200px;
+
+  /************************************\
+  font-sizing between the section :after content
+  and the assignmet class
+  \************************************/
+  .object,
+  &:after {
+    font-size: 1.7em;
+  }
+
+  &__content {
+    padding: 50px 25px;
+  }
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    color: $grey;
+    font-weight: bold;
+  }
+
+  &[data-assignment='array']:after {
+    content: '\005d';
+  }
+
+  &[data-assignment='object']:after {
+    content: '\007d';
+  }
+
+  .assignment {
+    position: absolute;
+    left: -60px;
+
+    &__key {
+      color: $grey;
+
+      &:before {
+        content: '.';
+      }
+
+      &:after {
+        content: ' = ';
+      }
+
+      &[data-assignment='array']:after {
+        content: ' = \005b';
+      }
+
+      &[data-assignment='object']:after {
+        content: ' = \007b';
+      }
+    }
+  }
+}

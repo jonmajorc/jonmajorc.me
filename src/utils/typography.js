@@ -9,6 +9,9 @@ const typography = new Typography({
     '.nav-menu': {
       fontWeight: 500,
     },
+    /* '.typography-span--after, .typography-span--after:after, .section, .section:after, .object__var': {
+      fontSize: rhythm(1.5),
+    }, */
   }),
 })
 

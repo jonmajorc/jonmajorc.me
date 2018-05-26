@@ -1,0 +1,29 @@
+.bio {
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__excerpt {
+    position: relative;
+    z-index: 10;
+    align-self: center;
+    width: 240px;
+  }
+
+  &__img {
+    &--background {
+      position: relative;
+      background: transparentize($lightBlue, 0.5);
+      padding: 20px;
+      left: -28px;
+
+      img {
+        margin: 0;
+        position: relative;
+        right: -30px;
+        top: -5px;
+      }
+    }
+  }
+}

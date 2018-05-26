@@ -1,0 +1,19 @@
+.variable {
+  font-weight: bold;
+  font-size: 1.7em;
+  &__declare {
+    color: $purple;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    color: $blue;
+
+    &[data-semi='true'] {
+      &:after {
+        content: ' ;';
+        color: $black;
+      }
+    }
+  }
+}
