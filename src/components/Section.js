@@ -6,25 +6,82 @@ import styled, { css } from 'react-emotion'
 import { MeVar } from './Variable'
 import theme from '../utils/theme'
 
-const Section = props => {
-  const sectionClass = cx('section', { [props.className]: props.className })
-  return (
-    <section
-      id={props.id}
-      className={sectionClass}
-      data-assignment={props.assignment}
-    >
-      <header className="assignment variable">
-        <MeVar className="variable__name" />
-        <span className="assignment__key" data-assignment={props.assignment}>
-          {props.section || 'section'}
-        </span>
-      </header>
-      <div className="section--bg">
-        <div className="section__content">{props.children}</div>
-      </div>
-    </section>
-  )
+class Section extends React.Component {
+  state = {
+    list: [],
+    offset: 0,
+    limit: 10,
+  }
+
+  /***************************************************************************\
+    public
+  \***************************************************************************/
+  componentDidMount() {
+    const {
+      data = [],
+      limit = this.state.limit,
+      offset = this.state.offset,
+    } = this.props
+
+    this.setState({
+      list: data,
+      offset,
+    })
+  }
+
+  renderMore = () => {
+    this.setState(({ limit, list, offset }) => {
+      if (offset + limit > list.length) {
+        return {
+          offset: offset - limit,
+        }
+      }
+
+      if (offset + limit <= list.length) {
+        return {
+          offset: offset + limit,
+        }
+      }
+    })
+  }
+
+  render() {
+    let { list, offset, limit } = this.state
+    let { available = true } = this.props
+
+    let content
+
+    if (!available) {
+      content = <p>(Comming Soon)</p>
+    } else if (typeof this.props.children === 'function') {
+      content = this.props.children({
+        list: list.slice(offset, offset + limit),
+      })
+    } else {
+      content = this.props.children
+    }
+
+    const { id, section, opening, closing } = this.props
+    let hasMore = offset + limit < list.length
+
+    return (
+      <section id={id} className={cx('section', this.props.className)}>
+        <header className="data variable">
+          <MeVar className="variable__name" />
+          <span className="data__key" data-opening={opening}>
+            {this.props.section || 'section'}
+          </span>
+        </header>
+        <div className="section--bg">
+          <div className="section__content">{content}</div>
+          <span className="section__closing">{closing}</span>
+          <button className="section__button" onClick={this.renderMore}>
+            {hasMore ? 'next()' : 'prev()'}
+          </button>
+        </div>
+      </section>
+    )
+  }
 }
 
 Section.propTypes = {
@@ -32,6 +89,12 @@ Section.propTypes = {
   className: PropTypes.string,
   section: PropTypes.string,
   name: PropTypes.string,
+  data: PropTypes.array,
+  limit: PropTypes.number,
+  available: PropTypes.bool,
+  offset: PropTypes.number,
+  closing: PropTypes.string,
+  opening: PropTypes.string,
   assignment: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,

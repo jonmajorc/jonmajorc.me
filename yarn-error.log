@@ -59,6 +59,8 @@ npm manifest:
     "devDependencies": {
       "babel-plugin-emotion": "^9.1.2",
       "babel-preset-airbnb": "^2.4.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-stage-2": "^6.24.1",
       "eslint": "^4.19.1",
       "eslint-config-airbnb-base": "^12.1.0",
       "eslint-config-standard": "^11.0.0",
@@ -1794,7 +1796,7 @@ Lockfile:
       babel-preset-react "^6.24.1"
       object.assign "^4.0.4"
   
-  babel-preset-env@^1.5.2, babel-preset-env@^1.6.0:
+  babel-preset-env@^1.5.2, babel-preset-env@^1.6.0, babel-preset-env@^1.7.0:
     version "1.7.0"
     resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.7.0.tgz#dea79fa4ebeb883cd35dab07e260c1c9c04df77a"
     dependencies:

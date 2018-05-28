@@ -1,10 +1,11 @@
 module.exports = {
+  parser: 'babel-eslint',
   extends: ['plugin:react/recommended'],
   env: {
     browser: true,
     es6: true,
   },
-  plugins: ['react'],
+  plugins: ['react', 'babel'],
   globals: {
     graphql: false,
   },

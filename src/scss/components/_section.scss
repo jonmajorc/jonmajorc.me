@@ -4,42 +4,44 @@
   position: relative;
   min-height: 200px;
 
+  &__closing,
+  &__button {
+    font-size: 1.7em;
+  }
+
+  &__closing {
+    color: $grey;
+  }
+
+  &__button {
+    border: transparent;
+    background-color: transparent;
+    letter-spacing: 1.5px;
+    padding: 0;
+    color: $blue;
+
+    &:before {
+      content: '.';
+      color: $grey;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .section--bg {
     background-color: $beige;
     margin: $section-bg-margin;
     min-height: inherit;
   }
-  /************************************\
-  font-sizing between the section :after content
-  and the assignmet class
-  \************************************/
-  .object,
-  &:after {
-    font-size: 1.7em;
-  }
 
   &__content {
-    padding: 50px 25px;
+    padding: 50px 25px 0px 25px;
     min-height: inherit;
   }
 
-  &:after {
-    position: absolute;
-    bottom: 0;
-    left: $section-bg-margin + 5px;
-    color: $grey;
-    font-weight: bold;
-  }
-
-  &[data-assignment='array']:after {
-    content: '\005d';
-  }
-
-  &[data-assignment='object']:after {
-    content: '\007d';
-  }
-
-  .assignment {
+  .data {
     position: absolute;
 
     &__key {
@@ -54,12 +56,12 @@
         content: ' = ';
       }
 
-      &[data-assignment='array']:after {
-        content: ' = \005b';
+      &[data-opening='[']:after {
+        content: ' = [';
       }
 
-      &[data-assignment='object']:after {
-        content: ' = \007b';
+      &[data-assignment='{']:after {
+        content: ' = {';
       }
     }
   }
