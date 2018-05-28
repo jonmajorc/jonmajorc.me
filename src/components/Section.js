@@ -11,6 +11,7 @@ class Section extends React.Component {
     list: [],
     offset: 0,
     limit: 10,
+    direction: 'next',
   }
 
   /***************************************************************************\
@@ -26,14 +27,15 @@ class Section extends React.Component {
     this.setState({
       list: data,
       offset,
+      limit,
     })
   }
 
   renderMore = () => {
-    this.setState(({ limit, list, offset }) => {
+    this.setState(({ direction, limit, list, offset }) => {
       if (offset + limit > list.length) {
         return {
-          offset: offset - limit,
+          offset: 0,
         }
       }
 
@@ -48,11 +50,10 @@ class Section extends React.Component {
   render() {
     let { list, offset, limit } = this.state
     let { available = true } = this.props
-
     let content
 
     if (!available) {
-      content = <p>(Comming Soon)</p>
+      content = <p className="coming-soon">(Comming Soon)</p>
     } else if (typeof this.props.children === 'function') {
       content = this.props.children({
         list: list.slice(offset, offset + limit),
@@ -75,9 +76,13 @@ class Section extends React.Component {
         <div className="section--bg">
           <div className="section__content">{content}</div>
           <span className="section__closing">{closing}</span>
-          <button className="section__button" onClick={this.renderMore}>
-            {hasMore ? 'next()' : 'prev()'}
-          </button>
+          {opening &&
+            closing &&
+            limit < list.length && (
+              <button className="section__button" onClick={this.renderMore}>
+                next()
+              </button>
+            )}
         </div>
       </section>
     )

@@ -6,11 +6,12 @@ import Helmet from 'react-helmet'
 
 // components
 import Bio from '../components/Bio'
+import Projects from '../components/projects'
+import Notes from '../components/Notes'
 import { rhythm } from '../utils/typography'
 
 // import typefaces
 import 'typeface-raleway'
-import Projects from '../components/projects'
 
 class Index extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class Index extends React.Component {
         <Helmet title={siteTitle} />
         <Bio />
         <Projects />
+        <Notes />
         {/*{posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (

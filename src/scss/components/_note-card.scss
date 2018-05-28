@@ -1,0 +1,7 @@
+.note-card {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
