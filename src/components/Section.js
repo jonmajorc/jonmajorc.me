@@ -63,7 +63,6 @@ class Section extends React.Component {
     }
 
     const { id, section, opening, closing } = this.props
-    let hasMore = offset + limit < list.length
 
     return (
       <section id={id} className={cx('section', this.props.className)}>
@@ -93,14 +92,12 @@ Section.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   section: PropTypes.string,
-  name: PropTypes.string,
   data: PropTypes.array,
   limit: PropTypes.number,
   available: PropTypes.bool,
   offset: PropTypes.number,
   closing: PropTypes.string,
   opening: PropTypes.string,
-  assignment: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,

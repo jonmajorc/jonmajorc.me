@@ -10,20 +10,17 @@ import Projects from '../components/projects'
 import Notes from '../components/Notes'
 import { rhythm } from '../utils/typography'
 
-// import typefaces
-import 'typeface-raleway'
-
 class Index extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const notes = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
       <div>
         <Helmet title={siteTitle} />
         <Bio />
         <Projects />
-        <Notes />
+        <Notes notes={notes} />
         {/*{posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (

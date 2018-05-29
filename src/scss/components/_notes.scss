@@ -17,5 +17,18 @@
       top: 15px;
       left: 15px;
     }
+
+    &__link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      i {
+        font-size: 0.67em;
+        display: block;
+      }
+    }
   }
 }
