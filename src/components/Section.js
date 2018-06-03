@@ -11,7 +11,6 @@ class Section extends React.Component {
     list: [],
     offset: 0,
     limit: 10,
-    direction: 'next',
   }
 
   /***************************************************************************\
@@ -32,7 +31,7 @@ class Section extends React.Component {
   }
 
   renderMore = () => {
-    this.setState(({ direction, limit, list, offset }) => {
+    this.setState(({ limit, list, offset }) => {
       if (offset + limit > list.length) {
         return {
           offset: 0,
@@ -67,7 +66,7 @@ class Section extends React.Component {
     return (
       <section id={id} className={cx('section', this.props.className)}>
         <header className="data variable">
-          <MeVar className="variable__name" />
+          {/* <MeVar className="variable__name" /> */}
           <span className="data__key" data-opening={opening}>
             {this.props.section || 'section'}
           </span>

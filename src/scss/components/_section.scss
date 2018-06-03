@@ -48,9 +48,9 @@
       color: $grey;
       letter-spacing: 1.5px;
 
-      &:before {
-        content: '.';
-      }
+      // &:before {
+      //   content: '.';
+      // }
 
       &:after {
         content: ' = ';
@@ -60,7 +60,7 @@
         content: ' = [';
       }
 
-      &[data-assignment='{']:after {
+      &[data-opening='{']:after {
         content: ' = {';
       }
     }

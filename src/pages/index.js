@@ -8,6 +8,7 @@ import Helmet from 'react-helmet'
 import Bio from '../components/Bio'
 import Projects from '../components/projects'
 import Notes from '../components/Notes'
+import Contact from '../components/Contact'
 import { rhythm } from '../utils/typography'
 
 class Index extends React.Component {
@@ -21,24 +22,7 @@ class Index extends React.Component {
         <Bio />
         <Projects />
         <Notes notes={notes} />
-        {/*{posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })} */}
+        <Contact />
       </div>
     )
   }

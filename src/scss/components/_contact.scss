@@ -1,0 +1,20 @@
+.contact {
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    &__group {
+      display: flex;
+      align-items: flex-start;
+
+      label {
+        flex: 0 1 20%;
+      }
+
+      input,
+      textarea {
+        flex-basis: 30%;
+      }
+    }
+  }
+}

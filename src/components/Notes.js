@@ -27,12 +27,11 @@ class Notes extends React.Component {
                   <div key={node.fields.slug} className="note">
                     <NoteCard>
                       <Link className="note__link" to={node.fields.slug}>
-                        <h4 style={{ margin: 0 }}>{title}</h4>
+                        <h4>{title}</h4>
                         <small>{node.frontmatter.date}</small>
                         <i dangerouslySetInnerHTML={{ __html: node.excerpt }} />
                       </Link>
                     </NoteCard>
-                    <span className="note__text" />
                   </div>
                 )
               })}

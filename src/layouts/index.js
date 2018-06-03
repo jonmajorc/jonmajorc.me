@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 
 // components
 import theme from '../utils/theme'
-import Header from '../components/Header'
 
 // styles
 import '../scss/index.scss'
@@ -16,7 +15,6 @@ class DefaultLayout extends React.Component {
 
     return (
       <div role="application">
-        <Header />
         <main>{children()}</main>
       </div>
     )
