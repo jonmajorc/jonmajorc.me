@@ -20,8 +20,13 @@
 
       input,
       textarea {
-        flex: 0 1 100%;
+        flex: 1 1 100%;
         border: 1px solid $black;
+      }
+
+      .input-quote {
+        font-size: 1.5em;
+        padding: 0 5px;
       }
     }
   }
