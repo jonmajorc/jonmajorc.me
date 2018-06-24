@@ -9,6 +9,7 @@ import Bio from '../components/Bio'
 import Projects from '../components/projects'
 import Notes from '../components/Notes'
 import Contact from '../components/Contact'
+import Social from '../components/Social'
 import { rhythm } from '../utils/typography'
 
 class Index extends React.Component {
@@ -23,6 +24,7 @@ class Index extends React.Component {
         <Projects />
         <Notes notes={notes} />
         <Contact />
+        <Social />
       </div>
     )
   }

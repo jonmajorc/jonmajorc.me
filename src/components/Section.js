@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { rhythm, scale } from '../utils/typography'
-import styled, { css } from 'react-emotion'
-import { MeVar } from './Variable'
-import theme from '../utils/theme'
 
 class Section extends React.Component {
   state = {
@@ -16,7 +12,7 @@ class Section extends React.Component {
   /***************************************************************************\
     public
   \***************************************************************************/
-  componentDidMount() {
+  componentDidMount = () => {
     const {
       data = [],
       limit = this.state.limit,

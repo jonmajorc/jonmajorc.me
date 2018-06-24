@@ -69,5 +69,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-next`,
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        viewBox: true,
+        // see https://github.com/smooth-code/svgr for a list of all options
+      },
+    },
   ],
 }

@@ -1,10 +1,6 @@
 // modules
 import React from 'react'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
-
-// components
-import theme from '../utils/theme'
 
 // styles
 import '../scss/index.scss'
