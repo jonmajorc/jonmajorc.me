@@ -1,0 +1,77 @@
+/* semantic tags */
+html, body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+}
+h1 {
+  font-size: 3.5rem;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+/* Jon Major logo */
+
+.logo {
+  transition: all 250ms;
+  height: 250px;
+  width: 250px;
+  user-select: none;
+  pointer-events: none;
+  animation: move-logo 1s 250ms forwards;
+  transform: translate3d(0, 50%, 0);
+}
+
+@keyframes move-logo {
+  to {
+    transform: translate3d(0, 0, 0);
+    height: 150px;
+    width: 150px;
+  }
+}
+
+/* main content */
+.content {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms;
+  transition-delay: 1s;
+  animation: display-content 2s 500ms forwards;
+}
+
+@keyframes display-content {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* social icons */
+.social-icons {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  padding: 0 5px;
+  transition: transform 250ms;
+}
+
+.icon:hover {
+  transform: scale(1.3);
+}
