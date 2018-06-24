@@ -1,6 +1,9 @@
 .section {
-  $section-bg-margin: 40px;
-
+  position: relative;
+  min-height: 200px;
+  background-color: $beige;
+  margin: 50px 70px;
+  min-width: 500px;
   position: relative;
   min-height: 200px;
 
@@ -30,19 +33,20 @@
     }
   }
 
-  .section--bg {
-    background-color: $beige;
-    margin: $section-bg-margin;
-    min-height: inherit;
-  }
+  // .section--bg {
+  //   background-color: $beige;
+  //   margin: $section-bg-margin;
+  //   min-height: inherit;
+  // }
 
   &__content {
-    padding: 50px 50px 0px 50px;
+    padding: 20px 20px 20px 50px;
     min-height: inherit;
   }
 
   .data {
-    position: absolute;
+    left: -55px;
+    position: relative;
 
     &__key {
       color: $grey;

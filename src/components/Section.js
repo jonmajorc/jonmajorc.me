@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -26,22 +26,6 @@ class Section extends React.Component {
     })
   }
 
-  renderMore = () => {
-    this.setState(({ limit, list, offset }) => {
-      if (offset + limit > list.length) {
-        return {
-          offset: 0,
-        }
-      }
-
-      if (offset + limit <= list.length) {
-        return {
-          offset: offset + limit,
-        }
-      }
-    })
-  }
-
   render() {
     let { list, offset, limit } = this.state
     let { available = true } = this.props
@@ -57,14 +41,15 @@ class Section extends React.Component {
       content = this.props.children
     }
 
-    const { id, section, opening, closing } = this.props
+    const { id, section: sectionName, opening, closing } = this.props
+
+    const sectionClass = cx('section', this.props.className)
 
     return (
-      <section id={id} className={cx('section', this.props.className)}>
+      <section id={id} className={sectionClass}>
         <header className="data variable">
-          {/* <MeVar className="variable__name" /> */}
           <span className="data__key" data-opening={opening}>
-            {this.props.section || 'section'}
+            {sectionName || 'section'}
           </span>
         </header>
         <div className="section--bg">
@@ -73,8 +58,8 @@ class Section extends React.Component {
           {opening &&
             closing &&
             limit < list.length && (
-              <button className="section__button" onClick={this.renderMore}>
-                next()
+              <button className="section__button" onClick={() => {}}>
+                more()
               </button>
             )}
         </div>
