@@ -1,32 +1,52 @@
 .section {
   position: relative;
-  min-height: 200px;
+  min-height: 100px;
   background-color: $beige;
   margin: 50px 70px;
   min-width: 500px;
   position: relative;
-  min-height: 200px;
 
-  &__closing,
-  &__button {
-    font-size: 1.7em;
-  }
-
+  &__header,
   &__closing {
+    font-size: 1.7em;
+    font-weight: bold;
     color: $grey;
   }
 
-  &__button {
+  &__header {
+    position: relative;
+    left: -55px;
+
+    &:after {
+      content: ' = ';
+    }
+
+    &[data-opening='[']:after {
+      content: ' = [';
+    }
+
+    &[data-opening='{']:after {
+      content: ' = {';
+    }
+  }
+
+  // &__closing,
+  // &__button {
+  //   font-size: 1.7em;
+  // }
+
+  // &__closing {
+  //   color: $grey;
+  // }
+
+  &__btn {
     border: transparent;
     background-color: transparent;
     letter-spacing: 1.5px;
     padding: 0;
     color: $blue;
-
-    &:before {
-      content: '.';
-      color: $grey;
-    }
+    font-size: 1.7em;
+    text-decoration: none;
 
     &:hover {
       text-decoration: underline;
@@ -77,6 +97,9 @@
     width: 100%;
     color: $grey;
     font-size: 2.5em;
-    height: 350px;
+    margin: 0;
+    text-align: center;
+    height: 200px;
+    // height: 350px;
   }
 }

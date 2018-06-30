@@ -3,8 +3,8 @@ import React from 'react'
 const NoteCard = ({ children }) => {
   return (
     <svg
-      width="247"
-      height="207"
+      width="200"
+      height="200"
       viewBox="0 0 247 207"
       fill="none"
       className="note-card"

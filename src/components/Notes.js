@@ -15,7 +15,7 @@ class Notes extends React.Component {
         section="notes"
         opening="["
         closing="]"
-        limit={5}
+        limit={3}
         data={this.props.notes}
       >
         {({ list }) => {

@@ -22,6 +22,14 @@
       textarea {
         flex: 1 1 100%;
         border: 1px solid $black;
+        padding: 0 10px;
+
+        &.invalid {
+          box-shadow: 0 0 5px 1px red;
+        }
+        &.invalid:focus {
+          outline: none;
+        }
       }
 
       .input-quote {

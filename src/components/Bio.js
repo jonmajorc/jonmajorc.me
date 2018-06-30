@@ -16,7 +16,7 @@ class Bio extends React.Component {
             <div className="bio__img--background">
               <img
                 className="bio__img"
-                height="250px"
+                width="250px"
                 src="./jonmajor.JPG"
                 alt="Major hard at work"
               />
