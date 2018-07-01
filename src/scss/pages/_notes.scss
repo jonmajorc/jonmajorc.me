@@ -1,0 +1,13 @@
+.note-page {
+  .note {
+    background-color: $beige;
+    margin: 20px 0;
+    padding: 20px;
+    transition: all 250ms ease-in;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 7px 0 #c5c5c5;
+    }
+  }
+}
