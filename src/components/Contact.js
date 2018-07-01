@@ -15,6 +15,7 @@ class Contact extends React.Component {
   constructor() {
     super()
     this.nameInputRef = React.createRef()
+    this.contactForm = React.createRef()
   }
 
   componentDidMount() {
@@ -24,9 +25,9 @@ class Contact extends React.Component {
     })
   }
 
-  submit = e => {
+  onSubmit = e => {
     e.preventDefault()
-    if (e.target.checkValidity()) {
+    if (this.contactForm.current.checkValidity()) {
       this.setState({ attempt: 0 })
       alert(JSON.stringify(this.state, null, 2))
     } else {
@@ -60,7 +61,11 @@ class Contact extends React.Component {
         opening="{"
         closing="}"
         btnToRender={
-          <button type="submit" className="section__btn" form="contactForm">
+          <button
+            type="submit"
+            className="section__btn"
+            onClick={this.onSubmit}
+          >
             .submit()
           </button>
         }
@@ -69,7 +74,7 @@ class Contact extends React.Component {
           <form
             id="contactForm"
             className="form"
-            onSubmit={this.submit}
+            ref={this.contactForm}
             noValidate
           >
             <div className="form__group">
