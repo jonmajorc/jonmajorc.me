@@ -28,6 +28,7 @@ class Contact extends React.Component {
     e.preventDefault()
     if (e.target.checkValidity()) {
       this.setState({ attempt: 0 })
+      alert(JSON.stringify(this.state, null, 2))
     } else {
       this.setState(prevState => ({
         attempt: prevState.attempt + 1,
