@@ -3,10 +3,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../components/Header'
 import get from 'lodash/get'
+import Component from '../components/Component'
+
 // styles
 import '../scss/index.scss'
 
-class DefaultLayout extends React.Component {
+class DefaultLayout extends Component {
   render() {
     const { children } = this.props
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -43,6 +45,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            tags
           }
         }
       }

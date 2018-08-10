@@ -3,8 +3,9 @@
   min-height: 100px;
   background-color: $beige;
   margin: 50px 70px;
-  min-width: 500px;
-  position: relative;
+  @media only screen and (max-width: 500px) {
+    margin: 50px 30px;
+  }
 
   &__header,
   &__closing {
@@ -17,6 +18,10 @@
     position: relative;
     left: -55px;
 
+    @media only screen and (max-width: 500px) {
+      left: -20px;
+    }
+
     &:after {
       content: ' = ';
     }
@@ -27,6 +32,11 @@
 
     &[data-opening='{']:after {
       content: ' = {';
+    }
+
+    span {
+      color: $grey;
+      // box-shadow: 0 -17px 0 0px inset transparentize($lightBlue, 0.8);
     }
   }
 
@@ -60,7 +70,7 @@
   // }
 
   &__content {
-    padding: 20px 20px 20px 50px;
+    padding: 20px;
     min-height: inherit;
   }
 

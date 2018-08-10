@@ -11,6 +11,7 @@ export class Header extends Component {
         <Link to="/">
           <Logo />
         </Link>
+        <span className="header__jonmajorc">@jonmajorc</span>
       </header>
     )
   }

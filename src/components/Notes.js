@@ -25,13 +25,11 @@ class Notes extends React.Component {
                 let title = get(node, 'frontmatter.title') || node.fields.slug
                 return (
                   <div key={node.fields.slug} className="note">
-                    <NoteCard>
                       <Link className="note__link" to={node.fields.slug}>
                         <h4>{title}</h4>
                         <small>{node.frontmatter.date}</small>
                         <i dangerouslySetInnerHTML={{ __html: node.excerpt }} />
                       </Link>
-                    </NoteCard>
                   </div>
                 )
               })}

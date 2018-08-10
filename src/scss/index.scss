@@ -2,12 +2,15 @@
   abstracts
 \************************************/
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 /************************************\
   base
 \************************************/
 @import 'base/root';
 @import 'base/blockquote';
+@import 'base/input';
+@import 'base/textarea';
 
 /************************************\
   layouts

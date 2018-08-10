@@ -1,8 +1,4 @@
 .contact {
-  // .content {
-  //   display: flex;
-  // }
-
   .form {
     display: flex;
     flex-direction: column;
@@ -11,11 +7,29 @@
 
     &__group {
       display: flex;
+      flex-wrap: wrap;
       align-items: baseline;
 
+      .input__group {
+        display: flex;
+        flex: 1 0 60%;
+        align-items: baseline;
+
+        @include device-sm {
+          align-items: stretch;
+        }
+      }
+
       label {
-        flex: 1 0 30%;
+        flex: 1 0 33%;
         font-size: 1.5em;
+        margin-left: 25px;
+      }
+
+      textarea {
+        @include device-sm {
+          height: 75px;
+        }
       }
 
       input,
@@ -23,8 +37,10 @@
         flex: 1 1 100%;
         border: 1px solid $black;
         padding: 0 10px;
+        width: 100%;
 
         &.invalid {
+          -webkit-appearance: none;
           box-shadow: 0 0 5px 1px red;
         }
         &.invalid:focus {

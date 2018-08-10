@@ -1,4 +1,10 @@
 .note-page {
+  .section__header {
+    span {
+      color: #111;
+      box-shadow: 0 -17px 0 0px inset #beffbe;
+    }
+  }
   .note {
     background-color: $beige;
     margin: 20px 0;

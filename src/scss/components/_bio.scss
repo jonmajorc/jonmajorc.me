@@ -2,6 +2,7 @@
   .content {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   &__excerpt {
@@ -17,6 +18,11 @@
       background: transparentize($lightBlue, 0.5);
       padding: 20px;
       left: -45px;
+
+      @include device-sm {
+        left: 0;
+        height: 50%;
+      }
 
       img {
         margin: 0;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from './Section'
-import { ReactComponent as Email } from '../assets/social_email.svg'
+import { ReactComponent as Github } from '../assets/social_github.svg'
 import { ReactComponent as Instagram } from '../assets/social_instagram.svg'
 import { ReactComponent as LinkedIn } from '../assets/social_linkedIn.svg'
 import { ReactComponent as Twitter } from '../assets/social_twitter.svg'
@@ -16,16 +16,24 @@ export default () => {
     >
       <ul className="content">
         <li className="social__icon">
-          <Email />
+          <a href="#">
+            <Github />
+          </a>
         </li>
         <li className="social__icon">
-          <Instagram />
+          <a href="#">
+            <Instagram />
+          </a>
         </li>
         <li className="social__icon">
-          <LinkedIn />
+          <a href="#">
+            <LinkedIn />
+          </a>
         </li>
         <li className="social__icon">
-          <Twitter />
+          <a href="#">
+            <Twitter />
+          </a>
         </li>
       </ul>
     </Section>

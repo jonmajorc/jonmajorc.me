@@ -1,0 +1,19 @@
+$small-width: 500px;
+$large-width: 1000px;
+
+@mixin device-sm {
+  @media (max-width: #{$small-width - 1px}) {
+    @content;
+  }
+}
+@mixin device-md {
+  @media (min-width: #{$small-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin device-lg {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}

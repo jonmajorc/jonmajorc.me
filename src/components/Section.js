@@ -47,7 +47,7 @@ class Section extends React.Component {
     return (
       <section id={id} className={sectionClass} data-closing={closing}>
         <header className="section__header" data-opening={opening}>
-          {sectionName || 'section'}
+          <span>{sectionName || 'section'}</span>
         </header>
         {available ? (
           <div className="section__content">{content}</div>

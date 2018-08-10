@@ -1,5 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
+import MediaQuery from 'react-responsive'
+// import Component from './Component'
 
 // components
 import Section from './Section'
@@ -15,19 +17,19 @@ class Contact extends React.Component {
   constructor() {
     super()
     this.nameInputRef = React.createRef()
-    this.contactForm = React.createRef()
   }
 
   componentDidMount() {
+    console.log('mount')
     this.focusNameInput(location.hash === '#contact')
     window.addEventListener('hashchange', () => {
       this.focusNameInput(location.hash === '#contact')
     })
   }
 
-  onSubmit = e => {
+  submit = e => {
     e.preventDefault()
-    if (this.contactForm.current.checkValidity()) {
+    if (e.target.checkValidity()) {
       this.setState({ attempt: 0 })
       alert(JSON.stringify(this.state, null, 2))
     } else {
@@ -53,6 +55,7 @@ class Contact extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <Section
         className="contact"
@@ -61,11 +64,7 @@ class Contact extends React.Component {
         opening="{"
         closing="}"
         btnToRender={
-          <button
-            type="submit"
-            className="section__btn"
-            onClick={this.onSubmit}
-          >
+          <button type="submit" className="section__btn" form="contactForm">
             .submit()
           </button>
         }
@@ -74,54 +73,60 @@ class Contact extends React.Component {
           <form
             id="contactForm"
             className="form"
-            ref={this.contactForm}
+            onSubmit={this.submit}
             noValidate
           >
             <div className="form__group">
               <label htmlFor="name">Name:</label>
-              <span className="input-quote">{'"'}</span>
-              <input
-                name="name"
-                type="text"
-                onChange={this.handleFormInputs}
-                ref={this.nameInputRef}
-                value={this.state.name}
-                pattern="\w+"
-                className={cx({
-                  invalid: !this.state.name && this.state.attempt > 0,
-                })}
-                required
-              />
-              <span className="input-quote">{'"'}</span>
+              <div className="input__group">
+                <span className="input-quote">{'"'}</span>
+                <input
+                  name="name"
+                  type="text"
+                  onChange={this.handleFormInputs}
+                  ref={this.nameInputRef}
+                  value={this.state.name}
+                  pattern="\w+"
+                  className={cx({
+                    invalid: !this.state.name && this.state.attempt > 0,
+                  })}
+                  required
+                />
+                <span className="input-quote">{'"'}</span>
+              </div>
             </div>
             <div className="form__group">
               <label htmlFor="subject">Subject:</label>
-              <span className="input-quote">{'"'}</span>
-              <input
-                name="subject"
-                type="text"
-                onChange={this.handleFormInputs}
-                value={this.state.subject}
-                className={cx({
-                  invalid: !this.state.subject && this.state.attempt > 0,
-                })}
-                required
-              />
-              <span className="input-quote">{'"'}</span>
+              <div className="input__group">
+                <span className="input-quote">{'"'}</span>
+                <input
+                  name="subject"
+                  type="text"
+                  onChange={this.handleFormInputs}
+                  value={this.state.subject}
+                  className={cx({
+                    invalid: !this.state.subject && this.state.attempt > 0,
+                  })}
+                  required
+                />
+                <span className="input-quote">{'"'}</span>
+              </div>
             </div>
             <div className="form__group">
               <label htmlFor="message">Message:</label>
-              <span className="input-quote">{'"'}</span>
-              <textarea
-                name="message"
-                onChange={this.handleFormInputs}
-                value={this.state.message}
-                className={cx({
-                  invalid: !this.state.message && this.state.attempt > 0,
-                })}
-                required
-              />
-              <span className="input-quote">{'"'}</span>
+              <div className="input__group">
+                <span className="input-quote">{'"'}</span>
+                <textarea
+                  name="message"
+                  onChange={this.handleFormInputs}
+                  value={this.state.message}
+                  className={cx({
+                    invalid: !this.state.message && this.state.attempt > 0,
+                  })}
+                  required
+                />
+                <span className="input-quote">{'"'}</span>
+              </div>
             </div>
           </form>
         </div>

@@ -12,14 +12,14 @@ import Social from '../components/Social'
 class Index extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Helmet title={this.props.siteTitle} />
         <Bio />
         <Projects />
         <Notes notes={this.props.notes} />
         <Contact />
         <Social />
-      </div>
+      </React.Fragment>
     )
   }
 }

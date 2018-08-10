@@ -21,3 +21,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .social {
+    svg {
+      width: 40px;
+
+      &:hover {
+        width: 50px;
+      }
+    }
+  }
+}
