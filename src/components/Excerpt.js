@@ -14,22 +14,22 @@ export class Header extends Component {
         <small>jmajorcondon@gmail.com</small>
         <ul className="header__social">
           <li className="header__social__icon">
-            <a href="#">
+            <a href="https://github.com/jonmajorc">
               <Github />
             </a>
           </li>
           <li className="header__social__icon">
-            <a href="#">
+            <a href="https://www.instagram.com/jonmajorc">
               <Instagram />
             </a>
           </li>
           <li className="header__social__icon">
-            <a href="#">
+            <a href="https://www.linkedin.com/in/jonmajorc">
               <LinkedIn />
             </a>
           </li>
           <li className="header__social__icon">
-            <a href="#">
+            <a href="https://twitter.com/jonmajorc">
               <Twitter />
             </a>
           </li>
