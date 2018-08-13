@@ -8,9 +8,7 @@ const Quote = props => {
     <div className={cx('quote quote--bg', props.className)}>
       <div>
         <img className="quote__mark" src={quote} alt="" />
-        <blockquote className="quote__text">
-          One time I fought a velociraptor over a sandwich...
-        </blockquote>
+        <blockquote className="quote__text">{props.quote}</blockquote>
       </div>
     </div>
   )

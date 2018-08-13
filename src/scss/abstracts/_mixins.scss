@@ -17,3 +17,9 @@ $large-width: 1000px;
     @content;
   }
 }
+
+@mixin device-size($width) {
+  @media (max-width: #{$width - 1px}) {
+    @content;
+  }
+}

@@ -1,22 +1,24 @@
 // modules
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../components/Header'
+import Excerpt from '../components/Excerpt'
 import get from 'lodash/get'
-import Component from '../components/Component'
 
 // styles
-import '../scss/index.scss'
+import '../scss/main.scss'
 
-class DefaultLayout extends Component {
+class DefaultLayout extends React.Component {
   render() {
     const { children } = this.props
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const notes = get(this, 'props.data.allMarkdownRemark.edges')
     return (
       <div role="application">
-        <Header />
+        <Excerpt />
         <main>{children({ ...this.props, siteTitle, notes })}</main>
+        <footer>
+          <Excerpt />
+        </footer>
       </div>
     )
   }

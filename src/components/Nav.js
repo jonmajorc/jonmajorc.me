@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { MeVar } from './Variable'
-import { css } from 'react-emotion'
 
 export class Nav extends Component {
   render() {

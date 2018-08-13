@@ -1,7 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import MediaQuery from 'react-responsive'
-// import Component from './Component'
 
 // components
 import Section from './Section'

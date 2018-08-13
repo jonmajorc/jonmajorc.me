@@ -4,22 +4,34 @@ import Helmet from 'react-helmet'
 
 // components
 import Bio from '../components/Bio'
-import Projects from '../components/projects'
+import Skills from '../components/skills'
 import Notes from '../components/Notes'
-import Contact from '../components/Contact'
-import Social from '../components/Social'
+import Quote from '../components/Quote'
 
 class Index extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="home">
         <Helmet title={this.props.siteTitle} />
-        <Bio />
-        <Projects />
-        <Notes notes={this.props.notes} />
-        <Contact />
-        <Social />
-      </React.Fragment>
+        <div className="section__wrapper">
+          <Bio />
+          <Quote className="bio__quote" quote="GOD. Family. Code." />
+        </div>
+        <div className="section__wrapper">
+          <Skills />
+          <Quote
+            className="skills__quote"
+            quote="One time I fought a velociraptor over a sandwich..."
+          />
+        </div>
+        <div className="section__wrapper">
+          <Notes notes={this.props.notes} />
+          <Quote
+            className="notes__quote"
+            quote="If you make things and share them, your heart will at some point be broken. If you never share, it will harden. Your choice. — Todd Henry"
+          />
+        </div>
+      </div>
     )
   }
 }

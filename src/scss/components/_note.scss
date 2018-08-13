@@ -1,0 +1,36 @@
+.note {
+  padding: 20px;
+  border: 1px dashed;
+  margin-bottom: 10px;
+  box-shadow: 0 0 3px 3px #fffbf0 inset;
+  border: 1px dashed;
+  margin-bottom: 10px;
+  background-color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: transform 150ms cubic-bezier(0.53, 1.51, 0.69, 1.15);
+
+  &:hover {
+    box-shadow: 0 0 5px 5px #fffbf0;
+    transform: scale(1.05);
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  i {
+    font-size: 0.67em;
+    display: block;
+  }
+
+  &__card {
+    width: 100%;
+  }
+
+  &__text {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+}

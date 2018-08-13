@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 
 // components
 import Section from './Section'
-import Quote from './Quote'
 
 class Bio extends React.Component {
   render() {
@@ -22,7 +21,6 @@ class Bio extends React.Component {
               />
             </div>
           </div>
-          <Quote className="bio__quote" />
         </Fragment>
       </Section>
     )

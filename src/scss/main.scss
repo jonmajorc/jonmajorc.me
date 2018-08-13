@@ -20,7 +20,7 @@
 /************************************\
   pages
 \************************************/
-@import 'pages/notes';
+@import 'pages/index';
 
 /************************************\
   components
@@ -32,7 +32,8 @@
 @import 'components/variable';
 @import 'components/bio';
 @import 'components/quote';
-@import 'components/projects';
+@import 'components/skills';
 @import 'components/notes';
+@import 'components/note';
 @import 'components/contact';
 @import 'components/social';

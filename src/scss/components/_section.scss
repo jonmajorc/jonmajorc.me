@@ -2,10 +2,6 @@
   position: relative;
   min-height: 100px;
   background-color: $beige;
-  margin: 50px 70px;
-  @media only screen and (max-width: 500px) {
-    margin: 50px 30px;
-  }
 
   &__header,
   &__closing {
@@ -18,7 +14,7 @@
     position: relative;
     left: -55px;
 
-    @media only screen and (max-width: 500px) {
+    @include device-sm {
       left: -20px;
     }
 
@@ -35,19 +31,10 @@
     }
 
     span {
-      color: $grey;
-      // box-shadow: 0 -17px 0 0px inset transparentize($lightBlue, 0.8);
+      color: $black;
+      // box-shadow: 0 -17px 0 0px inset transparentize($lightBlue, 0.5);
     }
   }
-
-  // &__closing,
-  // &__button {
-  //   font-size: 1.7em;
-  // }
-
-  // &__closing {
-  //   color: $grey;
-  // }
 
   &__btn {
     border: transparent;
@@ -63,12 +50,6 @@
     }
   }
 
-  // .section--bg {
-  //   background-color: $beige;
-  //   margin: $section-bg-margin;
-  //   min-height: inherit;
-  // }
-
   &__content {
     padding: 20px;
     min-height: inherit;
@@ -81,10 +62,6 @@
     &__key {
       color: $grey;
       letter-spacing: 1.5px;
-
-      // &:before {
-      //   content: '.';
-      // }
 
       &:after {
         content: ' = ';
@@ -110,6 +87,5 @@
     margin: 0;
     text-align: center;
     height: 200px;
-    // height: 350px;
   }
 }
