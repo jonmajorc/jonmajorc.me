@@ -39,15 +39,15 @@
     "typeface-montserrat": "0.0.43",
     "typeface-raleway": "^0.0.54",
     "typography-theme-lincoln": "^0.15.11",
-    "typography-theme-wordpress-2016": "^0.15.10"
-  },
-  "devDependencies": {
+    "typography-theme-wordpress-2016": "^0.15.10",
     "add": "^2.0.6",
     "babel-eslint": "7",
     "babel-plugin-emotion": "^9.1.2",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "devDependencies": {
     "eslint": "3.x",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-standard": "^11.0.0",
