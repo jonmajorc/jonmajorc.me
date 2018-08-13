@@ -25,7 +25,7 @@ module.exports = class HTML extends React.Component {
         <head>
           <link
             rel="shortcut icon"
-            href="http://jonmajorc.me/favicon.ico?v=2"
+            href="https://www.jonmajorc.me//favicon.ico?v=2"
           />
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
