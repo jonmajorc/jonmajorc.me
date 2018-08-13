@@ -1,24 +1,12 @@
 ---
-title: Hello World
-date: "2015-05-01"
-tags: 
-  - random
-  - fun
+title: Hello world!
+date: "2018-08-12"
 ---
 
-This is my first post on my new fake blog! How exciting!
+It's only right that I open up with a Hello World...
 
-I'm sure I'll write a lot more interesting things in the future.
+My name is Jon Major and I am a Senior Software Developer. I am located downtown Madison, WI. building awesome web and mobile applications at [Bendyworks](https://bendyworks.com/)!
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
+You can find me on various social networks, but I am most active on [Twitter](https://twitter.com/jonmajorc)! You can find me there tweeting about technologies like JavaScript, React, Vue, and other web funzzies.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
+There is so much to say in this opening post, but it's late now and I want to get to publishing and to bed... I will have more blogs comming soon.

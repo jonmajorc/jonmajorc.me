@@ -18,7 +18,6 @@ class Contact extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mount')
     this.focusNameInput(location.hash === '#contact')
     window.addEventListener('hashchange', () => {
       this.focusNameInput(location.hash === '#contact')
@@ -53,7 +52,6 @@ class Contact extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Section
         className="contact"
