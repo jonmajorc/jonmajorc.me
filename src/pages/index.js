@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 // components
 import Bio from '../components/Bio'
-import Skills from '../components/skills'
+import Skills from '../components/Skills'
 import Notes from '../components/Notes'
 import Quote from '../components/Quote'
 
