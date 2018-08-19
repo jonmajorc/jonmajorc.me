@@ -1,14 +1,10 @@
 a {
   text-decoration: none;
 
-  // &.link {
-  //   box-shadow: 0 -3px 0 0 $color inset;
-  //   transition: all 150ms ease-in;
-
-  //   &:hover {
-  //     box-shadow: 0 -13px 0 0 $color inset;
-  //   }
-  // }
+  &.me {
+    font-size: 0.8em;
+    @include link($lightBlue);
+  }
 
   &.twitter {
     @include link($twitter);

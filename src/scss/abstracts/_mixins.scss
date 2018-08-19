@@ -24,10 +24,13 @@ $large-width: 1000px;
   }
 }
 
-@mixin link($color: $blue) {
+@mixin link($color: $lightBlue) {
   box-shadow: 0 -5px 0 0 transparentize($color, 0.5) inset;
   transition: all 150ms ease-in;
 
+  &.active,
+  &:active,
+  &:focus,
   &:hover {
     box-shadow: 0 -13px 0 0 transparentize($color, 0.5) inset;
   }

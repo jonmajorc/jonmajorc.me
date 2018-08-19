@@ -5,12 +5,15 @@ import { ReactComponent as Github } from '../assets/social_github.svg'
 import { ReactComponent as Instagram } from '../assets/social_instagram.svg'
 import { ReactComponent as LinkedIn } from '../assets/social_linkedIn.svg'
 import { ReactComponent as Twitter } from '../assets/social_twitter.svg'
+import Link from 'gatsby-link'
 
 export class Header extends Component {
   render() {
     return (
       <header className="header">
-        <small>@jonmajorc</small>
+        <Link className="me" to="/" activeClassName="active" exact>
+          @jonmajorc
+        </Link>
         <small>jmajorcondon@gmail.com</small>
         <ul className="header__social">
           <li className="header__social__icon">
