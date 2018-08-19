@@ -9,6 +9,7 @@
   text-decoration: none;
   display: block;
   transition: transform 150ms cubic-bezier(0.53, 1.51, 0.69, 1.15);
+  width: 100%;
 
   &:hover {
     box-shadow: 0 0 5px 5px #fffbf0;

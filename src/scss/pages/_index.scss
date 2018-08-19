@@ -20,15 +20,10 @@
   .notes__quote {
     position: relative;
     bottom: 30px;
-
-    @include device-size(850px) {
-      bottom: initial;
-      top: 30px;
-    }
   }
 
   .bio__quote {
-    left: 60%;
+    left: 30%;
   }
 
   .skills__quote {
@@ -40,11 +35,11 @@
   }
 
   @include device-size(850px) {
-    .bio__quote {
-      left: 20%;
-    }
+    .bio__quote,
     .skills__quote,
     .notes__quote {
+      bottom: initial;
+      top: 30px;
       left: 0;
     }
   }

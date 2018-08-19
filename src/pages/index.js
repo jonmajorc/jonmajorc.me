@@ -15,7 +15,7 @@ class Index extends React.Component {
         <Helmet title={this.props.siteTitle} />
         <div className="section__wrapper">
           <Bio />
-          <Quote className="bio__quote" quote="GOD. Family. Code." />
+          <Quote className="bio__quote" quote="Saved by His grace alone. Husband, father, and Software Farmer 👨‍🌾" />
         </div>
         <div className="section__wrapper">
           <Skills />
