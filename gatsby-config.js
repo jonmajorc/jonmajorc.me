@@ -69,6 +69,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-next`,
+    `gatsby-plugin-twitter`,
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
