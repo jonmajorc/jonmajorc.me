@@ -23,7 +23,7 @@ my excitement. I even suggested I was open to Airbnb with others.
 
 It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me to room with him and his coworkers! Thankfully his coworkers were in agreement with
 letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the conference.
-Having these conference buddies made it possible for all of us to cover more ground with the help of each other. Sometimes we would divide and conquer or meet others together. Having one or more close conference buddy can help you meet many people fast, and it could help make meeting others less intimidating.
+Having these conference buddies made it possible for all of us to cover more ground with the help of each other. Sometimes we would divide and conquer or meet others together. Having one or more close conference buddies can help you meet many people fast, and it could help make meeting others less intimidating.
 
 ## 2. Surround yourself with others
 
