@@ -15,7 +15,7 @@
   &__img {
     &--background {
       position: relative;
-      background: transparentize($lightBlue, 0.5);
+      background: transparentize(map-get($colors, lightBlue), 0.5);
       padding: 20px;
       left: -45px;
 

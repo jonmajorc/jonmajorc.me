@@ -24,14 +24,24 @@ $large-width: 1000px;
   }
 }
 
-@mixin link($color: $lightBlue) {
-  box-shadow: 0 -5px 0 0 transparentize($color, 0.5) inset;
-  transition: all 150ms ease-in;
+@mixin link($color) {
+  @if $color {
+    box-shadow: 0 -5px 0 0 transparentize($color, 0.5) inset;
+    transition: all 150ms ease-in;
 
-  &.active,
-  &:active,
-  &:focus,
-  &:hover {
-    box-shadow: 0 -13px 0 0 transparentize($color, 0.5) inset;
+    &.active,
+    &:active,
+    &:focus,
+    &:hover {
+      box-shadow: 0 -13px 0 0 transparentize($color, 0.5) inset;
+    }
+  }
+}
+
+@mixin box-shadow-colors {
+  @each $color, $value in $colors {
+    &.box-shadow-#{$color} {
+      @include link($value);
+    }
   }
 }

@@ -1,13 +1,20 @@
-$beige: #fcfbfb;
-$blue: #2d9cdb;
-$lightBlue: #56ccf2;
-$black: #434343;
-$grey: #e5e5e5;
-$white: #fff;
-$purple: #bb6bd9;
-
 /************************************\
-  other colors
+ array of colors
 \************************************/
-$bendyworks: #b7a629;
-$twitter: #1da1f2;
+
+// use map-get($colors, key) to get access to colors
+// this will create box-shadow colors based on the names listed in colors
+// e.g. box-shadow-beige, box-shadow-blue, box-shadow-lightblue, etc.
+
+$colors: (
+  beige: #fcfbfb,
+  blue: #2d9cdb,
+  lightBlue: #56ccf2,
+  black: #434343,
+  grey: #e5e5e5,
+  white: #fff,
+  purple: #bb6bd9,
+  bendyworks: #b7a629,
+  twitter: #1da1f2,
+  faithLeads: rgb(50, 240, 149),
+);

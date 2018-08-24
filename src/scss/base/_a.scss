@@ -1,16 +1,18 @@
 a {
   text-decoration: none;
 
+  @include box-shadow-colors;
+
   &.me {
     font-size: 0.8em;
-    @include link($lightBlue);
+    @include link(map-get($colors, lightBlue));
   }
 
   &.twitter {
-    @include link($twitter);
+    @include link(map-get($colors, twitter));
   }
 
   &.bendyworks {
-    @include link($bendyworks);
+    @include link(map-get($colors, bendyworks));
   }
 }

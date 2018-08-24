@@ -1,6 +1,6 @@
 html,
 body {
-  color: $black;
+  color: map-get($colors, black);
   font-size: 18px;
 
   @include device-md {

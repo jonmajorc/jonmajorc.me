@@ -1,13 +1,13 @@
 .section {
   position: relative;
   min-height: 100px;
-  background-color: $beige;
+  background-color: map-get($colors, beige);
 
   &__header,
   &__closing {
     font-size: 1.7em;
     font-weight: bold;
-    color: $grey;
+    color: map-get($colors, grey);
   }
 
   &__header {
@@ -31,7 +31,7 @@
     }
 
     span {
-      color: $black;
+      color: map-get($colors, black);
       // box-shadow: 0 -17px 0 0px inset transparentize($lightBlue, 0.5);
     }
   }
@@ -41,7 +41,7 @@
     background-color: transparent;
     letter-spacing: 1.5px;
     padding: 0;
-    color: $blue;
+    color: map-get($colors, blue);
     font-size: 1.7em;
     text-decoration: none;
 
@@ -60,7 +60,7 @@
     position: relative;
 
     &__key {
-      color: $grey;
+      color: map-get($colors, grey);
       letter-spacing: 1.5px;
 
       &:after {
@@ -82,7 +82,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    color: $grey;
+    color: map-get($colors, grey);
     font-size: 2.5em;
     margin: 0;
     text-align: center;

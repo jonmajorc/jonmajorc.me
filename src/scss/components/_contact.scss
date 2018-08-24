@@ -35,7 +35,7 @@
       input,
       textarea {
         flex: 1 1 100%;
-        border: 1px solid $black;
+        border: 1px solid map-get($colors, black);
         padding: 0 10px;
         width: 100%;
 

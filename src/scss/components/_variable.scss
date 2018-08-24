@@ -2,17 +2,17 @@
   font-weight: bold;
   font-size: 1.7em;
   &__declare {
-    color: $purple;
+    color: map-get($colors, purple);
   }
 
   &__name {
     text-transform: uppercase;
-    color: $blue;
+    color: map-get($colors, blue);
 
     &[data-semi='true'] {
       &:after {
         content: ' ;';
-        color: $black;
+        color: map-get($colors, black);
       }
     }
   }
