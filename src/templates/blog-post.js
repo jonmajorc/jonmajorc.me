@@ -6,6 +6,8 @@ import get from 'lodash/get'
 import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {}
+
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -13,7 +15,13 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          />
+        </Helmet>
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
