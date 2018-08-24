@@ -21,7 +21,7 @@ my excitement. I even suggested I was open to Airbnb with others.
 </div>
 <br/>
 
-It worked too — Andrew Del Prete contacted me! His coworkers were in agreement with
+It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me! His coworkers were in agreement with
 letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the conference.
 He and his coworkers were daily my conference buddies, and we were able to meet a lot of people with the help of each other.
 Having one or more conference buddy can help you meet many people fast, and it could help make meeting others less
@@ -40,7 +40,7 @@ legs exhausted, but it didn't slow me down at all when it came to meeting new pe
 
 Introduce yourself and engage in a conversation beside the person. Standing face-to-face makes it a one-on-one
 conversation that warns off others. So be sure to leave an opening for a person to join -- the awesome bearded Kyle
-Shevlin shared that tip! I personally made it an effort to continue this practice the rest of the conference when
+Shevlin <a href="https://twitter.com/kyleshevlin" class="box-shadow-twitter">(@kyleshevlin)</a> shared that tip! I personally made it an effort to continue this practice the rest of the conference when
 talking to anyone. I noticed it worked well too! I met many more developers when doing this because others felt accepted
 to join the conversation.
 
