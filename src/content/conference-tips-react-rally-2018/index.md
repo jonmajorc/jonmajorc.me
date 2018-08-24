@@ -8,7 +8,7 @@ date: "2018-08-25"
 <hr/>
 
 Last week was React Rally, and I am so thankful that I attended. React Rally is a single track two day conference held
-annually in Salt Lake City. I want share some tips that may help at your first or next conference you attend. (tips are not
+annually in Salt Lake City. I want share some tips that could help you at either your first or next conference you attend. (tips are not
 in any order.)
 
 ## 1. Find conference buddies (ahead of time)
@@ -21,7 +21,7 @@ my excitement. I even suggested I was open to Airbnb with others.
 </div>
 <br/>
 
-It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me! His coworkers were in agreement with
+It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me to room with him and his coworkers! Thankfully his coworkers were in agreement with
 letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the conference.
 He and his coworkers were daily my conference buddies, and we were able to meet a lot of people with the help of each other.
 Having one or more conference buddy can help you meet many people fast, and it could help make meeting others less
