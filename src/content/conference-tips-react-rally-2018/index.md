@@ -48,26 +48,26 @@ Joining a conversation can be awkward... Don't let the awkwardness stop you! Sim
 caught up with what's being discussed. It's totally cool... Get into the groove of joining conversations late and not
 knowing anything that's being discussed. It happens too often to allow it to stop you.
 
-## 4. Talk to as many folks as possible
+## 5. Talk to as many folks as possible
 
 You will have many opportunities to connect with others. I know you want to talk to the speakers, but don't limit
 yourself from talking to those in the crowd. Introduce yourself to as many people and attempt to make deep connections
 where possible; It's okay to keep conversations surface level too. There are so many people to meet in such a short
 amount of time!
 
-## 5. Respectful to others time
+## 6. Respectful to others time
 
 Not only is your time valuable, but the people you meet too. Conversations will run short sometimes, but it's okay to
 keep the conversations short. You can always follow up throughout the day. If you want to continue the conversation, but
 you want to meet more people -- ask about lunch plans or evening plans.
 
-## 6. Set conference goals
+## 7. Set conference goals
 
 Set a goal; A friend at this conference had a goal for herself to talk to as many other female developers. I’ve also heard of
 people setting a goal to meet anyone wearing a blue shirt. Sometimes setting a goal can help
 motivate meeting new people. Try it!
 
-## 7. Follow ups...
+## 8. Follow ups...
 
 Be sure to follow up with those you met! Go drop them a DM.
 
