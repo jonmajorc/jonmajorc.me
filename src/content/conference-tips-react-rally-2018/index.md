@@ -8,7 +8,7 @@ date: "2018-08-25"
 <hr/>
 
 Last week was React Rally, and I am so thankful that I attended. React Rally is a single track two day conference held
-annually in Salt Lake City. I want share some tips that could help you at either your first or next conference you attend. (tips are not
+annually in Salt Lake City. Here are some tips that could help you at either your first or next conference you attend. (tips are not
 in any order.)
 
 ## 1. Find conference buddies (ahead of time)
@@ -23,9 +23,7 @@ my excitement. I even suggested I was open to Airbnb with others.
 
 It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me to room with him and his coworkers! Thankfully his coworkers were in agreement with
 letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the conference.
-He and his coworkers were daily my conference buddies, and we were able to meet a lot of people with the help of each other.
-Having one or more conference buddy can help you meet many people fast, and it could help make meeting others less
-intimidating.
+Having these conference buddies made it possible for all of us to cover more ground with the help of each other. Sometimes we would divide and conquer or meet others together. Having one or more close conference buddy can help you meet many people fast, and it could help make meeting others less intimidating.
 
 ## 2. Surround yourself with others
 
@@ -47,13 +45,13 @@ to join the conversation.
 ## 4. Ask the group to catch you up
 
 Joining a conversation can be awkward... Don't let the awkwardness stop you! Simply introduce yourself and ask to be
-caught up with what's being discussed. It's totally cool... Get into the groove of joining a conversations late and not
-knowing anything that's being discussed. It happens to often so don't allow it to stop you.
+caught up with what's being discussed. It's totally cool... Get into the groove of joining conversations late and not
+knowing anything that's being discussed. It happens too often to allow it to stop you.
 
 ## 4. Talk to as many folks as possible
 
 You will have many opportunities to connect with others. I know you want to talk to the speakers, but don't limit
-yourself from talking to those in the crowd. Introduce yourself too as many people and attempt to make deep connections
+yourself from talking to those in the crowd. Introduce yourself to as many people and attempt to make deep connections
 where possible; It's okay to keep conversations surface level too. There are so many people to meet in such a short
 amount of time!
 
@@ -65,9 +63,9 @@ you want to meet more people -- ask about lunch plans or evening plans.
 
 ## 6. Set conference goals
 
-Set a goal. A friend at this conference set a goal for herself to talk to as many other female devs. I’ve also hear of
-people setting a goal as far as meeting anyone wearing a blue shirt. Sometimes setting a goal such as these can help
-motivate meeting someone new. Try it!
+Set a goal; A friend at this conference had a goal for herself to talk to as many other female developers. I’ve also heard of
+people setting a goal to meet anyone wearing a blue shirt. Sometimes setting a goal can help
+motivate meeting new people. Try it!
 
 ## 7. Follow ups...
 
