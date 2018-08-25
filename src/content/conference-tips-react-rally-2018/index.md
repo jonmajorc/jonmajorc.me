@@ -21,9 +21,9 @@ my excitement. I even suggested I was open to Airbnb with others.
 </div>
 <br/>
 
-It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me to room with him and his coworkers! Thankfully his coworkers were in agreement with
-letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the conference.
-Having these conference buddies made it possible for all of us to cover more ground with the help of each other. Sometimes we would divide and conquer or meet others together. Having one or more close conference buddies can help you meet many people fast, and it could help make meeting others less intimidating.
+It worked too — Andrew Del Prete <a href="https://twitter.com/AndrewDelPrete" class="box-shadow-twitter">(@AndrewDelPrete)</a> contacted me to room with him and his coworkers! Thankfully his coworkers were cool with
+letting an outsider in, so I roomed with many other awesome developers in a phenomenal looking Airbnb for the duration of the conference.
+Having these conference buddies made it possible to meet a lot of people faster than on my own. Sometimes we would divide and conquer or meet others together. Not only you having conference buddies can help you meet many people fast, it could help make meeting others less intimidating.
 
 ## 2. Surround yourself with others
 
@@ -57,9 +57,9 @@ amount of time!
 
 ## 6. Respectful to others time
 
-Not only is your time valuable, but the people you meet too. Conversations will run short sometimes, but it's okay to
-keep the conversations short. You can always follow up throughout the day. If you want to continue the conversation, but
-you want to meet more people -- ask about lunch plans or evening plans.
+Not only is your time valuable, but so is the time of the people you meet. Conversations may run short but it's okay to
+keep the conversations short, as there are so many others you still can meet. You can always follow up throughout the
+day with those you already met, and I encourage you to do so.
 
 ## 7. Set conference goals
 
