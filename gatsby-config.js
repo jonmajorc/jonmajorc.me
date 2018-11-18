@@ -60,21 +60,14 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
-    'gatsby-plugin-emotion',
-    {
-      resolve: `gatsby-plugin-postcss-sass`,
-      options: {
-        postCssPlugins: [],
-        precision: 8, // SASS default: 5
-      },
-    },
-    `gatsby-plugin-react-next`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-twitter`,
     {
-      resolve: 'gatsby-plugin-svgr',
+      resolve: 'gatsby-plugin-react-svg',
       options: {
-        viewBox: true,
-        // see https://github.com/smooth-code/svgr for a list of all options
+        rule: {
+          include: /assets\/svg/,
+        },
       },
     },
   ],

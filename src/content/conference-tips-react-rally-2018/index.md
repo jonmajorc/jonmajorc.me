@@ -1,6 +1,6 @@
 ---
 title: Conference Tips - React Rally 2018!
-date: "2018-08-25"
+date: '2018-08-25'
 ---
 
 <img src="./react-rally-2018-swag.JPG"/>

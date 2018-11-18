@@ -1,21 +1,9 @@
 {
-  "presets": ["react", "env", "stage-2", "airbnb"],
+  "presets": ["@babel/react", "@babel/env"],
+  "plugins": ["@babel/plugin-proposal-class-properties"],
   "env": {
     "production": {
       "plugins": ["add-module-exports"]
-    },
-    "development": {
-      "plugins": [
-        "add-module-exports",
-        [
-          "emotion",
-          {
-            "sourceMap": true,
-            "autoLabel": true,
-            "labelFormat": "[filename]--[local]"
-          }
-        ]
-      ]
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 class Section extends React.Component {
   state = {

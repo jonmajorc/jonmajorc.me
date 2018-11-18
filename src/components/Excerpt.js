@@ -1,13 +1,13 @@
 // Modules
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ReactComponent as Github } from '../assets/social_github.svg'
-import { ReactComponent as Instagram } from '../assets/social_instagram.svg'
-import { ReactComponent as LinkedIn } from '../assets/social_linkedIn.svg'
-import { ReactComponent as Twitter } from '../assets/social_twitter.svg'
-import Link from 'gatsby-link'
+import Github from '!svg-react-loader!../assets/svg/social_github.svg'
+import Instagram from '!svg-react-loader!../assets/svg/social_instagram.svg'
+import LinkedIn from '!svg-react-loader!../assets/svg/social_linkedIn.svg'
+import Twitter from '!svg-react-loader!../assets/svg/social_twitter.svg'
+import { Link } from 'gatsby'
 
-export class Header extends Component {
+export class Excerpt extends Component {
   render() {
     return (
       <header className="header">
@@ -42,8 +42,8 @@ export class Header extends Component {
   }
 }
 
-Header.propTypes = {
+Excerpt.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
 }
 
-export default Header
+export default Excerpt
