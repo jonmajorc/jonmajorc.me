@@ -2,10 +2,9 @@ module.exports = {
   siteMetadata: {
     title: 'Jon Major',
     author: 'Jon Major Condon',
-    description: 'Portfolio to show who I am.',
+    description: 'Portfolio',
     siteUrl: 'https://jonmajorc.me',
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content`,
-        name: 'pages',
+        name: 'content',
       },
     },
     {
