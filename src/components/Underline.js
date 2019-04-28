@@ -3,7 +3,7 @@ import Squiggly from '!svg-react-loader!../assets/squiggly.svg'
 
 const Underline = ({ squiggly }) => {
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="Underline">
       {new Array(squiggly)
         .fill('')
         .reduce(
