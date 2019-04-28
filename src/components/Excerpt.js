@@ -11,7 +11,7 @@ export class Excerpt extends Component {
   render() {
     return (
       <header className="header">
-        <Link className="me" to="/" activeClassName="active" exact>
+        <Link className="me" to="/" activeClassName="active">
           @jonmajorc
         </Link>
         <small>jmajorcondon@gmail.com</small>

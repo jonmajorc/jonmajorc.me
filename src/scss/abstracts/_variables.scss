@@ -19,3 +19,7 @@ $colors: (
   faithLeads: rgb(50, 240, 149),
   pink: #ffdceb,
 );
+
+$bezier: (
+  jiggle: cubic-bezier(0.53, 1.51, 0.69, 1.15),
+);

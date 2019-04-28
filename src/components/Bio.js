@@ -37,15 +37,15 @@ const Bio = () => {
             <ul className="Bio__info">
               <li>
                 <img src={user} />
-                Senior Sofware Dev
+                <span>Senior Sofware Dev</span>
               </li>
               <li>
                 <img src={briefcase} />
-                Bendyworks
+                <span>Bendyworks</span>
               </li>
               <li>
                 <img src={globe} />
-                Madison, WI
+                <span>Madison, WI</span>
               </li>
             </ul>
           </div>
