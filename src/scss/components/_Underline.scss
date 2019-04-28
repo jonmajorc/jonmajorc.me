@@ -1,3 +1,9 @@
 .Underline {
   display: flex;
+  transition: all 0.1s;
+
+  a:hover & {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
