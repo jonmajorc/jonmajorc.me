@@ -5,8 +5,21 @@ import Image from './Image'
 import user from '../../static/user-solid.svg'
 import globe from '../../static/globe-solid.svg'
 import briefcase from '../../static/briefcase-solid.svg'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const Bio = () => {
+  const imageSrc = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "jonmajor.JPG" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div className="Bio">
       <Box subHeader="Hey, I'm Jon Major!">
@@ -39,7 +52,7 @@ const Bio = () => {
           <Image
             rotate="25deg"
             className="Image--w-350 Bio__Image"
-            src="./jonmajor.JPG"
+            fluidSrc={imageSrc.placeholderImage.childImageSharp.fluid}
             alt="Major hard at work"
           />
         </div>

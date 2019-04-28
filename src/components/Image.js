@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import Img from 'gatsby-image'
 
 const Image = props => {
   return (
@@ -7,7 +8,7 @@ const Image = props => {
       className={cx('Image', props.className)}
       data-rotate={props.rotate || '0deg'}
     >
-      <img src={props.src} alt={props.alt} />
+      <Img fluid={props.fluidSrc} alt={props.alt} />
     </div>
   )
 }
