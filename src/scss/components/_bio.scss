@@ -8,6 +8,10 @@
       flex-direction: column;
       z-index: 1;
     }
+
+    @include device-sm {
+      flex-direction: column;
+    }
   }
 
   &__info {
@@ -38,4 +42,8 @@ Styles for Blurb inside Bio
 \************************************/
 .Bio__Blurb {
   margin-right: -70px;
+
+  @include device-sm {
+    margin-right: 0;
+  }
 }

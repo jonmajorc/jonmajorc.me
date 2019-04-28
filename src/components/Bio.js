@@ -27,11 +27,11 @@ const Bio = () => {
                 Senior Sofware Dev
               </li>
               <li>
-                <img src={globe} />
+                <img src={briefcase} />
                 Bendyworks
               </li>
               <li>
-                <img src={briefcase} />
+                <img src={globe} />
                 Madison, WI
               </li>
             </ul>
