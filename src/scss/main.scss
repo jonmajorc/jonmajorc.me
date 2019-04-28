@@ -1,5 +1,5 @@
 /************************************\
-  abstracts
+abstracts
 \************************************/
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
@@ -33,10 +33,14 @@
 @import 'components/section';
 @import 'components/note-card';
 @import 'components/variable';
-@import 'components/bio';
 @import 'components/quote';
 @import 'components/skills';
 @import 'components/notes';
 @import 'components/note';
 @import 'components/contact';
 @import 'components/social';
+
+@import 'components/Box';
+@import 'components/Bio';
+@import 'components/Image';
+@import 'components/Blurb';

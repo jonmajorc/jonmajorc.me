@@ -1,0 +1,29 @@
+.Box {
+  padding: 32px;
+  border-radius: 10px;
+  position: relative;
+  background-color: map-get($colors, beige);
+
+  &__header {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: baseline;
+
+    h2 {
+      color: map-get($colors, black);
+      padding-right: 10px;
+      margin: 0;
+
+      &.sub-header {
+        color: #c4c4c4;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+}
