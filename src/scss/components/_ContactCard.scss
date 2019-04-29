@@ -1,8 +1,9 @@
-.header {
+.ContactCard {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 25px;
 
   &__social {
     display: flex;
@@ -13,14 +14,14 @@
       display: flex;
       justify-content: center;
       margin: 0 5px;
-      width: 50px;
+      width: 35px;
 
       svg {
-        width: 30px;
-        transition: width 150ms ease-in;
+        width: 21px;
+        transition: width 150ms map-get($bezier, jiggle);
 
         &:hover {
-          width: 40px;
+          width: 30px;
         }
       }
     }

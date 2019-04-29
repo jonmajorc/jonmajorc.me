@@ -1,0 +1,24 @@
+.Blog-l {
+  margin-bottom: 230px;
+}
+
+.Blog-l__Blurb {
+  position: absolute;
+  left: 300px;
+  bottom: -220px;
+
+  @include device-size($width: 620px) {
+    left: 0;
+  }
+}
+
+.Blog-l__Underline {
+  width: 72px;
+
+  @include device-md {
+    width: 62px;
+  }
+  @include device-sm {
+    width: 58px;
+  }
+}

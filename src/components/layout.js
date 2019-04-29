@@ -1,6 +1,6 @@
 // modules
 import React from 'react'
-import Excerpt from './Excerpt'
+import ContactCard from './ContactCard'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -25,10 +25,10 @@ export default ({ children }) => (
           defaultTitle={data.site.siteMetadata.title}
         />
         <div role="application">
-          <Excerpt />
+          <ContactCard />
           <main>{children}</main>
           <footer>
-            <Excerpt />
+            <ContactCard />
           </footer>
         </div>
       </>

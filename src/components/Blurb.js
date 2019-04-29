@@ -7,14 +7,26 @@ const Blurb = ({ children, ...props }) => {
 
   React.useEffect(() => {
     let animationCount = 0
+    let completedAnimation = 0
     const blockquoteEle = blockQuoteRef.current
-    blockquoteEle.addEventListener('animationend', () => {
+
+    const animationStart = () => {
       animationCount++
-      console.log(
-        animationCount === 3 &&
-          blockquoteEle.classList.remove('Blurb--animate-onload')
-      )
-    })
+    }
+
+    const animationEnd = () => {
+      completedAnimation++
+      animationCount === completedAnimation &&
+        blockquoteEle.classList.remove('Blurb--animate-onload')
+    }
+
+    blockquoteEle.addEventListener('animationstart', animationStart)
+    blockquoteEle.addEventListener('animationend', animationEnd)
+
+    return () => {
+      blockquoteEle.removeEventListener('animationstart', animationStart)
+      blockquoteEle.removeEventListener('animationend', animationEnd)
+    }
   }, [])
 
   return (
@@ -24,6 +36,7 @@ const Blurb = ({ children, ...props }) => {
     >
       <img className="quote__mark" src={quote} alt="quotation mark" />
       <p>{children}</p>
+      {props.author && <span>~ {props.author}</span>}
     </blockquote>
   )
 }

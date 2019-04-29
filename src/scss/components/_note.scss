@@ -1,10 +1,10 @@
-.note {
+.Note {
   padding: 20px;
   border: 1px dashed;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   box-shadow: 0 0 3px 3px #fffbf0 inset;
   border: 1px dashed;
-  margin-bottom: 10px;
+  border-radius: 10px;
   background-color: #fff;
   text-decoration: none;
   display: block;
@@ -21,7 +21,6 @@
   }
 
   i {
-    font-size: 0.67em;
     display: block;
   }
 

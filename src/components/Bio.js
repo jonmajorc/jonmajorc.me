@@ -21,43 +21,40 @@ const Bio = () => {
   `)
 
   return (
-    <div className="Bio">
-      <Box subHeader="Hey, I'm Jon Major!">
-        <div className="Bio__content">
-          <div className="Bio__content__left">
-            <Blurb className="Bio__Blurb">
-              Software is my strength and I dabble in design. I am a Software
-              Farmer that tends to client farms (code-bases){' '}
-              <a href="https://bendyworks.com/" className="bendyworks">
-                @Bendyworks
-              </a>
-              . As a farmer of software, I focus on really anything web
-              related...
-            </Blurb>
-            <ul className="Bio__info">
-              <li>
-                <img src={user} />
-                <span>Senior Sofware Dev</span>
-              </li>
-              <li>
-                <img src={briefcase} />
-                <span>Bendyworks</span>
-              </li>
-              <li>
-                <img src={globe} />
-                <span>Madison, WI</span>
-              </li>
-            </ul>
-          </div>
-          <Image
-            rotate="25deg"
-            className="Image--w-350 Bio__Image"
-            fluidSrc={imageSrc.placeholderImage.childImageSharp.fluid}
-            alt="Major hard at work"
-          />
+    <Box subHeader="Hey, I'm Jon Major!" className="Bio">
+      <div className="Bio__content">
+        <div className="Bio__content__left">
+          <Blurb className="Bio__Blurb">
+            Software is my strength and I dabble in design. I am a Software
+            Farmer that tends to client farms (code-bases){' '}
+            <a href="https://bendyworks.com/" className="bendyworks">
+              @Bendyworks
+            </a>
+            . As a farmer of software, I focus on really anything web related...
+          </Blurb>
+          <ul className="Bio__info">
+            <li>
+              <img src={user} />
+              <span>Senior Sofware Dev</span>
+            </li>
+            <li>
+              <img src={briefcase} />
+              <span>Bendyworks</span>
+            </li>
+            <li>
+              <img src={globe} />
+              <span>Madison, WI</span>
+            </li>
+          </ul>
         </div>
-      </Box>
-    </div>
+        <Image
+          rotate="25deg"
+          className="Image--w-350 Bio__Image"
+          fluidSrc={imageSrc.placeholderImage.childImageSharp.fluid}
+          alt="Major hard at work"
+        />
+      </div>
+    </Box>
   )
 }
 

@@ -1,15 +1,17 @@
 import React from 'react'
 import Underline from './Underline'
+import cx from 'classnames'
 import { Link } from 'gatsby'
 
 const Box = ({ children, ...props }) => {
   return (
-    <section className="Box">
+    <section className={cx('Box', props.className)}>
       <header className="Box__header">
         {props.header && props.link ? (
           <Link to={props.link}>
             <h2>{props.header}</h2>
-            <Underline squiggly={props.squigglyForHeader} />
+            {props.squigglyForHeader__temp}
+            {/* <Underline squiggly={props.squigglyForHeader} /> */}
           </Link>
         ) : (
           props.header && <h2>{props.header}</h2>

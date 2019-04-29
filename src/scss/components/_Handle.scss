@@ -1,0 +1,18 @@
+.Handle {
+  display: flex;
+  flex-direction: column;
+}
+
+.Handle__Underline {
+  @include device-lg {
+    width: 116px;
+  }
+
+  @include device-md {
+    width: 102px;
+  }
+
+  @include device-sm {
+    width: 96px;
+  }
+}

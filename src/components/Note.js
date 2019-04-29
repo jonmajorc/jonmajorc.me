@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-class Note extends React.Component {
-  render() {
-    const { node, title } = this.props
-    return (
-      <Link key={node.fields.slug} className="note" to={node.fields.slug}>
-        <h4>{title}</h4>
-        <small>{node.frontmatter.date}</small>
-        <i dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-      </Link>
-    )
-  }
+const Note = props => {
+  return (
+    <Link
+      className="Note"
+      key={props.node.fields.slug}
+      to={props.node.fields.slug}
+    >
+      <h4>{props.title}</h4>
+      <small>{props.node.frontmatter.date}</small>
+      <i dangerouslySetInnerHTML={{ __html: props.node.excerpt }} />
+    </Link>
+  )
 }
 
 export default Note

@@ -12,6 +12,10 @@
     @include device-sm {
       flex-direction: column;
     }
+
+    @include device-size($width: 620px) {
+      flex-direction: column;
+    }
   }
 
   &__info {
@@ -44,7 +48,11 @@
 \************************************/
 .Bio__Image {
   flex: 1 0 50%;
-  align-self: flex-start;
+
+  @include device-size($width: 620px) {
+    align-self: flex-end;
+    width: 350px;
+  }
 }
 
 /************************************\
@@ -54,6 +62,10 @@ Styles for Blurb inside Bio
   margin-right: -70px;
 
   @include device-sm {
+    margin-right: 0;
+  }
+
+  @include device-size($width: 620px) {
     margin-right: 0;
   }
 }

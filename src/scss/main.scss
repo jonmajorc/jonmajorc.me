@@ -4,6 +4,7 @@ abstracts
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'abstracts/tweet';
+@import 'abstracts/utils';
 
 /************************************\
   base
@@ -28,7 +29,6 @@ abstracts
 /************************************\
   components
 \************************************/
-@import 'components/header';
 @import 'components/nav';
 @import 'components/section';
 @import 'components/note-card';
@@ -36,7 +36,6 @@ abstracts
 @import 'components/quote';
 @import 'components/skills';
 @import 'components/notes';
-@import 'components/note';
 @import 'components/contact';
 @import 'components/social';
 
@@ -45,3 +44,7 @@ abstracts
 @import 'components/Image';
 @import 'components/Blurb';
 @import 'components/Underline';
+@import 'components/BlogLatest';
+@import 'components/Note';
+@import 'components/ContactCard';
+@import 'components/Handle';
