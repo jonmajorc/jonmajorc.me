@@ -1,0 +1,71 @@
+.Bio {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    @include device-sm {
+      flex-direction: column;
+    }
+
+    @include device-size($width: 620px) {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    position: relative;
+    top: 25px;
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      & > img {
+        width: 15px;
+        margin: 0;
+      }
+
+      span {
+        margin-left: 15px;
+        &:hover {
+          transition: transform 0.2s;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+/************************************\
+ Styles for Image inside Bio
+\************************************/
+.Bio__Image {
+  flex: 1 0 50%;
+
+  @include device-size($width: 620px) {
+    align-self: flex-end;
+    width: 350px;
+  }
+}
+
+/************************************\
+Styles for Blurb inside Bio
+\************************************/
+.Bio__Blurb {
+  margin-right: -70px;
+
+  @include device-sm {
+    margin-right: 0;
+  }
+
+  @include device-size($width: 620px) {
+    margin-right: 0;
+  }
+}
