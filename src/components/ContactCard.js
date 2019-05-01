@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Handle from './Handle'
 
-import Github from '!svg-react-loader!../assets/svg/social_github.svg'
-import Instagram from '!svg-react-loader!../assets/svg/social_instagram.svg'
-import LinkedIn from '!svg-react-loader!../assets/svg/social_linkedIn.svg'
-import Twitter from '!svg-react-loader!../assets/svg/social_twitter.svg'
+import Github from '!svg-react-loader!../assets/social/social_github.svg'
+import Instagram from '!svg-react-loader!../assets/social/social_instagram.svg'
+import LinkedIn from '!svg-react-loader!../assets/social/social_linkedIn.svg'
+import Twitter from '!svg-react-loader!../assets/social/social_twitter.svg'
 
 export class ContactCard extends Component {
   render() {
