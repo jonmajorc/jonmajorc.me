@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
-import NotesComp from '../components/Notes'
+import Blogs from '../components/BlogLatest'
 import Layout from '../components/layout'
 
-export class Notes extends Component {
+export class BlogsPage extends Component {
   render() {
     return (
       <Layout>
-        <section className="note-page">
-          <Helmet title="Notes" />
-          <NotesComp />
-        </section>
+        <Helmet title="Blogs" />
+        <Blogs />
       </Layout>
     )
   }
 }
 
-export default Notes
+export default BlogsPage

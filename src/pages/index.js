@@ -7,17 +7,17 @@ import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import BlogLatest from '../components/BlogLatest'
 
+const Spacing = () => <div style={{ height: '70px' }} />
+
 class Index extends React.Component {
   render() {
     return (
       <Layout>
         <div className="home">
           <Helmet title="Home" />
-          {/* <div className="section__wrapper"> */}
           <Bio />
-          <div style={{ height: '70px' }} />
+          <Spacing />
           <BlogLatest />
-          {/* </div> */}
         </div>
       </Layout>
     )
