@@ -26,14 +26,14 @@ $large-width: 1000px;
 
 @mixin link($color) {
   @if $color {
-    box-shadow: 0 -5px 0 0 transparentize($color, 0.5) inset;
+    box-shadow: 0 -2px 0 0 transparentize($color, 0.5) inset;
     transition: all 150ms ease-in;
 
     &.active,
     &:active,
     &:focus,
     &:hover {
-      box-shadow: 0 -13px 0 0 transparentize($color, 0.7) inset;
+      box-shadow: 0 -13px 0 0 transparentize($color, 0.9) inset;
     }
   }
 }

@@ -26,11 +26,12 @@ const Bio = () => {
         <div className="Bio__content__left">
           <Blurb className="Bio__Blurb">
             Software is my strength and I dabble in design. I am a Software
-            Farmer that tends to client farms (code-bases){' '}
+            Farmer at{' '}
             <a href="https://bendyworks.com/" className="bendyworks">
-              @Bendyworks
-            </a>
-            . As a farmer of software, I focus on really anything web related...
+              Bendyworks
+            </a>{' '}
+            that tends to client farms (code-bases). As a farmer of software, I
+            focus on really anything web related...
           </Blurb>
           <ul className="Bio__info">
             <li>
@@ -39,7 +40,11 @@ const Bio = () => {
             </li>
             <li>
               <img src={briefcase} />
-              <span>Bendyworks</span>
+              <span>
+                <a href="https://bendyworks.com/" className="bendyworks">
+                  @Bendyworks
+                </a>
+              </span>
             </li>
             <li>
               <img src={globe} />

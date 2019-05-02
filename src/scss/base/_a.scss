@@ -13,6 +13,7 @@ a {
   }
 
   &.bendyworks {
+    color: map-get($colors, bendyworks);
     @include link(map-get($colors, bendyworks));
   }
 }

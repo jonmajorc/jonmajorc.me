@@ -10,7 +10,8 @@ const Note = props => {
     >
       <h4>{props.title}</h4>
       <small>{props.node.frontmatter.date}</small>
-      <i dangerouslySetInnerHTML={{ __html: props.node.excerpt }} />
+      <br />
+      <span dangerouslySetInnerHTML={{ __html: props.node.excerpt }} />
     </Link>
   )
 }
