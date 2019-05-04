@@ -14,22 +14,42 @@ const CallingCard = () => {
       <small>hey@jonmajorc.com</small>
       <ul className="CallingCard__social">
         <li className="CallingCard__social__icon">
-          <a href="https://github.com/jonmajorc">
+          <a
+            href="https://github.com/jonmajorc"
+            alt="Github icon"
+            aria-label="Github"
+            target="_blank"
+          >
             <Github />
           </a>
         </li>
         <li className="CallingCard__social__icon">
-          <a href="https://www.instagram.com/jonmajorc">
+          <a
+            href="https://www.instagram.com/jonmajorc"
+            alt="Instagram icon"
+            aria-label="Instagram"
+            target="_blank"
+          >
             <Instagram />
           </a>
         </li>
         <li className="CallingCard__social__icon">
-          <a href="https://www.linkedin.com/in/jonmajorc">
+          <a
+            href="https://www.linkedin.com/in/jonmajorc"
+            alt="LinkedIn icon"
+            aria-label="LinkedIn"
+            target="_blank"
+          >
             <LinkedIn />
           </a>
         </li>
         <li className="CallingCard__social__icon">
-          <a href="https://twitter.com/jonmajorc">
+          <a
+            href="https://twitter.com/jonmajorc"
+            alt="Twitter icon"
+            aria-label="Twitter"
+            target="_blank"
+          >
             <Twitter />
           </a>
         </li>

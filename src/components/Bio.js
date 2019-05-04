@@ -35,11 +35,11 @@ const Bio = () => {
           </Blurb>
           <ul className="Bio__info">
             <li>
-              <img src={user} />
+              <img src={user} alt="user icon"/>
               <span>Senior Sofware Dev</span>
             </li>
             <li>
-              <img src={briefcase} />
+              <img src={briefcase} alt="briefcase icon"/>
               <span>
                 <a href="https://bendyworks.com/" className="bendyworks">
                   @Bendyworks
@@ -47,7 +47,7 @@ const Bio = () => {
               </span>
             </li>
             <li>
-              <img src={globe} />
+              <img src={globe} alt="globe icon"/>
               <span>Madison, WI</span>
             </li>
           </ul>
