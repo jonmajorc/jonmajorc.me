@@ -1,6 +1,7 @@
 import React from 'react'
 import Squiggly from '!svg-react-loader!../assets/red-squiggly.svg'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 export const Underline__Temp = ({ Underline, viewBox, className }) => {
   return (
@@ -8,6 +9,10 @@ export const Underline__Temp = ({ Underline, viewBox, className }) => {
       {<Squiggly viewBox={viewBox} />}
     </div>
   )
+}
+
+Underline__Temp.propTypes = {
+  className: PropTypes.oneOf(['Blog-l__Underline', 'Handle__Underline']),
 }
 
 const Underline = ({ squiggly }) => {
@@ -34,6 +39,10 @@ const Underline = ({ squiggly }) => {
         .els.map(ele => ele)}
     </div>
   )
+}
+
+Underline.propTypes = {
+  className: PropTypes.oneOf(['Blog-l__Underline']),
 }
 
 export default Underline
