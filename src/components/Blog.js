@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Note from './Note'
 import { Underline__Temp } from './Underline'
 
-const BlogLatest = () => {
+const Blog = () => {
   const blogs = useStaticQuery(graphql`
     query {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -27,19 +27,17 @@ const BlogLatest = () => {
 
   return (
     <Box
-      className="Blog-l"
+      className="Blog"
       header="Blogs"
       link="/blogs"
-      squigglyForHeader__temp={
-        <Underline__Temp className="Blog-l__Underline" />
-      }
+      squigglyForHeader__temp={<Underline__Temp className="Blog__Underline" />}
       subHeader="Latest blogs..."
     >
       {blogs.allMarkdownRemark.edges.map(({ node }) => {
         let title = node.frontmatter.title
         return <Note key={node.fields.slug} title={title} node={node} />
       })}
-      <Blurb className="Blog-l__Blurb" author="Todd Henry">
+      <Blurb className="Blog__Blurb" author="Todd Henry">
         If you make things and share them, your heart will at some point be
         broken. If you never share, it will harden. Your choice.
       </Blurb>
@@ -47,4 +45,4 @@ const BlogLatest = () => {
   )
 }
 
-export default BlogLatest
+export default Blog

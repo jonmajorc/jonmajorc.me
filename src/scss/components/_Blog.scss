@@ -1,8 +1,8 @@
-.Blog-l {
+.Blog {
   margin-bottom: 230px;
 }
 
-.Blog-l__Blurb {
+.Blog__Blurb {
   position: absolute;
   left: 300px;
   bottom: -220px;
@@ -12,7 +12,7 @@
   }
 }
 
-.Blog-l__Underline {
+.Blog__Underline {
   width: 72px;
 
   @include device-md {

@@ -12,7 +12,7 @@ export const Underline__Temp = ({ Underline, viewBox, className }) => {
 }
 
 Underline__Temp.propTypes = {
-  className: PropTypes.oneOf(['Blog-l__Underline', 'Handle__Underline']),
+  className: PropTypes.oneOf(['Blog__Underline', 'Handle__Underline']),
 }
 
 const Underline = ({ squiggly }) => {
@@ -42,7 +42,7 @@ const Underline = ({ squiggly }) => {
 }
 
 Underline.propTypes = {
-  className: PropTypes.oneOf(['Blog-l__Underline']),
+  className: PropTypes.oneOf(['Blog__Underline']),
 }
 
 export default Underline

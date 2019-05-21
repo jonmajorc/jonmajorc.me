@@ -1,6 +1,6 @@
 import React from 'react'
-import Underline from './Underline'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const Box = ({ children, ...props }) => {
@@ -10,8 +10,7 @@ const Box = ({ children, ...props }) => {
         {props.header && props.link ? (
           <Link to={props.link}>
             <h2>{props.header}</h2>
-            {props.squigglyForHeader__temp}
-            {/* <Underline squiggly={props.squigglyForHeader} /> */}
+            {props.squigglyForHeader__temp} {/* here for temp use */}
           </Link>
         ) : (
           props.header && <h2>{props.header}</h2>
@@ -23,6 +22,10 @@ const Box = ({ children, ...props }) => {
       <div className="Box__content">{children}</div>
     </section>
   )
+}
+
+Box.propTypes = {
+  className: PropTypes.oneOf(['Bio', 'Blog']),
 }
 
 export default Box

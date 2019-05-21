@@ -43,7 +43,7 @@ const Blurb = ({ children, ...props }) => {
 }
 
 Blurb.propTypes = {
-  className: PropTypes.oneOf(['Bio__Blurb', 'Blog-l__Blurb']),
+  className: PropTypes.oneOf(['Bio__Blurb', 'Blog__Blurb']),
 }
 
 export default Blurb
