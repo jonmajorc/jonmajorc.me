@@ -10,7 +10,7 @@ const Box = ({ children, ...props }) => {
         {props.header && props.link ? (
           <Link to={props.link}>
             <h2>{props.header}</h2>
-            {props.squigglyForHeader__temp} {/* here for temp use */}
+            {/* {props.squigglyForHeader__temp} here for temp use */}
           </Link>
         ) : (
           props.header && <h2>{props.header}</h2>
