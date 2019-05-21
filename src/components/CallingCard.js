@@ -70,4 +70,3 @@ const CallingCardFooter = () => (
 )
 
 export { CallingCardHeader, CallingCardFooter }
-export default CallingCard
