@@ -9,7 +9,7 @@ import Twitter from '!svg-react-loader!../assets/social/social_twitter.svg'
 
 const CallingCard = () => {
   return (
-    <header className="CallingCard">
+    <>
       <Handle />
       <small>hey@jonmajorc.com</small>
       <ul className="CallingCard__social">
@@ -54,8 +54,19 @@ const CallingCard = () => {
           </a>
         </li>
       </ul>
-    </header>
+    </>
   )
 }
 
-export default CallingCard
+const CallingCardHeader = () => (
+  <header className="CallingCard">
+    <CallingCard />
+  </header>
+)
+const CallingCardFooter = () => (
+  <footer className="CallingCard">
+    <CallingCard />
+  </footer>
+)
+
+export { CallingCardHeader, CallingCardFooter }

@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import quote from '../../static/quote.svg'
 
 const Blurb = ({ children, ...props }) => {
@@ -39,6 +40,10 @@ const Blurb = ({ children, ...props }) => {
       {props.author && <span>~ {props.author}</span>}
     </blockquote>
   )
+}
+
+Blurb.propTypes = {
+  className: PropTypes.oneOf(['Bio__Blurb', 'Blog__Blurb']),
 }
 
 export default Blurb

@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 // components
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
-import BlogLatest from '../components/BlogLatest'
+import Blog from '../components/Blog'
 
 const Spacing = () => <div style={{ height: '70px' }} />
 
@@ -17,7 +17,7 @@ class Index extends React.Component {
           <Helmet title="Home" />
           <Bio />
           <Spacing />
-          <BlogLatest />
+          <Blog />
         </div>
       </Layout>
     )

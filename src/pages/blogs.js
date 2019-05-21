@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import Blogs from '../components/BlogLatest'
+import Blog from '../components/Blog'
 import Layout from '../components/layout'
 
 export class BlogsPage extends Component {
@@ -8,7 +8,7 @@ export class BlogsPage extends Component {
     return (
       <Layout>
         <Helmet title="Blogs" />
-        <Blogs />
+        <Blog />
       </Layout>
     )
   }
