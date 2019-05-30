@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
+import BlogDate from '../components/BlogDate'
+import Img from 'gatsby-image'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -10,7 +12,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout>
+      <Layout className="blog-post">
         <Helmet title={post.frontmatter.title}>
           <script
             async
@@ -18,17 +20,19 @@ class BlogPostTemplate extends React.Component {
             charset="utf-8"
           />
         </Helmet>
-        <h1>{post.frontmatter.title}</h1>
-        <p
+        <header className="blog-post__header">
+          <h1 className="blog-post__header__h1">{post.frontmatter.title}</h1>
+          <BlogDate
+            className="blog-post__header__date"
+            date={post.frontmatter.date}
+          />
+          <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
+        </header>
+        <hr
           style={{
-            ...scale(-1 / 5),
-            display: 'block',
             marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
           }}
-        >
-          {post.frontmatter.date}
-        </p>
+        />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -83,6 +87,15 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        cover_image {
+          ... on File {
+            childImageSharp {
+              fluid(maxWidth: 640) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }

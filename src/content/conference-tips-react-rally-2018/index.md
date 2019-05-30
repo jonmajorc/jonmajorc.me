@@ -1,11 +1,8 @@
 ---
 title: Conference Tips - React Rally 2018!
 date: '2018-08-25'
+cover_image: './react-rally-2018-swag.JPG'
 ---
-
-<img src="./react-rally-2018-swag.JPG"/>
-<br/>
-<hr/>
 
 Last week was React Rally, and I am so thankful that I attended. React Rally is a single track two day conference held
 annually in Salt Lake City. Here are some tips that could help you at either your first or next conference you attend. (tips are not
