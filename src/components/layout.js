@@ -3,11 +3,13 @@ import React from 'react'
 import { CallingCardHeader, CallingCardFooter } from './CallingCard'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 // styles
 import '../scss/main.scss'
 
-export default ({ children }) => (
+const AppLayout = ({ children, ...props }) => (
   <StaticQuery
     query={graphql`
       query LayoutQuery {
@@ -26,10 +28,16 @@ export default ({ children }) => (
         />
         <div role="application">
           <CallingCardHeader />
-          <main>{children}</main>
+          <main className={cx(props.className)}>{children}</main>
           <CallingCardFooter />
         </div>
       </>
     )}
   />
 )
+
+AppLayout.propTypes = {
+  className: PropTypes.oneOf(['blog-post']),
+}
+
+export default AppLayout
