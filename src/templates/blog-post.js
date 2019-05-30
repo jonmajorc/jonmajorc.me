@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import BlogDate from '../components/BlogDate'
 import Img from 'gatsby-image'
 
@@ -26,7 +26,9 @@ class BlogPostTemplate extends React.Component {
             className="blog-post__header__date"
             date={post.frontmatter.date}
           />
-          <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
+          {post.frontmatter.cover_image && (
+            <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
+          )}
         </header>
         <hr
           style={{
