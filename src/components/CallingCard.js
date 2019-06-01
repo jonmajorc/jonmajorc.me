@@ -11,7 +11,7 @@ const CallingCard = () => {
   return (
     <>
       <Handle />
-      <small>hey@jonmajorc.com</small>
+      <small>hey@jonmajorc.me</small>
       <ul className="CallingCard__social">
         <li className="CallingCard__social__icon">
           <a
