@@ -27,9 +27,22 @@ class BlogPostTemplate extends React.Component {
             date={post.frontmatter.date}
           />
           {post.frontmatter.cover_image && (
-            <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
+            <>
+              <Img
+                fluid={post.frontmatter.cover_image.childImageSharp.fluid}
+                alt={post.frontmatter.cover_image_alt || 'Cover photo of blog.'}
+              />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.frontmatter.cover_image_credit,
+                }}
+              />
+            </>
           )}
         </header>
+        {post.frontmatter.description && (
+          <span>{post.frontmatter.description}</span>
+        )}
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -74,31 +87,34 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        cover_image {
-          ... on File {
-            childImageSharp {
-              fluid(maxWidth: 640) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query BlogPostBySlug($slug: String!) {
+//     site {
+//       siteMetadata {
+//         title
+//         author
+//       }
+//     }
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       id
+//       excerpt(pruneLength: 160)
+//       html
+//       frontmatter {
+//         title
+//         date(formatString: "MMMM DD, YYYY")
+//         description
+//         cover_image_alt
+//         cover_image_credit
+//         cover_image {
+//           ... on File {
+//             childImageSharp {
+//               fluid(maxWidth: 640) {
+//                 ...GatsbyImageSharpFluid
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

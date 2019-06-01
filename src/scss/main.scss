@@ -5,6 +5,7 @@ abstracts
 @import 'abstracts/mixins';
 @import 'abstracts/tweet';
 @import 'abstracts/utils';
+@import 'abstracts/prism';
 
 /************************************\
   base
@@ -16,7 +17,7 @@ abstracts
 @import 'base/a';
 @import 'base/img';
 
-/**************************** ********\
+/*************************************\
   layouts
 \************************************/
 @import 'layouts/index';
