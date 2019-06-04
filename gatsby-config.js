@@ -28,9 +28,6 @@ module.exports = {
           'gatsby-remark-prismjs',
         ],
       },
-      defaultLayouts: {
-        default: require.resolve('./src/templates/my-page-layout.js'),
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,

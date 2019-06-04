@@ -5,5 +5,27 @@
     &__h1 {
       margin: 0;
     }
+
+    &__date {
+      color: map-get($colors, grey);
+    }
+
+    &__image img {
+      margin: 0;
+    }
+
+    &__image-credit {
+      text-align: center;
+
+      > p a {
+        text-align: center;
+        color: map-get($colors, blue);
+        @include link(map-get($colors, blue));
+      }
+    }
+
+    &__desc {
+      font-style: italic;
+    }
   }
 }
