@@ -85,7 +85,7 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
-        description
+        # description
         date(formatString: "DD MMMM, YYYY")
         cover_image_credit
         cover_image_alt
