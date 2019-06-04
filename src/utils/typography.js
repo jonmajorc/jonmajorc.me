@@ -1,18 +1,15 @@
 import Typography from 'typography'
+import noriegaTheme from 'typography-theme-noriega'
 
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.666,
-  headerFontFamily: ['Menlo'],
-  bodyFontFamily: ['Raleway'],
-  overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
-    '.nav-menu': {
-      fontWeight: 500,
+  ...noriegaTheme,
+  googleFonts: [
+    {
+      name: 'Roboto Mono',
+      styles: ['400', '700'],
     },
-    /* '.typography-span--after, .typography-span--after:after, .section, .section:after, .object__var': {
-      fontSize: rhythm(1.5),
-    }, */
-  }),
+  ],
+  headerFontFamily: ['Roboto Mono'],
 })
 
 // Hot reload typography in development.

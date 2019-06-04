@@ -5,6 +5,10 @@
   flex-direction: column;
   margin: 25px;
 
+  &__email {
+    font-family: 'Roboto Mono', sans-serif;
+  }
+
   &__social {
     display: flex;
     list-style: none;
@@ -25,5 +29,11 @@
         }
       }
     }
+  }
+}
+
+.CallingCard__Handle .Handle {
+  &__name {
+    font-family: 'Roboto Mono', sans-serif;
   }
 }
