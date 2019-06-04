@@ -32,11 +32,11 @@ export default class BlogPost extends React.Component {
               </span>
             </>
           )}
-          {mdx.frontmatter.description && (
+          {/* {mdx.frontmatter.description && (
             <div className="blog-post__header__desc">
               {mdx.frontmatter.description}
             </div>
-          )}
+          )} */}
           <hr className="blog-post__divider" />
         </header>
         <MDXRenderer>{mdx.code.body}</MDXRenderer>

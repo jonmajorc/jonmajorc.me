@@ -1,7 +1,6 @@
 ---
 title: Conference Tips
 date: '2018-08-25'
-description: 'Conference tips that I gathered at React Rally.'
 cover_image: './react-rally-2018-swag.JPG'
 cover_image_alt: 'React Rally swag!'
 cover_image_credit: Photo by [Jon Major](https://jonmajorc.me)
