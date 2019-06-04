@@ -1,41 +1,50 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-mdx'
 import Layout from '../components/layout'
-import { rhythm, scale } from '../utils/typography'
+import ReactMarkdown from 'react-markdown'
+import BlogDate from '../components/BlogDate'
+import Img from 'gatsby-image'
+import { rhythm } from '../utils/typography'
 
-class BlogPostTemplate extends React.Component {
+export default class BlogPost extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const { previous, next } = this.props.pageContext
+    const { mdx } = this.props.data
+    const { pageContext } = this.props
 
     return (
-      <Layout>
-        <Helmet title={post.frontmatter.title}>
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
+      <Layout className="blog-post">
+        <header className="blog-post__header">
+          <h1 className="blog-post__header__h1">{mdx.frontmatter.title}</h1>
+          <BlogDate
+            className="blog-post__header__date"
+            date={mdx.frontmatter.date}
           />
-        </Helmet>
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: 'block',
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {mdx.frontmatter.cover_image && (
+            <>
+              <Img
+                className="blog-post__header__image"
+                fluid={mdx.frontmatter.cover_image.childImageSharp.fluid}
+                alt={mdx.frontmatter.cover_image_alt || 'Cover photo of blog.'}
+              />
+              <span className="blog-post__header__image-credit">
+                <ReactMarkdown source={mdx.frontmatter.cover_image_credit} />
+              </span>
+            </>
+          )}
+          {mdx.frontmatter.description && (
+            <div className="blog-post__header__desc">
+              {mdx.frontmatter.description}
+            </div>
+          )}
+          <hr className="blog-post__divider" />
+        </header>
+        <MDXRenderer>{mdx.code.body}</MDXRenderer>
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
-
         <ul
           style={{
             display: 'flex',
@@ -45,44 +54,51 @@ class BlogPostTemplate extends React.Component {
             padding: 0,
           }}
         >
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+          <li>
+            {pageContext.previous && (
+              <Link to={pageContext.previous.fields.slug} rel="prev">
+                ← {pageContext.previous.frontmatter.title}
               </Link>
-            </li>
-          )}
+            )}
+          </li>
 
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+          <li>
+            {pageContext.next ? (
+              <Link to={pageContext.next.fields.slug} rel="next">
+                {pageContext.next.frontmatter.title} →
               </Link>
-            </li>
-          )}
+            ) : (
+              <>
+                <i>New post coming soon...</i> 👋
+              </>
+            )}
+          </li>
         </ul>
       </Layout>
     )
   }
 }
 
-export default BlogPostTemplate
-
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query MDXQuery($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
-      html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        description
+        date(formatString: "DD MMMM, YYYY")
+        cover_image_credit
+        cover_image_alt
+        cover_image {
+          childImageSharp {
+            fluid(maxWidth: 720, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+      code {
+        body
       }
     }
   }

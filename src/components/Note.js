@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import BlogDate from './BlogDate'
 
 const Note = props => {
   return (
@@ -9,7 +10,7 @@ const Note = props => {
       to={props.node.fields.slug}
     >
       <h4>{props.title}</h4>
-      <small>{props.node.frontmatter.date}</small>
+      <BlogDate date={props.node.frontmatter.date} />
       <br />
       <span dangerouslySetInnerHTML={{ __html: props.node.excerpt }} />
     </Link>

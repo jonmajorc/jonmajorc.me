@@ -1,11 +1,11 @@
 ---
-title: Conference Tips - React Rally 2018!
+title: Conference Tips
 date: '2018-08-25'
+description: 'Conference tips that I gathered at React Rally.'
+cover_image: './react-rally-2018-swag.JPG'
+cover_image_alt: 'React Rally swag!'
+cover_image_credit: Photo by [Jon Major](https://jonmajorc.me)
 ---
-
-<img src="./react-rally-2018-swag.JPG"/>
-<br/>
-<hr/>
 
 Last week was React Rally, and I am so thankful that I attended. React Rally is a single track two day conference held
 annually in Salt Lake City. Here are some tips that could help you at either your first or next conference you attend. (tips are not
@@ -31,7 +31,7 @@ The day before the conference we hiked and had dinner with many other developers
 and the rest for dinner. Either way, we met many developers before the first day of the conference! The hike left my
 legs exhausted, but it didn't slow me down at all when it came to meeting new people.
 
-<img src="./conf-buddies.JPG">
+<img src="./conf-buddies.JPG" />
 <br/>
 
 ## 3. Allow others to join conversations

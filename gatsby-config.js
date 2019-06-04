@@ -1,3 +1,8 @@
+/**
+ * https://github.com/gatsbyjs/gatsby/issues/13469#issuecomment-484722307
+ *
+ * keep gatsby-transformer-sharp, plugin-sharp, and transformer-remark first in config
+ */
 module.exports = {
   siteMetadata: {
     title: 'Jon Major',
@@ -6,6 +11,24 @@ module.exports = {
     siteUrl: 'https://jonmajorc.me',
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          'gatsby-remark-prismjs',
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,30 +50,6 @@ module.exports = {
         name: 'assets',
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

@@ -8,7 +8,7 @@ import { Underline__Temp } from './Underline'
 const Blog = () => {
   const blogs = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             excerpt
@@ -33,7 +33,7 @@ const Blog = () => {
       squigglyForHeader__temp={<Underline__Temp className="Blog__Underline" />}
       subHeader="Latest blogs..."
     >
-      {blogs.allMarkdownRemark.edges.map(({ node }) => {
+      {blogs.allMdx.edges.map(({ node }) => {
         let title = node.frontmatter.title
         return <Note key={node.fields.slug} title={title} node={node} />
       })}
