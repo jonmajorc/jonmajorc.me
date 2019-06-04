@@ -10,8 +10,8 @@ import Twitter from '!svg-react-loader!../assets/social/social_twitter.svg'
 const CallingCard = () => {
   return (
     <>
-      <Handle />
-      <small>hey@jonmajorc.me</small>
+      <Handle className="CallingCard__Handle" />
+      <small className="CallingCard__email">hey@jonmajorc.me</small>
       <ul className="CallingCard__social">
         <li className="CallingCard__social__icon">
           <a
