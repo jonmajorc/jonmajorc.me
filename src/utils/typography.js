@@ -3,6 +3,7 @@ import noriegaTheme from 'typography-theme-noriega'
 
 const typography = new Typography({
   ...noriegaTheme,
+  baseFontSize: '18px',
   googleFonts: [
     {
       name: 'Roboto Mono',

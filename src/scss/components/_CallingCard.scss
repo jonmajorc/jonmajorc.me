@@ -19,7 +19,9 @@
       justify-content: center;
       margin: 0 5px;
       width: 35px;
+      align-items: center;
 
+      img,
       svg {
         width: 21px;
         transition: width 150ms map-get($bezier, jiggle);
