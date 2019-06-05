@@ -6,6 +6,7 @@ import Github from '!svg-react-loader!../assets/social/social_github.svg'
 import Instagram from '!svg-react-loader!../assets/social/social_instagram.svg'
 import LinkedIn from '!svg-react-loader!../assets/social/social_linkedIn.svg'
 import Twitter from '!svg-react-loader!../assets/social/social_twitter.svg'
+import anchorImg from '../assets/social/social_anchor.png'
 
 const CallingCard = () => {
   return (
@@ -51,6 +52,16 @@ const CallingCard = () => {
             target="_blank"
           >
             <Twitter />
+          </a>
+        </li>
+        <li className="CallingCard__social__icon">
+          <a
+            href="https://anchor.fm/jon-major-condon"
+            alt="Anchor Podcast icon"
+            aria-label="Anchor"
+            target="_blank"
+          >
+            <img src={anchorImg} alt="Anchor Podcast icon" />
           </a>
         </li>
       </ul>
