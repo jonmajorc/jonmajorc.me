@@ -24,3 +24,14 @@ $colors: (
 $bezier: (
   jiggle: cubic-bezier(0.53, 1.51, 0.69, 1.15),
 );
+
+/************************************\
+Sizes
+\************************************/
+
+$small-width: 500px;
+$large-width: 1000px;
+// Might be some rogue sizes out there... 😬
+// TODO: TRY TO MAKE THE BREAKPOINT AT 720 BE THE STANDARD.
+
+$medium-width: 720px;

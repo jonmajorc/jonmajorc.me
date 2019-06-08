@@ -32,4 +32,11 @@
       font-style: italic;
     }
   }
+
+  &__content {
+    .Blurb {
+      max-width: 480px;
+      margin: 25px auto;
+    }
+  }
 }

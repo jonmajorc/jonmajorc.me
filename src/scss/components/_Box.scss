@@ -17,6 +17,10 @@
       padding-right: 10px;
       margin: 0;
 
+      @include device-size($medium-width) {
+        padding-left: 15px;
+      }
+
       &.sub-header {
         color: map-get($colors, grey);
       }
