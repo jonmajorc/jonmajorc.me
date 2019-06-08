@@ -25,7 +25,7 @@ const Box = ({ children, ...props }) => {
 }
 
 Box.propTypes = {
-  className: PropTypes.oneOf(['Bio', 'Blog']),
+  className: PropTypes.oneOf(['Bio', 'Blog', 'Contact']),
 }
 
 export default Box

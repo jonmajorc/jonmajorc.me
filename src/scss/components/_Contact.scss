@@ -1,0 +1,20 @@
+.Contact {
+  &__form {
+    &__label {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      > input,
+      > textarea {
+        border: 1px solid #111;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+    }
+  }
+}
