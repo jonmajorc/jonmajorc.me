@@ -20,23 +20,19 @@ const Contact = props => {
   const emailTemplates = React.useMemo(
     () => [
       {
-        value: '',
-        text: '',
+        emailTemplate: '',
+        emailTemplateDesc: '',
         subject: '',
-        desc: '',
       },
       {
-        value: 'resume',
-        text: 'Request resume',
-        desc: `An automated email will be sent to ${state.email ||
+        emailTemplate: 'Request resume',
+        emailTemplateDesc: `An automated email will be sent to ${state.email ||
           'your email address'} with my resume attached!`,
         subject: `Requesting resume, please!`,
-        body: '',
       },
       {
-        value: 'pairing',
-        text: 'Asking to pair',
-        desc: `An automated email will be sent to ${state.email ||
+        emailTemplate: 'Asking to pair',
+        emailTemplateDesc: `Your message will be sent to ${state.email ||
           'your email address'}. Please understand if it takes awhile to respond.`,
         subject: `Hey, let's pair!`,
       },
@@ -49,26 +45,26 @@ const Contact = props => {
   \***************************************************************************/
 
   const getEmailTemplate = value =>
-    emailTemplates.find(template => template.value === value)
+    emailTemplates.find(template => template.emailTemplate === value)
 
   const handleFormData = e => {
-    setState({ ...state, [e.target.id]: e.target.value })
-  }
-
-  const handleSelectTemplate = e => {
-    const emailTemplate = getEmailTemplate(e.target.value)
     setState({
       ...state,
       [e.target.id]: e.target.value,
-      subject: emailTemplate.subject,
-      emailTemplateDesc: emailTemplate.desc,
+    })
+  }
+
+  const handleSelectData = e => {
+    setState({
+      ...state,
+      ...getEmailTemplate(e.target.value),
     })
   }
 
   const handleEmailBlur = e => {
     setState({
       ...state,
-      emailTemplateDesc: getEmailTemplate(state.emailTemplate).desc,
+      ...getEmailTemplate(state.emailTemplate),
     })
   }
 
@@ -85,11 +81,14 @@ const Contact = props => {
             name="emailTemplate"
             id="emailTemplate"
             value={state.emailTemplate}
-            onChange={handleSelectTemplate}
+            onChange={handleSelectData}
           >
             {emailTemplates.map(template => (
-              <option key={template.value} value={template.value}>
-                {template.text}
+              <option
+                key={template.emailTemplate}
+                value={template.emailTemplate}
+              >
+                {template.emailTemplate}
               </option>
             ))}
           </select>
@@ -141,6 +140,7 @@ const Contact = props => {
             rows="10"
             onChange={handleFormData}
             value={state.body}
+            style={{ resize: 'none' }}
           />
         </label>
         <button />
