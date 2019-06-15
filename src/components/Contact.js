@@ -68,13 +68,35 @@ const Contact = props => {
     })
   }
 
+  const handleSubmit = async e => {
+    e.preventDefault()
+    const data = await fetch(
+      `${process.env.GATSBY_NETLIFY_FUNCTION_URL}/contact`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state),
+      }
+    )
+    // alert(JSON.stringify(await data.json()))
+    // .then(data => )
+    // .catch(error => alert(error))
+  }
+
   return (
     <Box
       header="Contact"
       subHeader="Say hi!"
       className={cx('Contact', props.className)}
     >
-      <form action="" className="Contact__form">
+      <form
+        className="Contact__form"
+        name="contact"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
         <label htmlFor="emailTemplate" className="Contact__form__label">
           Email Template
           <select
@@ -140,10 +162,9 @@ const Contact = props => {
             rows="10"
             onChange={handleFormData}
             value={state.body}
-            style={{ resize: 'none' }}
           />
         </label>
-        <button />
+        <button type="submit">Send</button>
       </form>
     </Box>
   )

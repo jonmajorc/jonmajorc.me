@@ -1,9 +1,24 @@
+const proxy = require('http-proxy-middleware')
+require('dotenv').config({
+  path: `.env`,
+})
 /**
  * https://github.com/gatsbyjs/gatsby/issues/13469#issuecomment-484722307
  *
  * keep gatsby-transformer-sharp, plugin-sharp, and transformer-remark first in config
  */
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   siteMetadata: {
     title: 'Jon Major',
     author: 'Jon Major Condon',
