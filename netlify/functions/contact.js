@@ -1,13 +1,18 @@
 require('dotenv').config()
-const nodemailer = require('nodemailer')
 const ow = require('ow')
+const mailgun = require('mailgun-js')
+
+const mg = mailgun({
+  apiKey: process.env.MG_API_KEY,
+  domain: process.env.MG_DOMAIN,
+})
 
 const emailIsValid = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
 function validateAndReturnForm({ name, company, subject, emailBody, email }) {
   ow(name, 'Please enter name', ow.string.nonEmpty)
   ow(email, 'Email is invalid', ow.string.is(val => emailIsValid(val)))
-  ow(company, 'Please input company', ow.string.nonEmpty)
+  ow(company, 'Please enter company', ow.string.nonEmpty)
   ow(subject, 'Subject too short', ow.string.minLength(5))
   ow(subject, 'Subject too long', ow.string.maxLength(120))
   ow(emailBody, 'Email body too short', ow.string.minLength(40))
@@ -24,30 +29,22 @@ async function main(event) {
       body: error.message.match(/`([a-zA-Z\s\d]+)`/)[1],
     }
   }
+
   const sender = `"${formBody.name}" <${formBody.email}>`
 
   try {
-    let transporter = nodemailer.createTransport({
-      host: 'smtp.mailgun.org',
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    })
-
-    let info = await transporter.sendMail({
+    const data = {
       from: sender,
       to: '"Jon Major Condon" <hey@jonmajorc.me>',
       cc: sender,
       subject: formBody.subject,
       text: formBody.emailBody,
-      // html: '<b>Hello world?</b>', // html body
-    })
+      template: 'resume',
+      'h:X-Mailgun-Variables': { test: 'test' },
+    }
 
-    console.log('Message sent: %s', info.messageId)
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
+    const info = await mg.messages().send(data)
+    console.log('Message sent:', JSON.stringify(info))
   } catch (error) {
     return await {
       statusCode: 500,
