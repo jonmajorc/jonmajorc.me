@@ -2,37 +2,37 @@ import React from 'react'
 import Box from './Box'
 import cx from 'classnames'
 
+const initialState = {
+  templateValue: '',
+  templateOptionText: '',
+  templateDesc: '',
+  name: '',
+  email: '',
+  company: '',
+  subject: '',
+  emailBody: '',
+}
+
 function reducer(prevState, nextState) {
   return { ...prevState, ...nextState }
 }
 
 const Contact = props => {
-  const [state, setState] = React.useReducer(reducer, {
-    emailTemplate: '',
-    emailTemplateDesc: '',
-    name: '',
-    email: '',
-    company: '',
-    subject: '',
-    emailBody: '',
-  })
+  const [state, setState] = React.useReducer(reducer, initialState)
 
   const emailTemplates = React.useMemo(
     () => [
       {
-        emailTemplate: '',
-        emailTemplateDesc: '',
-        subject: '',
-      },
-      {
-        emailTemplate: 'Request resume',
-        emailTemplateDesc: `An automated email will be sent to ${state.email ||
+        templateValue: 'resume',
+        templateOptionText: 'Request resume',
+        templateDesc: `An automated email will be sent to ${state.email ||
           'your email address'} with my resume attached!`,
         subject: `Requesting resume, please!`,
       },
       {
-        emailTemplate: 'Asking to pair',
-        emailTemplateDesc: `Your message will be sent to ${state.email ||
+        templateValue: 'pair',
+        templateOptionText: 'Asking to pair',
+        templateDesc: `Your message will be sent to ${state.email ||
           'your email address'}. Please understand if it takes awhile to respond.`,
         subject: `Hey, let's pair!`,
       },
@@ -45,7 +45,9 @@ const Contact = props => {
   \***************************************************************************/
 
   const getEmailTemplate = value =>
-    emailTemplates.find(template => template.emailTemplate === value)
+    emailTemplates.find(
+      templateValue => templateValue.templateValue === value
+    ) || initialState
 
   const handleFormData = e => {
     setState({
@@ -64,7 +66,7 @@ const Contact = props => {
   const handleEmailBlur = e => {
     setState({
       ...state,
-      ...getEmailTemplate(state.emailTemplate),
+      ...getEmailTemplate(state.templateValue),
     })
   }
 
@@ -97,25 +99,29 @@ const Contact = props => {
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
-        <label htmlFor="emailTemplate" className="Contact__form__label">
+        <label htmlFor="templateValue" className="Contact__form__label">
           Email Template
           <select
-            name="emailTemplate"
-            id="emailTemplate"
-            value={state.emailTemplate}
+            name="templateValue"
+            id="templateValue"
+            value={state.templateValue}
             onChange={handleSelectData}
           >
-            {emailTemplates.map(template => (
-              <option
-                key={template.emailTemplate}
-                value={template.emailTemplate}
-              >
-                {template.emailTemplate}
-              </option>
-            ))}
+            {emailTemplates.reduce(
+              (acc, templateValue) => [
+                ...acc,
+                <option
+                  key={templateValue.templateValue}
+                  value={templateValue.templateValue}
+                >
+                  {templateValue.templateOptionText}
+                </option>,
+              ],
+              <option key="empty" />
+            )}
           </select>
         </label>
-        {state.emailTemplateDesc && <p>{state.emailTemplateDesc}</p>}
+        {state.templateDesc && <p>{state.templateDesc}</p>}
         <label htmlFor="name" className="Contact__form__label">
           Name
           <input
