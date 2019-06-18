@@ -22,7 +22,7 @@ function validateAndReturnForm({ name, company, subject, emailBody, email }) {
   ow(subject, 'Subject too short', ow.string.minLength(5))
   ow(subject, 'Subject too long', ow.string.maxLength(120))
   ow(emailBody, 'Email body too short', ow.string.minLength(40))
-  ow(emailBody, 'Email body too', ow.string.maxLength(1001))
+  ow(emailBody, 'Email body too', ow.string.maxLength(500))
 }
 
 const convertToMinutes = s =>
@@ -37,58 +37,63 @@ async function getSignedUrl() {
   return await s3.getSignedUrl('getObject', params)
 }
 
+async function composeMessage(formBody, data) {
+  switch (formBody.templateValue) {
+    case 'resume':
+      const url = await getSignedUrl()
+      return {
+        ...data,
+        template: formBody.templateValue,
+        'h:X-Mailgun-Variables': JSON.stringify({
+          ...data['h:X-Mailgun-Variables'],
+          expire: `${convertToMinutes(S3_EXPIRE)}`,
+          resume_link: url,
+          ...formBody,
+        }),
+      }
+    default:
+      return data
+  }
+}
+
 async function main(event) {
   const formBody = JSON.parse(event.body)
+
   try {
     validateAndReturnForm(formBody)
   } catch (error) {
     return await {
       statusCode: 403,
-      body: error.message.match(/`([a-zA-Z\s\d]+)`/)[1],
+      body: JSON.stringify({
+        message: error.message.match(/`([a-zA-Z\s\d]+)`/)[1],
+      }),
     }
   }
 
   const sender = `"${formBody.name}" <${formBody.email}>`
-
   try {
-    let data = {
+    const data = await composeMessage(formBody, {
       from: sender,
       to: '"Jon Major Condon" <hey@jonmajorc.me>',
       cc: sender,
       subject: formBody.subject,
       text: formBody.emailBody,
-    }
-
-    switch (formBody.emailTemplate) {
-      case 'Request resume':
-        const url = await getSignedUrl()
-        data = {
-          ...data,
-          template: 'resume',
-          'h:X-Mailgun-Variables': JSON.stringify({
-            expire: `${convertToMinutes(S3_EXPIRE)}`,
-            resume_link: url,
-            sender,
-            ...formBody,
-          }),
-        }
-        break
-      default:
-        data
-    }
-
+      'h:X-Mailgun-Variables': {
+        sender,
+      },
+    })
     const info = await mg.messages().send(data)
     console.log('Message sent:', JSON.stringify(info))
   } catch (error) {
     return await {
       statusCode: 500,
-      body: 'Something went wrong.',
+      body: JSON.stringify({ message: 'Something went wrong.' }),
     }
   }
 
   return await {
     statusCode: 200,
-    body: JSON.stringify({ success: true }),
+    body: JSON.stringify({ message: 'success!' }),
   }
 }
 

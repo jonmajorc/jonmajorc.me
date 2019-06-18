@@ -11,14 +11,43 @@ const initialState = {
   company: '',
   subject: '',
   emailBody: '',
+  trySubmit: false,
 }
 
+/***************************************************************************\
+  Reducers
+\***************************************************************************/
 function reducer(prevState, nextState) {
   return { ...prevState, ...nextState }
 }
 
+function fetchReducer(state, { type, response, error }) {
+  switch (type) {
+    case 'fetching': {
+      return { fetching: true, response: null, error: null }
+    }
+    case 'fetched': {
+      return { fetching: false, response, error: null }
+    }
+    case 'error': {
+      return { fetching: false, response: null, error }
+    }
+    default:
+      throw new Error(`Unsupported type: ${type}`)
+  }
+}
+
+/***************************************************************************\
+  Component
+\***************************************************************************/
 const Contact = props => {
+  const contactForm = React.useRef()
   const [state, setState] = React.useReducer(reducer, initialState)
+  const [formFetchState, setFormFetchState] = React.useReducer(fetchReducer, {
+    fetching: false,
+    response: null,
+    error: null,
+  })
 
   const emailTemplates = React.useMemo(
     () => [
@@ -47,7 +76,7 @@ const Contact = props => {
   const getEmailTemplate = value =>
     emailTemplates.find(
       templateValue => templateValue.templateValue === value
-    ) || initialState
+    ) || state
 
   const handleFormData = e => {
     setState({
@@ -72,17 +101,69 @@ const Contact = props => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const data = await fetch(
-      `${process.env.GATSBY_NETLIFY_FUNCTION_URL}/contact`,
-      {
+    try {
+      setFormFetchState({ type: 'fetching' })
+
+      const url = `${process.env.GATSBY_NETLIFY_FUNCTION_URL}/contact`
+      const data = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(state),
+      })
+
+      const response = await data.json()
+
+      switch (data.status) {
+        case 403:
+          return setFormFetchState({ type: 'error', error: response })
+        default:
+          return setFormFetchState({ type: 'fetched', response })
       }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  /***************************************************************************\
+    Effects
+  \***************************************************************************/
+  React.useEffect(() => {
+    let formList
+    const addClassNames = tag => {
+      tag.parentNode.classList.add('Contact--invalid__label')
+      tag.classList.add('Contact--invalid__input')
+    }
+    const removeClassNames = tag => {
+      tag.parentNode.classList.remove('Contact--invalid__label')
+      tag.classList.remove('Contact--invalid__input')
+    }
+    if (contactForm.current) {
+      formList = Array.from(contactForm.current)
+      formList.map(tag => {
+        if (!formFetchState.error) return
+        if (!tag.id) return
+        tag.value ? removeClassNames(tag) : addClassNames(tag)
+      })
+    }
+    return () => {
+      if (contactForm.current) {
+        formList.map(tag => {
+          removeClassNames(tag)
+        })
+      }
+    }
+  })
+
+  /***************************************************************************\
+  renderer(s)    
+  \***************************************************************************/
+  if (formFetchState.response) {
+    return (
+      <Box header="Contact" subHeader="Thank you for your message!">
+        <p>Thank you, and I will respond soon...</p>
+        <span>But for now, go follow me on social media!</span>
+      </Box>
     )
-    // alert(JSON.stringify(await data.json()))
-    // .then(data => )
-    // .catch(error => alert(error))
   }
 
   return (
@@ -95,6 +176,7 @@ const Contact = props => {
         className="Contact__form"
         name="contact"
         data-netlify="true"
+        ref={contactForm}
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
@@ -127,6 +209,7 @@ const Contact = props => {
           <input
             type="text"
             id="name"
+            pattern="[a-zA-Z\s]+"
             onChange={handleFormData}
             value={state.name}
           />
@@ -134,7 +217,7 @@ const Contact = props => {
         <label htmlFor="email" className="Contact__form__label">
           Email
           <input
-            type="text"
+            type="email"
             id="email"
             onBlur={handleEmailBlur}
             onChange={handleFormData}
@@ -146,6 +229,7 @@ const Contact = props => {
           <input
             type="text"
             id="company"
+            minLength="1"
             onChange={handleFormData}
             value={state.company}
           />
@@ -155,6 +239,8 @@ const Contact = props => {
           <input
             type="text"
             id="subject"
+            minLength="5"
+            maxLength="40"
             onChange={handleFormData}
             value={state.subject}
           />
@@ -166,6 +252,8 @@ const Contact = props => {
             id="emailBody"
             cols="30"
             rows="10"
+            minLength="40"
+            maxLength="500"
             onChange={handleFormData}
             value={state.body}
           />
