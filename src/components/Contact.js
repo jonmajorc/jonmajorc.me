@@ -1,6 +1,7 @@
 import React from 'react'
 import Box from './Box'
 import cx from 'classnames'
+import Button from './Button'
 
 const initialState = {
   templateValue: '',
@@ -258,7 +259,9 @@ const Contact = props => {
             value={state.body}
           />
         </label>
-        <button type="submit">Send</button>
+        <Button color="red" type="submit">
+          Send Message
+        </Button>
       </form>
     </Box>
   )
