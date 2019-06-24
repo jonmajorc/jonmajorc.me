@@ -4,6 +4,11 @@
   position: relative;
   background-color: map-get($colors, beige);
 
+  @include device-sm {
+    padding: 28px;
+    padding-top: 0;
+  }
+
   &__header {
     position: absolute;
     top: -15px;
@@ -23,6 +28,21 @@
 
       &.sub-header {
         color: map-get($colors, grey);
+
+        @include device-sm {
+          padding: 0;
+        }
+      }
+    }
+
+    // Only apply padding if there is a link present inside the header
+    @include device-sm {
+      position: relative;
+      flex-wrap: wrap;
+
+      &__link + h2.sub-header {
+        padding: 0;
+        padding-top: 5px;
       }
     }
   }
