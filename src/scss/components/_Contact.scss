@@ -25,6 +25,12 @@
       > textarea {
         resize: none;
       }
+
+      &.isIDevice {
+        .Contact--invalid__input {
+          border: 1px solid red;
+        }
+      }
     }
   }
 }

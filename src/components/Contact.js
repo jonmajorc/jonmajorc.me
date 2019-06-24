@@ -2,6 +2,7 @@ import React from 'react'
 import Box from './Box'
 import cx from 'classnames'
 import Button from './Button'
+import { IDeviceContext } from './layout'
 
 const initialState = {
   templateValue: '',
@@ -42,6 +43,7 @@ function fetchReducer(state, { type, response, error }) {
   Component
 \***************************************************************************/
 const Contact = props => {
+  const isIDevice = React.useContext(IDeviceContext)
   const contactForm = React.useRef()
   const [state, setState] = React.useReducer(reducer, initialState)
   const [formFetchState, setFormFetchState] = React.useReducer(fetchReducer, {
@@ -55,7 +57,7 @@ const Contact = props => {
       {
         templateValue: 'resume',
         templateOptionText: 'Request resume',
-        templateDesc: `An automated email will be sent to ${state.email ||
+        templateDesc: `I don't like using LinkedIn because of spam, so you can request my resume through here. An automated email will be sent to ${state.email ||
           'your email address'} with my resume attached!`,
         subject: `Requesting resume, please!`,
       },
@@ -122,8 +124,11 @@ const Contact = props => {
       }
     } catch (error) {
       console.log(error)
+      setFormFetchState({ type: 'error', error })
     }
   }
+
+  console.log(formFetchState)
 
   /***************************************************************************\
     Effects
@@ -132,17 +137,22 @@ const Contact = props => {
     let formList
     const addClassNames = tag => {
       tag.parentNode.classList.add('Contact--invalid__label')
+      isIDevice && tag.parentNode.classList.add('isIDevice')
       tag.classList.add('Contact--invalid__input')
+      isIDevice && tag.classList.add('isIDevice')
     }
     const removeClassNames = tag => {
       tag.parentNode.classList.remove('Contact--invalid__label')
+      tag.parentNode.classList.remove('isIDevice')
       tag.classList.remove('Contact--invalid__input')
+      tag.classList.remove('isIDevice')
     }
+
     if (contactForm.current) {
       formList = Array.from(contactForm.current)
       formList.map(tag => {
+        if (!tag.id || tag.id === 'templateValue') return
         if (!formFetchState.error) return
-        if (!tag.id) return
         tag.value ? removeClassNames(tag) : addClassNames(tag)
       })
     }
