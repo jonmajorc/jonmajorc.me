@@ -1,0 +1,45 @@
+.Button {
+  background-color: #b07dff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 15px;
+  color: #fff;
+  box-shadow: 0 4px 4px 0px #cecece;
+  font-weight: bold;
+  position: relative;
+
+  &:after {
+    content: '';
+    box-shadow: 0 0 10px 0 #673ab7;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    opacity: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:after {
+    outline: none;
+    animation: heart-beat 1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &:active {
+    transform: translateY(5px);
+  }
+
+  @keyframes heart-beat {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}

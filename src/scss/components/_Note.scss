@@ -2,7 +2,7 @@
   padding: 20px;
   border: 1px dashed;
   margin-bottom: 20px;
-  box-shadow: 0 0 3px 3px #fffbf0 inset;
+  box-shadow: 0 0 3px 3px map-get($colors, beigeShadow) inset;
   border: 1px dashed;
   border-radius: 10px;
   background-color: #fff;
@@ -12,7 +12,7 @@
   width: 100%;
 
   &:hover {
-    box-shadow: 0 0 5px 5px #fffbf0;
+    box-shadow: 0 0 5px 5px map-get($colors, beigeShadow);
     transform: scale(1.05);
   }
 

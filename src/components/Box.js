@@ -8,7 +8,7 @@ const Box = ({ children, ...props }) => {
     <section className={cx('Box', props.className)}>
       <header className="Box__header">
         {props.header && props.link ? (
-          <Link to={props.link}>
+          <Link className="Box__header__link" to={props.link}>
             <h2>{props.header}</h2>
             {/* {props.squigglyForHeader__temp} here for temp use */}
           </Link>
@@ -25,7 +25,7 @@ const Box = ({ children, ...props }) => {
 }
 
 Box.propTypes = {
-  className: PropTypes.oneOf(['Bio', 'Blog']),
+  className: PropTypes.oneOf(['Bio', 'Blog', 'Contact']),
 }
 
 export default Box
