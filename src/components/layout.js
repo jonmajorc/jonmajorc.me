@@ -20,10 +20,15 @@ function checkIsIDevice() {
     'iPod',
   ]
 
-  if (!!navigator.platform) {
-    while (iDevices.length) {
-      if (navigator.platform === iDevices.pop()) {
-        return true
+  if (
+    typeof window !== 'undefined' &&
+    typeof window.navigator !== 'undefined'
+  ) {
+    if (!!navigator.platform) {
+      while (iDevices.length) {
+        if (navigator.platform === iDevices.pop()) {
+          return true
+        }
       }
     }
   }
