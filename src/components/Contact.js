@@ -63,10 +63,17 @@ const Contact = props => {
       },
       {
         templateValue: 'pair',
-        templateOptionText: 'Asking to pair',
+        templateOptionText: `Let's pair`,
         templateDesc: `Your message will be sent to ${state.email ||
           'your email address'}. Please understand if it takes awhile to respond.`,
         subject: `Hey, let's pair!`,
+      },
+      {
+        templateValue: 'dev_chat',
+        templateOptionText: `Let's dev chat`,
+        templateDesc: `I love opportunities to chat with other developers like yourself! Your message will be sent to ${state.email ||
+          'your email address'}. Please understand if it takes awhile to respond.`,
+        subject: `Hey, let's dev chat!`,
       },
     ],
     [state.email]
@@ -127,8 +134,6 @@ const Contact = props => {
       setFormFetchState({ type: 'error', error })
     }
   }
-
-  console.log(formFetchState)
 
   /***************************************************************************\
     Effects
