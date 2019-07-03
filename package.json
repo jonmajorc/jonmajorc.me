@@ -83,7 +83,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
-    "build": "npm-p build:**",
+    "build": "run-p build:**",
     "build:gatsby": "gatsby build",
     "build:netlify": "netlify-lambda build netlify/functions"
   }
