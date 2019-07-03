@@ -28,7 +28,10 @@ export default class BlogPost extends React.Component {
                 alt={mdx.frontmatter.cover_image_alt || 'Cover photo of blog.'}
               />
               <span className="blog-post__header__image-credit">
-                <ReactMarkdown source={mdx.frontmatter.cover_image_credit} />
+                <ReactMarkdown
+                  escapeHtml={false}
+                  source={mdx.frontmatter.cover_image_credit}
+                />
               </span>
             </>
           )}
@@ -39,7 +42,9 @@ export default class BlogPost extends React.Component {
           )} */}
           <hr className="blog-post__divider" />
         </header>
-        <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        <article className="blog-post__content">
+          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        </article>
         <hr
           style={{
             marginBottom: rhythm(1),

@@ -1,3 +1,5 @@
+$bio-width: 620px;
+
 .Bio {
   &__content {
     display: flex;
@@ -13,7 +15,7 @@
       flex-direction: column;
     }
 
-    @include device-size($width: 620px) {
+    @include device-size($bio-width) {
       flex-direction: column;
     }
   }
@@ -49,7 +51,7 @@
 .Bio__Image {
   flex: 1 0 50%;
 
-  @include device-size($width: 620px) {
+  @include device-size($bio-width) {
     align-self: flex-end;
     width: 350px;
   }
@@ -65,7 +67,7 @@ Styles for Blurb inside Bio
     margin-right: 0;
   }
 
-  @include device-size($width: 620px) {
+  @include device-size($bio-width) {
     margin-right: 0;
   }
 }

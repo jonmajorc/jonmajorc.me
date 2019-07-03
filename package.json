@@ -10,10 +10,13 @@
     "@mdx-js/mdx": "^1.0.20",
     "@mdx-js/react": "^1.0.20",
     "@mdx-js/tag": "^0.20.3",
+    "aws-sdk": "^2.476.0",
     "babel-eslint": "^10.0.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.6",
+    "date-fns": "^1.30.1",
+    "dotenv": "^8.0.0",
     "gatsby": "^2.3.31",
     "gatsby-image": "^2.0.40",
     "gatsby-mdx": "^0.6.3",
@@ -37,7 +40,11 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.18",
     "lodash": "^4.17.11",
+    "mailgun-js": "^0.22.0",
+    "netlify-lambda": "^1.4.13",
     "node-sass": "^4.10.0",
+    "nodemailer": "^6.2.1",
+    "ow": "^0.13.2",
     "prismjs": "^1.16.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -58,6 +65,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.8.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.15.2",
     "svg-react-loader": "^0.4.6"
   },
@@ -68,11 +76,15 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "run-p dev:**",
+    "dev:gatsby": "gatsby develop",
+    "dev:netlify": "netlify-lambda serve netlify/functions",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
-    "build": "gatsby build"
+    "build": "run-p build:**",
+    "build:gatsby": "gatsby build",
+    "build:netlify": "netlify-lambda build netlify/functions"
   }
 }

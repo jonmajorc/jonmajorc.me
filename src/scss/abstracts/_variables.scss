@@ -7,7 +7,10 @@
 // e.g. box-shadow-beige, box-shadow-blue, box-shadow-lightblue, etc.
 
 $colors: (
-  beige: #fcfbfb,
+  beige: #7550410a,
+  // #fcfbfb,
+    // #fffaf8
+    beigeShadow: #fffbf0,
   blue: #2d9cdb,
   lightBlue: #56ccf2,
   black: #434343,
@@ -18,9 +21,22 @@ $colors: (
   twitter: #1da1f2,
   faithLeads: rgb(50, 240, 149),
   pink: #ffdceb,
+  pink2: #ff92bf,
   red: red,
+  redShadow: #ffcccc,
 );
 
 $bezier: (
   jiggle: cubic-bezier(0.53, 1.51, 0.69, 1.15),
 );
+
+/************************************\
+Sizes
+\************************************/
+
+$small-width: 500px;
+$large-width: 1000px;
+// Might be some rogue sizes out there... 😬
+// TODO: TRY TO MAKE THE BREAKPOINT AT 720 BE THE STANDARD.
+
+$medium-width: 720px;

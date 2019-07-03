@@ -7,8 +7,10 @@
   left: 300px;
   bottom: -220px;
 
-  @include device-size($width: 620px) {
+  @include device-size($width: 720) {
     left: 0;
+    position: relative;
+    bottom: 0;
   }
 }
 
