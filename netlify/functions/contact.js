@@ -4,7 +4,11 @@ const mailgun = require('mailgun-js')
 const AWS = require('aws-sdk')
 const { distanceInWords } = require('date-fns')
 
-const s3 = new AWS.S3()
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACC,
+  secretAccessKey: process.env.AWS_SEC,
+  region: process.env.AWS_REG,
+})
 
 const S3_EXPIRE = Number(process.env.S3_FILE_EXPIRE) || 600
 const mg = mailgun({
