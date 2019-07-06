@@ -44,7 +44,9 @@ async function getSignedUrl() {
 async function composeMessage(formBody, data) {
   switch (formBody.templateValue) {
     case 'resume':
+      console.log('---- requesting resume')
       const url = await getSignedUrl()
+      console.log('presigned url:', url)
       return {
         ...data,
         template: formBody.templateValue,
@@ -86,9 +88,11 @@ async function main(event) {
         sender,
       },
     })
+    console.log('sending data:', data)
     const info = await mg.messages().send(data)
     console.log('Message sent:', JSON.stringify(info))
   } catch (error) {
+    console.log('something went wrong:', error)
     return await {
       statusCode: 500,
       body: JSON.stringify({ message: 'Something went wrong.' }),

@@ -124,10 +124,10 @@ const Contact = props => {
       const response = await data.json()
 
       switch (data.status) {
-        case 403:
-          return setFormFetchState({ type: 'error', error: response })
-        default:
+        case 200:
           return setFormFetchState({ type: 'fetched', response })
+        default:
+          return setFormFetchState({ type: 'error', error: response })
       }
     } catch (error) {
       console.log(error)
@@ -176,8 +176,7 @@ const Contact = props => {
   if (formFetchState.response) {
     return (
       <Box header="Contact" subHeader="Thank you for your message!">
-        <p>Thank you, and I will respond soon...</p>
-        <span>But for now, go follow me on social media!</span>
+        <p>Thank you!</p>
       </Box>
     )
   }
