@@ -4,13 +4,14 @@ const mailgun = require('mailgun-js')
 const AWS = require('aws-sdk')
 const { distanceInWords } = require('date-fns')
 
+const S3_EXPIRE = Number(process.env.S3_FILE_EXPIRE) || 600
+
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACC,
   secretAccessKey: process.env.AWS_SEC,
   region: process.env.AWS_REG,
 })
 
-const S3_EXPIRE = Number(process.env.S3_FILE_EXPIRE) || 600
 const mg = mailgun({
   apiKey: process.env.MG_API_KEY,
   domain: process.env.MG_DOMAIN,
@@ -38,27 +39,31 @@ async function getSignedUrl() {
     Key: process.env.S3_BUCKET_FILE,
     Expires: S3_EXPIRE,
   }
-  return await s3.getSignedUrl('getObject', params)
+  const url = await s3.getSignedUrl('getObject', params)
+  console.log('presigned url:', url)
+  return url
 }
 
-async function composeMessage(formBody, data) {
-  switch (formBody.templateValue) {
+async function composeMessage(me, sender, data) {
+  switch (data.templateValue) {
     case 'resume':
-      console.log('---- requesting resume')
-      const url = await getSignedUrl()
-      console.log('presigned url:', url)
+      console.log('requesting resume')
       return {
-        ...data,
-        template: formBody.templateValue,
+        from: me,
+        to: `${sender}, ${me}`,
+        template: data.templateValue,
         'h:X-Mailgun-Variables': JSON.stringify({
-          ...data['h:X-Mailgun-Variables'],
           expire: `${convertToMinutes(S3_EXPIRE)}`,
-          resume_link: url,
-          ...formBody,
+          resume_link: await getSignedUrl(),
+          sender,
+          ...data,
         }),
       }
     default:
-      return data
+      return {
+        from: sender,
+        to: me,
+      }
   }
 }
 
@@ -76,20 +81,19 @@ async function main(event) {
     }
   }
 
-  const sender = `"${formBody.name}" <${formBody.email}>`
   try {
-    const data = await composeMessage(formBody, {
-      from: sender,
-      to: '"Jon Major Condon" <hey@jonmajorc.me>',
-      cc: sender,
+    const sender = `"${formBody.name}" <${formBody.email}>`
+    const me = '"Jon Major Condon" <hey@jonmajorc.me>'
+
+    const message = {
+      ...(await composeMessage(me, sender, formBody)),
+      company: formBody.company,
       subject: formBody.subject,
-      text: formBody.emailBody,
-      'h:X-Mailgun-Variables': {
-        sender,
-      },
-    })
-    console.log('sending data:', data)
-    const info = await mg.messages().send(data)
+      body: formBody.emailBody,
+    }
+
+    console.log('sending data:', message)
+    const info = await mg.messages().send(message)
     console.log('Message sent:', JSON.stringify(info))
   } catch (error) {
     console.log('something went wrong:', error)
