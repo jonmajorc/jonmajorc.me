@@ -1,91 +1,83 @@
-const proxy = require('http-proxy-middleware')
-require('dotenv').config({
-  path: `.env`,
-})
-/**
- * https://github.com/gatsbyjs/gatsby/issues/13469#issuecomment-484722307
- *
- * keep gatsby-transformer-sharp, plugin-sharp, and transformer-remark first in config
- */
 module.exports = {
-  developMiddleware: app => {
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      })
-    )
-  },
   siteMetadata: {
-    title: 'Jon Major',
-    author: 'Jon Major Condon',
-    description: 'Portfolio',
-    siteUrl: 'https://jonmajorc.me',
+    title: `Jon Major`,
+    author: {
+      name: `Jon Major`,
+    },
+    description: `A starter blog demonstrating what Gatsby can do.`,
+    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    social: {
+      twitter: `jonmajorc`,
+    },
   },
   plugins: [
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          `gatsby-remark-copy-linked-files`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content`,
-        name: 'content',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/assets`,
-        name: 'assets',
-      },
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-feed`,
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        pathToConfigModule: 'src/utils/typography',
+        name: `Gatsby Starter Blog`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-twitter`,
+    `gatsby-plugin-react-helmet`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+    `gatsby-plugin-theme-ui`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets\/svg/,
+          include: /\.inline\.svg$/,
         },
       },
     },

@@ -1,28 +1,55 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { Link } from 'gatsby'
 
-const Nav = () => {
+const NavLink = (props) => {
   return (
-    <nav className="Nav">
-      <ul className="Nav__menu">
-        <li className="Nav__menu__item">
-          <Link activeClassName="Nav__menu__item--active" to="/">
-            Home
-          </Link>
-        </li>
-        <li className="Nav__menu__item">
-          <Link activeClassName="Nav__menu__item--active" to="/blogs">
-            Blog
-          </Link>
-        </li>
-        <li className="Nav__menu__item">
-          <Link activeClassName="Nav__menu__item--active" to="/contact">
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <Link
+      activeClassName="active"
+      sx={{
+        variant: 'styles.link',
+      }}
+      to={props.children.split(' ').join('-').toLowerCase()}
+    >
+      {props.children}
+    </Link>
   )
 }
 
-export default Nav
+const Nav = () => {
+  return (
+    <div sx={nav}>
+      <span>active link here</span>
+      <nav>
+        <ul
+          sx={{
+            listStyle: 'none',
+            display: 'flex',
+
+            'li:not(:first-child)': {
+              marginLeft: 4,
+              marginBottom: 0,
+            },
+          }}
+        >
+          <li>
+            <NavLink>Home</NavLink>
+          </li>
+          <li>
+            <NavLink>Uses</NavLink>
+          </li>
+          <li>
+            <NavLink>Blog</NavLink>
+          </li>
+          <li>
+            <NavLink>Contact</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  )
+}
+
+let nav = {}
+
+export { Nav }

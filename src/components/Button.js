@@ -1,17 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+/** @jsx jsx */
+import { jsx, Styled } from 'theme-ui'
 
-const Button = ({ children, className, color, ...props }) => {
+const Button = (props) => {
   return (
-    <button className={cx('Button', className)} data-color="red" {...props}>
-      {children}
+    <button sx={sx.button}>
+      <span>{props.children}</span>
     </button>
   )
 }
 
-Button.propTypes = {
-  className: PropTypes.oneOf([]),
+let sx = {
+  button: {
+    background: 'transparent',
+    border: 'buttonBorder',
+    borderRadius: 4,
+    padding: '13px 52px',
+    textTransform: 'lowercase',
+
+    '& span': {
+      color: 'orange',
+      fontSize: 2,
+    },
+  },
 }
 
-export default Button
+export { Button }

@@ -1,27 +1,58 @@
-// modules
-import React from 'react'
-import Helmet from 'react-helmet'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { graphql } from 'gatsby'
+import { Bio } from '../components/bio'
+import { Divider } from '../components/divider'
+import { CollaborateCTA } from '../components/collaborate-cta'
+import Layout from '../components/main-layout'
+import SEO from '../components/seo'
 
-// components
-import Bio from '../components/Bio'
-import Layout from '../components/layout'
-import Blog from '../components/Blog'
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
 
-const Spacing = () => <div style={{ height: '70px' }} />
-
-class Index extends React.Component {
-  render() {
-    return (
-      <Layout>
-        <div className="home">
-          <Helmet title="Home" />
-          <Bio />
-          <Spacing />
-          <Blog />
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="Home" />
+      <Bio
+        sx={{
+          marginTop: 144,
+          margin: '0 auto',
+        }}
+      />
+      <Divider
+        sx={{
+          marginTop: 72,
+        }}
+      />
+      <CollaborateCTA sx={{ width: 1048, margin: '0 auto', marginTop: 72 }} />
+    </Layout>
+  )
 }
 
-export default Index
+export default BlogIndex
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`

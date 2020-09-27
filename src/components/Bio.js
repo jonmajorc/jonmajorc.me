@@ -1,66 +1,91 @@
-import React from 'react'
-import Box from './Box'
-import Blurb from './Blurb'
-import Image from './Image'
-import user from '../../static/user-solid.svg'
-import globe from '../../static/globe-solid.svg'
-import briefcase from '../../static/briefcase-solid.svg'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
+import { Styled } from 'theme-ui'
+import InDevelopment from '../images/in-dev.inline.svg'
 
-const Bio = () => {
-  const imageSrc = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "jonmajor.JPG" }) {
+import { NewContentCard } from './new-content-card'
+
+const Bio = (props) => {
+  const data = useStaticQuery(graphql`
+    query BioQuery {
+      banner: file(absolutePath: { regex: "/journey.png/" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 341, quality: 100) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          author {
+            name
+          }
+          social {
+            twitter
           }
         }
       }
     }
   `)
 
+  const { author } = data.site.siteMetadata
   return (
-    <Box subHeader="Hey, I'm Jon Major!" className="Bio">
-      <div className="Bio__content">
-        <div className="Bio__content__left">
-          <Blurb className="Bio__Blurb">
-            Software is my strength and I dabble in design. I am a Software
-            Farmer at{' '}
-            <a href="https://bendyworks.com/" className="bendyworks">
-              Bendyworks
-            </a>{' '}
-            that tends to client farms (code-bases). As a farmer of software, I
-            focus on really anything web related...
-          </Blurb>
-          <ul className="Bio__info">
-            <li>
-              <img src={user} alt="user icon" />
-              <span>Senior Sofware Dev</span>
-            </li>
-            <li>
-              <img src={briefcase} alt="briefcase icon" />
-              <span>
-                <a href="https://bendyworks.com/" className="bendyworks">
-                  @Bendyworks
-                </a>
-              </span>
-            </li>
-            <li>
-              <img src={globe} alt="globe icon" />
-              <span>Madison, WI</span>
-            </li>
-          </ul>
-        </div>
-        <Image
-          rotate="25deg"
-          className="Image--w-350 Bio__Image"
-          fluidSrc={imageSrc.placeholderImage.childImageSharp.fluid}
-          alt="Major hard at work"
+    <header sx={bio} className={props.className}>
+      <div className="bio__hello">
+        <Styled.h1>&#47;&#47; Welcome,</Styled.h1>
+        <Styled.h1>&#47;&#47; to my Journey!</Styled.h1>
+        <Styled.h3>
+          I write code. I run with <strong>Jesus, the Son of God.</strong>{' '}
+          Coffee in one hand and a camera in the other...
+        </Styled.h3>
+        <InDevelopment
+          sx={{
+            width: '400px',
+            margin: '35px auto',
+            transform: 'rotate(-5deg)',
+          }}
         />
       </div>
-    </Box>
+      <Image
+        fluid={data.banner.childImageSharp.fluid}
+        alt={author.name}
+        className="bio__image-journey"
+      />
+    </header>
   )
 }
 
-export default Bio
+let bio = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  maxWidth: [, , 879, 1027],
+  padding: '0 13.5px',
+
+  '.bio__hello': {
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: 656,
+    paddingRight: 23,
+    flex: 1,
+    paddingTop: 33,
+
+    '> h3': {
+      marginTop: 50,
+      marginLeft: [, 61, , 71],
+    },
+  },
+
+  '.bio__image-journey': {
+    display: ['none !important', 'block !important'],
+    borderRadius: 4,
+    width: 348,
+  },
+
+  '.bio__content-card': {
+    marginTop: 50,
+  },
+}
+
+export { Bio }
