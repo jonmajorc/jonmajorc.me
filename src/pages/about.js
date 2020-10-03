@@ -14,6 +14,7 @@ import { PageHeader } from '../components/page-header'
 import SEO from '../components/seo'
 import { CollaborateCTA } from '../components/collaborate-cta'
 import { FavCard } from '../components/fav-card'
+import { InstagramCard } from '../components/instagram-card'
 import Layout from '../components/main-layout'
 
 /***************************************************************************\
@@ -22,6 +23,9 @@ import Layout from '../components/main-layout'
 import Photographer from '../images/photographer.inline.svg'
 import Code from '../images/code.inline.svg'
 import Cinematographer from '../images/Cinematographer.inline.svg'
+import Mercedes from '../images/mercedes.png'
+import MelSuge from '../images/mel-suge.png'
+import Walking from '../images/walking.png'
 
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -72,6 +76,27 @@ const About = ({ data, location }) => {
         />
       </div>
       <CollaborateCTA sx={{ width: 1048, margin: '0 auto', marginTop: 72 }} />
+      <div sx={sx.instagramCards}>
+        <InstagramCard
+          title="// Desk setup and BTS goodies"
+          images={[
+            { img: MelSuge, alt: 'mel and suge' },
+            { img: Walking, alt: 'walking on the pier' },
+            { img: Mercedes, alt: 'White Mercedes CLS 550' },
+          ]}
+          link="/jonmajorc"
+        />
+        <InstagramCard
+          sx={{ marginLeft: 16 }}
+          title="// Dope stills and movers"
+          images={[
+            { img: MelSuge, alt: 'mel and suge' },
+            { img: Walking, alt: 'walking on the pier' },
+            { img: Mercedes, alt: 'White Mercedes CLS 550' },
+          ]}
+          link="/jonmajorcmedia"
+        />
+      </div>
     </Layout>
   )
 }
@@ -88,6 +113,11 @@ let sx = {
     display: 'flex',
     justifyContent: 'center',
     marginTop: 67,
+  },
+  instagramCards: {
+    marginTop: 90,
+    display: 'flex',
+    justifyContent: 'center',
   },
 }
 
