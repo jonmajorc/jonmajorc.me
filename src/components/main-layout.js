@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import { Nav } from '../components/nav'
 import { Footer } from '../components/footer'
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ children, ...props }) => {
   return (
     <Fragment>
       {/* <Nav /> */}
@@ -22,7 +22,7 @@ const Layout = ({ location, title, children }) => {
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer> */}
-      <Footer />
+      <Footer placeBottom={props.placeFooterBottom} />
     </Fragment>
   )
 }

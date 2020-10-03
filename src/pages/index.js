@@ -1,28 +1,56 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+
+/***************************************************************************\
+  modules
+\***************************************************************************/
+import React from 'react'
+import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
-import { Bio } from '../components/bio'
+
+/***************************************************************************\
+ components
+ \***************************************************************************/
 import { Divider } from '../components/divider'
 import { CollaborateCTA } from '../components/collaborate-cta'
 import { ContentCard } from '../components/content-card'
+import { PageHeader } from '../components/page-header'
+import Layout from '../components/main-layout'
+
+/***************************************************************************\
+  assets
+\***************************************************************************/
 import Mercedes from '../images/mercedes.png'
 import MelSuge from '../images/mel-suge.png'
 import Walking from '../images/walking.png'
-import Layout from '../components/main-layout'
 import SEO from '../components/seo'
 
-const BlogIndex = ({ data, location }) => {
+const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+  const { author } = data.site.siteMetadata
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <Bio
+      <PageHeader
         sx={{
           marginTop: 144,
           margin: '0 auto',
         }}
+        header={
+          <React.Fragment>
+            <Styled.h1>&#47;&#47; Welcome,</Styled.h1>
+            <Styled.h1>&#47;&#47; to my Journey!</Styled.h1>
+          </React.Fragment>
+        }
+        text={
+          <React.Fragment>
+            I write code. I run with <strong>Jesus, the Son of God.</strong>{' '}
+            Coffee in one hand and a camera in the other...
+          </React.Fragment>
+        }
+        image={data.banner.childImageSharp.fluid}
+        alt={author.name}
       />
       <Divider
         sx={{
@@ -53,13 +81,23 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Home
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
+        author {
+          name
+        }
+      }
+    }
+    banner: file(absolutePath: { regex: "/journey.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 341, quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

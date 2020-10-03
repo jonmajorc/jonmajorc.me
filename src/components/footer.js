@@ -10,7 +10,18 @@ import { Button } from './button'
 // TODO (JMC) Replace social links
 const Footer = ({ className, ...props }) => {
   return (
-    <footer sx={sx.container} className={className}>
+    <footer
+      sx={{
+        ...sx.container,
+        ...(props.placeBottom && {
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }),
+      }}
+      className={className}
+    >
       <div sx={sx.leatherPinStripe}></div>
       <div sx={sx.icons}>
         <a sx={sx.icon} href="#">
