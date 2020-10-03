@@ -9,6 +9,7 @@ export default {
     w: '#fff',
     beige: '#F8E9D6',
     orange: '#F68D2D',
+    teal: '#95D0B8',
   },
   breakpoints: [
     '30em', //480px
@@ -26,6 +27,7 @@ export default {
   fonts: {
     body: 'Lato',
     heading: 'Menlo, monospace',
+    button: 'Menlo, monospace',
     monospace: 'Menlo, monospace',
   },
   shadows: {
@@ -68,7 +70,8 @@ export default {
     },
     h3: {
       color: '#403D39',
-      fontSize: [3, 3, 4, 6],
+      fontFamily: 'heading',
+      fontSize: [3, 3, 4, 5],
       fontWeight: 'body',
       margin: 0,
 
@@ -78,7 +81,19 @@ export default {
     },
     h4: {
       color: '#403D39',
+      fontFamily: 'heading',
       fontSize: [2, 2, 3, 4],
+      fontWeight: 'body',
+      margin: 0,
+
+      '&.bold': {
+        fontWeight: 'bold',
+      },
+    },
+    h5: {
+      color: '#403D39',
+      fontFamily: 'heading',
+      fontSize: [2, 2, 3, 3],
       fontWeight: 'body',
       margin: 0,
 
@@ -94,6 +109,9 @@ export default {
         fontWeight: 'bold',
       },
       '&.content': {},
+    },
+    p: {
+      lineHeight: 1.5,
     },
   },
 }

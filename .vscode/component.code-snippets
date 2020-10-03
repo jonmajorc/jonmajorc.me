@@ -11,6 +11,7 @@
       "/***************************************************************************\\",
       "  modules",
       "\\***************************************************************************/",
+      "import { jsx, Styled } from 'theme-ui'",
       "",
       "const Component = ({ className, ...props }) => {",
       "  return <div sx={sx.container} className={className}></div>",

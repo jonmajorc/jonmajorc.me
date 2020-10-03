@@ -16,11 +16,12 @@ let sx = {
     borderRadius: 4,
     padding: '13px 52px',
     textTransform: 'lowercase',
+    fontFamily: 'button',
 
     '& span': {
       color: 'orange',
       fontWeight: 'semibold',
-      fontSize: 2,
+      fontSize: 1,
     },
   },
 }

@@ -50,7 +50,7 @@ const Home = ({ data, location }) => {
           </React.Fragment>
         }
         image={data.banner.childImageSharp.fluid}
-        alt={author.name}
+        alt="a long road resembling the journey of life."
       />
       <Divider
         sx={{
@@ -88,9 +88,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author {
-          name
-        }
       }
     }
     banner: file(absolutePath: { regex: "/journey.png/" }) {

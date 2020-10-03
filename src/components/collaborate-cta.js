@@ -7,7 +7,9 @@ const CollaborateCTA = ({ className, ...props }) => {
     <div sx={{ ...sx.container }} className={className}>
       <div sx={sx.leatherPinStripe}>
         <div sx={sx.left}>
-          <Styled.h3 sx={sx.header}>Let's Collaborate!</Styled.h3>
+          <Styled.h3 className="bold" sx={sx.header}>
+            Let's Collaborate!
+          </Styled.h3>
           <span sx={sx.text}>
             Ut aliquet ipsum leo, sit amet tempus justo lacinia vel. Fusce
             ultrices leo justo, id faucibus est lacinia id. Phasellus eleifend
