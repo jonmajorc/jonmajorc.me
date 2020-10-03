@@ -2,6 +2,7 @@
 import { jsx } from 'theme-ui'
 import { Fragment } from 'react'
 import { Nav } from '../components/nav'
+import { Footer } from '../components/footer'
 
 const Layout = ({ location, title, children }) => {
   return (
@@ -11,8 +12,7 @@ const Layout = ({ location, title, children }) => {
         sx={{
           width: '100%',
           margin: '0 auto',
-          position: 'relative',
-          top: 144,
+          marginTop: 144,
         }}
       >
         {children}
@@ -22,6 +22,7 @@ const Layout = ({ location, title, children }) => {
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer> */}
+      <Footer />
     </Fragment>
   )
 }

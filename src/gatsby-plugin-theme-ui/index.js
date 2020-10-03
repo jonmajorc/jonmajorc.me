@@ -19,6 +19,7 @@ export default {
   fontWeights: {
     body: 400,
     heading: 700,
+    semibold: 600,
     bold: 700,
   },
   fontSizes: [12, 14, 18, 20, 24, 36, 48, 64],
@@ -32,8 +33,10 @@ export default {
     newContentBox: '0 4px 20px 0px rgba(0,0, 0, .25)',
   },
   borders: {
-    leatherPinStripe: '3px dashed #F8E9D6',
-    buttonBorder: '2px solid #F68D2D',
+    leatherPinStripe: '2px dashed #F8E9D6',
+    buttonBorder: '3px solid #F68D2D',
+    inputBottom: '1px solid #F8E9D6',
+    inputBottomFocus: '1px solid #F68D2D',
   },
   styles: {
     root: {
@@ -56,16 +59,32 @@ export default {
       },
     },
     h1: {
+      color: '#403D39',
       fontFamily: 'heading',
-      fontSize: [, 5, 6, 6, 7],
+      fontSize: [4, 5, 6, 6, 7],
       letterSpacing: -1,
       margin: 0,
       whiteSpace: 'nowrap',
     },
     h3: {
-      fontSize: [3, 3, 4, 5],
+      color: '#403D39',
+      fontSize: [3, 3, 4, 6],
       fontWeight: 'body',
       margin: 0,
+
+      '&.bold': {
+        fontWeight: 'bold',
+      },
+    },
+    h4: {
+      color: '#403D39',
+      fontSize: [2, 2, 3, 4],
+      fontWeight: 'body',
+      margin: 0,
+
+      '&.bold': {
+        fontWeight: 'bold',
+      },
     },
     link: {
       color: 'text',

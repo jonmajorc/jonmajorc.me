@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 
-const Button = (props) => {
+const Button = ({ className, ...props }) => {
   return (
-    <button sx={sx.button}>
+    <button sx={sx.button} className={className}>
       <span>{props.children}</span>
     </button>
   )
@@ -19,6 +19,7 @@ let sx = {
 
     '& span': {
       color: 'orange',
+      fontWeight: 'semibold',
       fontSize: 2,
     },
   },

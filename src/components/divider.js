@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
+// import React from 'react'
 import Instagram from '../images/instagram_outline_black.inline.svg'
 import Twitter from '../images/twitter_outline_black.inline.svg'
 import Github from '../images/github_outline_black.inline.svg'
 import Youtube from '../images/youtube_outline_black.inline.svg'
 import Patreon from '../images/patreon_outline_black.inline.svg'
+
+// TODO (JMC) Replace social links
 
 // const useSizing = ({ setProperty, defaultValue }) => {
 //   document.body.style.setProperty(setProperty, defaultValue)

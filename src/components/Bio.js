@@ -36,17 +36,10 @@ const Bio = (props) => {
       <div className="bio__hello">
         <Styled.h1>&#47;&#47; Welcome,</Styled.h1>
         <Styled.h1>&#47;&#47; to my Journey!</Styled.h1>
-        <Styled.h3>
+        <span sx={sx.text}>
           I write code. I run with <strong>Jesus, the Son of God.</strong>{' '}
           Coffee in one hand and a camera in the other...
-        </Styled.h3>
-        <InDevelopment
-          sx={{
-            width: '400px',
-            margin: '35px auto',
-            transform: 'rotate(-5deg)',
-          }}
-        />
+        </span>
       </div>
       <Image
         fluid={data.banner.childImageSharp.fluid}
@@ -88,4 +81,11 @@ let bio = {
   },
 }
 
+let sx = {
+  text: {
+    marginTop: 37,
+    display: 'block',
+    fontSize: 3,
+  },
+}
 export { Bio }

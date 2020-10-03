@@ -42,7 +42,7 @@ let sx = {
     display: 'block',
     marginTop: 12,
     fontSize: 1,
-    color: 'beige',
+    color: 'w',
     lineHeight: '182.5%',
   },
   left: {},

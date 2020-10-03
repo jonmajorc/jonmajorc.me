@@ -4,6 +4,10 @@ import { graphql } from 'gatsby'
 import { Bio } from '../components/bio'
 import { Divider } from '../components/divider'
 import { CollaborateCTA } from '../components/collaborate-cta'
+import { ContentCard } from '../components/content-card'
+import Mercedes from '../images/mercedes.png'
+import MelSuge from '../images/mel-suge.png'
+import Walking from '../images/walking.png'
 import Layout from '../components/main-layout'
 import SEO from '../components/seo'
 
@@ -26,6 +30,25 @@ const BlogIndex = ({ data, location }) => {
         }}
       />
       <CollaborateCTA sx={{ width: 1048, margin: '0 auto', marginTop: 72 }} />
+      <ContentCard
+        reverse
+        header="// Business stills / movers"
+        img={MelSuge}
+        alt="Urban Uplander Pet Sitting"
+        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+      />
+      <ContentCard
+        header="// Car stills & movers"
+        img={Mercedes}
+        alt="Mercedes Benz"
+        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+      />
+      <ContentCard
+        reverse
+        header="// Random stills & movers"
+        img={Walking}
+        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+      />
     </Layout>
   )
 }
