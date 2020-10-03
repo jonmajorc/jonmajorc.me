@@ -3,11 +3,12 @@ import { jsx } from 'theme-ui'
 import { Fragment } from 'react'
 import { Nav } from '../components/nav'
 import { Footer } from '../components/footer'
+import '../styles.css'
 
-const Layout = ({ children, ...props }) => {
+const Layout = ({ location, children, ...props }) => {
   return (
     <Fragment>
-      {/* <Nav /> */}
+      <Nav location={location} />
       <main
         sx={{
           width: '100%',

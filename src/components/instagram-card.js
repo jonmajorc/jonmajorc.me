@@ -16,8 +16,10 @@ const InstagramCard = ({ className, ...props }) => {
     <div sx={sx.container} className={className}>
       <span sx={sx.text}>{props.title} </span>
       <div sx={sx.imgPreview}>
-        {props.images.map((content) => {
-          return <img src={content.img} alt={content.alt} sx={sx.image} />
+        {props.images.map((content, key) => {
+          return (
+            <img key={key} src={content.img} alt={content.alt} sx={sx.image} />
+          )
         })}
       </div>
       <a href={`https://instagram.com${props.link}`} sx={sx.igLink}>

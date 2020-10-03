@@ -1,14 +1,18 @@
+import 'what-input'
+
 export default {
   colors: {
     text: '#1B1616',
     lightBlack: '#484848',
+    midnight: '#000',
     b: '#1B1616',
     background: '#ffffff',
     greenPastel: '#16C79E',
     redPastel: '#E45261',
     w: '#fff',
-    beige: '#F8E9D6',
+    beige: '#ffe4c4',
     orange: '#F68D2D',
+    darkOrange: '#BD5113',
     teal: '#95D0B8',
   },
   breakpoints: [
@@ -33,6 +37,7 @@ export default {
   shadows: {
     newTextShadow: '-4px 2px 3px #e0e0e0',
     newContentBox: '0 4px 20px 0px rgba(0,0, 0, .25)',
+    shadow1: '0 4px 8px 2px rgba(0,0,0,.25)',
   },
   borders: {
     leatherPinStripe: '2px dashed #F8E9D6',
@@ -102,13 +107,20 @@ export default {
       },
     },
     link: {
-      color: 'text',
+      color: 'beige',
       textDecoration: 'none',
-      '&.active': {
-        color: 'black',
+
+      '&:hover': {
+        color: 'darkOrange',
+        textDecoration: 'underline',
         fontWeight: 'bold',
       },
-      '&.content': {},
+
+      '&.active': {
+        color: 'darkOrange',
+        fontWeight: 'bold',
+        textDecoration: 'underline',
+      },
     },
     p: {
       lineHeight: 1.5,
