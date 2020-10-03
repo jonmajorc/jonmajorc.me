@@ -33,10 +33,7 @@ const Home = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
       <PageHeader
-        sx={{
-          marginTop: 144,
-          margin: '0 auto',
-        }}
+        sx={sx.pageHeader}
         header={
           <React.Fragment>
             <Styled.h1>&#47;&#47; Welcome,</Styled.h1>
@@ -52,33 +49,49 @@ const Home = ({ data, location }) => {
         image={data.banner.childImageSharp.fluid}
         alt="a long road resembling the journey of life."
       />
-      <Divider
-        sx={{
-          marginTop: 72,
-        }}
-      />
-      <CollaborateCTA sx={{ width: 1048, margin: '0 auto', marginTop: 72 }} />
+      <Divider sx={sx.divider} />
+      <CollaborateCTA sx={sx.collaborateCard} />
       <ContentCard
         reverse
         header="// Business stills / movers"
         img={MelSuge}
         alt="Urban Uplander Pet Sitting"
-        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+        sx={sx.contentCard}
       />
       <ContentCard
         header="// Car stills & movers"
         img={Mercedes}
         alt="Mercedes Benz"
-        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+        sx={sx.contentCard}
       />
       <ContentCard
         reverse
         header="// Random stills & movers"
         img={Walking}
-        sx={{ width: 1048, margin: '0 auto', marginTop: 72 }}
+        sx={sx.contentCard}
       />
     </Layout>
   )
+}
+
+let sx = {
+  pageHeader: {
+    marginTop: 144,
+    margin: '0 auto',
+  },
+  divider: {
+    marginTop: 72,
+  },
+  collaborateCard: {
+    width: 1048,
+    margin: '0 auto',
+    marginTop: 72,
+  },
+  contentCard: {
+    width: 1048,
+    margin: '0 auto',
+    marginTop: 72,
+  },
 }
 
 export default Home
