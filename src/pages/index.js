@@ -26,7 +26,6 @@ import SEO from '../components/seo'
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
   const { author } = data.site.siteMetadata
 
   return (

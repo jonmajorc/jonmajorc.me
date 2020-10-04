@@ -1,6 +1,12 @@
 ---
 title: My Second Post!
 date: '2020-06-30T23:46:37.121Z'
+banner: './journey.png'
+bannerDescription: ''
+bannerCredit: 'Jon Major'
+categories:
+  - personal
+  - coding
 ---
 
 Wow! I love blogging so much already.

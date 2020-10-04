@@ -1,6 +1,16 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+/** @jsx jsx */
 
+/***************************************************************************\
+  modules
+\***************************************************************************/
+import { jsx, Styled } from 'theme-ui'
+import { Link, graphql } from 'gatsby'
+import Image from 'gatsby-image'
+
+/***************************************************************************\
+ components
+ \***************************************************************************/
+import { FeaturedBlog } from '../components/featured-blog'
 import Layout from '../components/main-layout'
 import SEO from '../components/seo'
 
@@ -15,42 +25,32 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
-        <header>
-          <h1
-            style={{
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
+      <article sx={sx.post}>
+        <FeaturedBlog
+          title={post.frontmatter.title}
+          date={post.frontmatter.date}
+          image={post.frontmatter.banner.childImageSharp.fluid}
+          bannerCredit={
+            <span sx={sx.photoCredit}>
+              Photo by {post.frontmatter.bannerCredit} on{' '}
+              <a href="#" sx={sx.instagramLink}>
+                Instagram
+              </a>
+            </span>
+          }
+          excerpt={post.excerpt}
         />
+
+        <section
+          sx={sx.section}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <hr />
         <footer></footer>
       </article>
 
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+      <nav sx={sx.navForPosts}>
+        <ul sx={sx.navList}>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -71,6 +71,42 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
+let sx = {
+  post: {
+    width: [320, , , 720],
+    margin: '0 auto',
+  },
+  banner: {
+    maxWidth: 720,
+    height: 480,
+    margin: '0 auto',
+    borderRadius: 4,
+  },
+  photoCredit: {
+    display: 'block',
+    width: '100%',
+    textAlign: 'right',
+  },
+  instagramLink: {
+    color: 'teal',
+    fontWeight: 'bold',
+    '&:active': {
+      color: 'teal',
+    },
+  },
+  navForPosts: {
+    width: [320, , , 720],
+    margin: '0 auto',
+  },
+  navList: {
+    display: `flex`,
+    flexWrap: `wrap`,
+    justifyContent: `space-between`,
+    listStyle: `none`,
+    padding: 0,
+  },
+}
+
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
@@ -88,6 +124,14 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        bannerCredit
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 720, quality: 100) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
       }
     }
   }
