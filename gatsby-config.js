@@ -4,7 +4,7 @@ module.exports = {
     author: {
       name: `Jon Major`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Jon Major Condon's Site`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `jonmajorc`,
@@ -78,6 +78,21 @@ module.exports = {
       options: {
         rule: {
           include: /\.inline\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/mdx-layout.js'),
         },
       },
     },

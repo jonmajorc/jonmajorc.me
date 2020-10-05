@@ -13,8 +13,20 @@ const FeaturedBlog = ({ className, ...props }) => {
   let Container = props.to ? Link : Div
 
   return (
-    <Container to={props.to} sx={sx.container} className={className}>
-      <Image fluid={props.image} />
+    <Container
+      to={props.to}
+      sx={{
+        ...sx.container,
+        transition: 'zoom',
+
+        ':hover': {
+          transform: 'scale(1.05)',
+          boxShadow: 'shadowHover',
+        },
+      }}
+      className={className}
+    >
+      <Image minWidth="140px" fluid={props.image} />
       <div sx={{ ...sx.excerpt, height: props.bannerCredit && 115 }}>
         <Styled.h5 sx={sx.title} className="bold">
           {props.title}

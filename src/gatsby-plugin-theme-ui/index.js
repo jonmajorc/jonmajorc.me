@@ -38,12 +38,16 @@ export default {
     newTextShadow: '-4px 2px 3px #e0e0e0',
     newContentBox: '0 4px 20px 0px rgba(0,0, 0, .25)',
     shadow1: '0 4px 8px 2px rgba(0,0,0,.25)',
+    shadowHover: '-1px 7px 16px 2px rgba(0,0,0,0.1)',
   },
   borders: {
     leatherPinStripe: '2px dashed #F8E9D6',
     buttonBorder: '3px solid #F68D2D',
     inputBottom: '1px solid #F8E9D6',
     inputBottomFocus: '1px solid #F68D2D',
+  },
+  transition: {
+    zoom: 'all 150ms cubic-bezier(0.53, 1.51, 0.69, 1.15)',
   },
   styles: {
     root: {

@@ -4,7 +4,7 @@
   modules
 \***************************************************************************/
 import React from 'react'
-import { jsx } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
 
 /***************************************************************************\
@@ -12,24 +12,18 @@ import { graphql } from 'gatsby'
 \***************************************************************************/
 import { Divider } from '../components/divider'
 import { FeaturedBlog } from '../components/featured-blog'
+import { BlogCard } from '../components/blog-card'
 import SEO from '../components/seo'
 import Layout from '../components/main-layout'
 
 const Blog = ({ data, location }) => {
   let siteTitle = data.site.siteMetadata.title
   let posts = data.allMarkdownRemark.edges
-  let categories = React.useMemo(
-    () =>
-      Array.from(
-        new Set(posts.flatMap((post) => post.node.frontmatter.categories))
-      ),
-    [posts]
-  )
-  console.log(categories)
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
+      <Styled.h4 sx={sx.latestText}>Latest!</Styled.h4>
       <FeaturedBlog
         sx={sx.featuredBlogPost}
         to={posts[0].node.fields.slug}
@@ -38,15 +32,41 @@ const Blog = ({ data, location }) => {
         image={posts[0].node.frontmatter.banner.childImageSharp.fluid}
         excerpt={posts[0].node.excerpt}
       />
-      <Divider />
+      <Divider sx={sx.divider} />
+      {posts.map(({ node: post }) => {
+        return (
+          <BlogCard
+            to={post.fields.slug}
+            image={post.frontmatter.banner.childImageSharp.fluid}
+            title={post.frontmatter.title}
+            excerpt={post.excerpt}
+            sx={sx.blogCard}
+          />
+        )
+      })}
     </Layout>
   )
 }
 
 let sx = {
   container: {},
+  latestText: {
+    marginBottom: '25px',
+    transform: 'rotate(-20deg)',
+    display: 'inline-block',
+    position: 'relative',
+    left: '30%',
+    display: 'none',
+  },
   featuredBlogPost: {
     cursor: 'pointer',
+  },
+  divider: {
+    margin: '72px 0',
+  },
+  blogCard: {
+    margin: '0 auto',
+    marginTop: 40,
   },
 }
 
@@ -62,7 +82,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
           fields {
             slug
           }

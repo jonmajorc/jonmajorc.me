@@ -50,6 +50,7 @@ const Footer = ({ className, ...props }) => {
         <input placeholder="your email" type="email" sx={sx.emailInput} />
         <Button sx={sx.submitContact}>Subscribe</Button>
       </div>
+      © {new Date().getFullYear()}
     </footer>
   )
 }

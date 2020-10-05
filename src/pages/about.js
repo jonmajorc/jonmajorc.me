@@ -50,7 +50,7 @@ const About = ({ data, location }) => {
             malesuada scelerisque.
           </Styled.p>
         }
-        image={data.banner.childImageSharp.fluid}
+        image={{ src: data.banner.childImageSharp.fluid }}
         alt={author.name}
       />
       <Divider sx={sx.divider} />

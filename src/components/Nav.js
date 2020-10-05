@@ -111,10 +111,9 @@ let sx = {
     position: 'sticky',
     top: 18,
     left: 122,
-    width: 240,
+    minWidth: 240,
     height: 70,
-    display: 'flex',
-    display: 'flex',
+    display: 'inline-flex',
     flexDirection: 'column',
   },
   navButton: {

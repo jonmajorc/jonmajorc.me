@@ -45,7 +45,7 @@ const Home = ({ data, location }) => {
             Coffee in one hand and a camera in the other...
           </React.Fragment>
         }
-        image={data.banner.childImageSharp.fluid}
+        image={{ src: data.banner.childImageSharp.fluid }}
         alt="a long road resembling the journey of life."
       />
       <Divider sx={sx.divider} />
