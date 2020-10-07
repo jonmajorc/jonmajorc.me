@@ -17,12 +17,15 @@ const FeaturedBlog = ({ className, ...props }) => {
       to={props.to}
       sx={{
         ...sx.container,
-        transition: 'zoom',
 
-        ':hover': {
-          transform: 'scale(1.05)',
-          boxShadow: 'shadowHover',
-        },
+        ...(props.to && {
+          transition: 'zoom',
+
+          ':hover': {
+            transform: 'scale(1.05)',
+            boxShadow: 'shadowHover',
+          },
+        }),
       }}
       className={className}
     >

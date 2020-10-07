@@ -54,6 +54,7 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       margin: '0 auto',
+      background: '#fdfdfd',
 
       '*': {
         boxSizing: 'border-box',

@@ -4,11 +4,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const result = await graphql(
     `
-      {
-        allMarkdownRemark(
+      query {
+        blogs: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -23,6 +22,17 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        mdxPages: allMdx {
+          edges {
+            node {
+              slug
+              frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+              }
+            }
+          }
+        }
       }
     `
   )
@@ -30,9 +40,9 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors
   }
-
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.blogs.edges
+  const allMdx = result.data.mdxPages.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -40,11 +50,32 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: blogPost,
+      component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         slug: post.node.fields.slug,
         previous,
         next,
+      },
+    })
+  })
+
+  allMdx.forEach((post, index) => {
+    console.log(post.node.slug)
+    if (post.node.slug === 'links') {
+      return createPage({
+        path: post.node.slug,
+        component: path.resolve(`./src/templates/links.js`),
+        context: {
+          slug: post.node.slug,
+        },
+      })
+    }
+
+    createPage({
+      path: post.node.slug,
+      component: path.resolve(`./src/templates/md-layout.js`),
+      context: {
+        slug: post.node.slug,
       },
     })
   })
@@ -59,6 +90,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+
+  if (node.internal.type === `Mdx`) {
+    let slug = createFilePath({ node, getNode, basePath: `pages` })
+
+    // const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `banner`,
+      node,
+      value: node.frontmatter.banner,
+    })
+
+    createNodeField({
+      name: 'slug',
+      node,
+      value: slug,
     })
   }
 }

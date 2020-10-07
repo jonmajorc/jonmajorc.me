@@ -84,15 +84,23 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
+        name: `src`,
+        path: `${__dirname}/content/pages`,
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
         defaultLayouts: {
-          default: require.resolve('./src/components/mdx-layout.js'),
+          default: require.resolve('./src/templates/md-layout.js'),
         },
       },
     },

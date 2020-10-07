@@ -115,6 +115,7 @@ let sx = {
     height: 70,
     display: 'inline-flex',
     flexDirection: 'column',
+    zIndex: 99999,
   },
   navButton: {
     cursor: 'pointer',

@@ -17,12 +17,14 @@ const PageHeader = (props) => {
         {props.header}
         <span sx={sx.text}>{props.text}</span>
       </div>
-      <Image
-        fluid={props.image.src}
-        alt={props.alt}
-        sx={sx.image}
-        className={props.image.className}
-      />
+      {props.image.src && (
+        <Image
+          fluid={props.image.src}
+          alt={props.alt}
+          sx={sx.image}
+          className={props.image.className}
+        />
+      )}
     </header>
   )
 }
