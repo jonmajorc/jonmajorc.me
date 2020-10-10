@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Fragment } from 'react'
-import { Nav } from '../components/nav'
-import { Footer } from '../components/footer'
+import { Nav } from 'components/nav'
+import { Footer } from 'components/footer'
 import '../styles.css'
 
 const Layout = ({ location, children, ...props }) => {
