@@ -45,7 +45,7 @@ let sx = {
   container: {
     position: 'relative',
     display: 'block',
-    width: [720],
+    maxWidth: 720,
     height: [420],
     borderRadius: 10,
     backgroundColor: 'b',
@@ -61,7 +61,7 @@ let sx = {
     right: 0,
     bottom: 0,
     textAlign: 'right',
-    padding: '22px 42px 22px 218px',
+    padding: ['22px 42px', '22px 42px 22px 218px'],
   },
   title: {
     color: 'w',

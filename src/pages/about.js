@@ -5,6 +5,7 @@
 \***************************************************************************/
 import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
+import { useMedia } from 'react-media'
 
 /***************************************************************************\
   components 
@@ -16,6 +17,7 @@ import { CollaborateCTA } from '../components/collaborate-cta'
 import { FavCard } from '../components/fav-card'
 import { InstagramCard } from '../components/instagram-card'
 import Layout from '../components/main-layout'
+import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
 
 /***************************************************************************\
   Assets
@@ -30,6 +32,7 @@ import Walking from '../images/walking.png'
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const { author } = data.site.siteMetadata
+  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -54,7 +57,7 @@ const About = ({ data, location }) => {
         alt={author.name}
       />
       <Divider sx={sx.divider} />
-      <Styled.h4 className="bold" sx={{ marginTop: 91, textAlign: 'center' }}>
+      <Styled.h4 className="bold" sx={{ marginTop: 191, textAlign: 'center' }}>
         // what I love to do
       </Styled.h4>
       <div sx={sx.favCards}>
@@ -75,7 +78,9 @@ const About = ({ data, location }) => {
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem massa,."
         />
       </div>
-      <CollaborateCTA sx={{ width: 1048, margin: '0 auto', marginTop: 72 }} />
+      <CollaborateCTA
+        sx={{ maxWidth: 1048, margin: '0 auto', marginTop: 72 }}
+      />
       <div sx={sx.instagramCards}>
         <InstagramCard
           title="// Desk setup and BTS goodies"
@@ -87,7 +92,10 @@ const About = ({ data, location }) => {
           link="/jonmajorc"
         />
         <InstagramCard
-          sx={{ marginLeft: 16 }}
+          sx={{
+            ...((matches.small || matches.medium) && { marginTop: 16 }),
+            ...(matches.xLarge && { marginTop: 0, marginLeft: 16 }),
+          }}
           title="// Dope stills and movers"
           images={[
             { img: MelSuge, alt: 'mel and suge' },
@@ -112,12 +120,16 @@ let sx = {
   favCards: {
     display: 'flex',
     justifyContent: 'center',
+    flexWrap: 'wrap',
+    maxWidth: [500, 500, 500, 1024],
+    margin: '0 auto',
     marginTop: 67,
   },
   instagramCards: {
     marginTop: 90,
     display: 'flex',
     justifyContent: 'center',
+    flexWrap: 'wrap',
   },
 }
 

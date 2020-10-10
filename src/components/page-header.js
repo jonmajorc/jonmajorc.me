@@ -21,7 +21,7 @@ const PageHeader = (props) => {
         <Image
           fluid={props.image.src}
           alt={props.alt}
-          sx={sx.image}
+          sx={{ ...sx.image, ...props.image.sx }}
           className={props.image.className}
         />
       )}
@@ -33,8 +33,8 @@ let sx = {
   container: {
     display: 'flex',
     justifyContent: 'space-between',
-    maxWidth: [, , 879, 1027],
-    padding: '0 13.5px',
+    maxWidth: [, , 879, 1024],
+    flexWrap: 'wrap',
   },
   textLeft: {
     display: 'flex',
@@ -50,14 +50,25 @@ let sx = {
     },
   },
   image: {
-    display: ['none !important', 'block !important'],
     borderRadius: 4,
-    width: 348,
+    width: [248, 248, 248, 348],
+    margin: '0 auto',
+
+    '&.full-width-banner': {
+      position: 'absolute !important',
+      top: 0,
+      left: 0,
+      right: 0,
+      width: '100%',
+      zIndex: -1,
+      height: 450,
+      borderRadius: 0,
+    },
   },
   text: {
     marginTop: 37,
     display: 'block',
-    fontSize: 3,
+    fontSize: [1, 1, 2, 3],
   },
 }
 

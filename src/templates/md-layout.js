@@ -14,12 +14,15 @@ import '../styles.css'
 const Layout = ({ location, children, ...props }) => {
   return (
     <Fragment>
-      <Nav location={location} />
+      <div className="nav-wrapper">
+        <Nav location={location} />
+      </div>
       <main
         sx={{
           width: '100%',
           margin: '0 auto',
-          marginTop: 144,
+          marginTop: [50, 50, 50, 144],
+          padding: ['0 20px', '0 50px'],
         }}
       >
         <PageHeader
@@ -30,7 +33,7 @@ const Layout = ({ location, children, ...props }) => {
           text={<Styled.p>{props.data.mdx.frontmatter.description}</Styled.p>}
           image={{
             src: props.data.mdx.frontmatter.banner.childImageSharp.fluid,
-            className: 'mdx-layout-image',
+            sx: { height: [140, 240], width: [140, 240] },
           }}
           alt={null}
         />
@@ -71,8 +74,9 @@ let sx = {
     marginBottom: 30,
   },
   content: {
-    width: [1024],
+    maxWidth: 1024,
     margin: '0 auto',
+    marginTop: [175],
 
     li: {
       margin: '10px 0',

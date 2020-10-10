@@ -21,8 +21,8 @@ const BlogCard = ({ className, ...props }) => {
 
 let sx = {
   container: {
-    width: 720,
-    height: 140,
+    maxWidth: 720,
+    maxHeight: [, 140],
     boxShadow: '2px 3px 4px 3px rgba(0, 0, 0, 0.1);',
     borderRadius: 10,
     overflow: 'hidden',
@@ -38,7 +38,6 @@ let sx = {
     },
   },
   image: {
-    height: 140,
     minWidth: 140,
   },
   content: {

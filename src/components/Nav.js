@@ -109,8 +109,6 @@ let LOGO_WIDTH = 110
 let sx = {
   container: {
     position: 'sticky',
-    top: 18,
-    left: 122,
     minWidth: 240,
     height: 70,
     display: 'inline-flex',

@@ -1,5 +1,14 @@
 import 'what-input'
 
+const breakpoints = ['599px', '600px', '900px', '1200px']
+
+export const GLOBAL_MEDIA_QUERIES = {
+  small: `(max-width: ${breakpoints[0]})`,
+  medium: `(min-width: ${breakpoints[1]})`,
+  large: `(min-width: ${breakpoints[2]})`,
+  xLarge: `(min-width: ${breakpoints[3]})`,
+}
+
 export default {
   colors: {
     text: '#1B1616',
@@ -15,12 +24,7 @@ export default {
     darkOrange: '#BD5113',
     teal: '#95D0B8',
   },
-  breakpoints: [
-    '30em', //480px
-    '48em', //768px
-    '62em', //992px
-    '75em', //1200px
-  ],
+  breakpoints,
   fontWeights: {
     body: 400,
     heading: 700,
@@ -69,11 +73,22 @@ export default {
           transition: 'none !important',
         },
       },
+
+      '.nav-wrapper': {
+        maxWidth: 1324,
+        margin: [, '0 50px', '0 50px', '0 auto'],
+        display: ['flex', 'block'],
+        justifyContent: 'center',
+        position: 'sticky',
+        top: 18,
+        zIndex: 10,
+        padding: '0 50px',
+      },
     },
     h1: {
       color: '#403D39',
       fontFamily: 'heading',
-      fontSize: [4, 5, 6, 6, 7],
+      fontSize: [4, 5, 5, 6, 7],
       letterSpacing: -1,
       margin: 0,
       whiteSpace: 'nowrap',

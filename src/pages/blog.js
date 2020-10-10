@@ -33,14 +33,14 @@ const Blog = ({ data, location }) => {
         excerpt={posts[0].node.excerpt}
       />
       <Divider sx={sx.divider} />
-      {posts.map(({ node: post }) => {
+      {posts.map(({ node: post }, index) => {
         return (
           <BlogCard
             to={post.fields.slug}
             image={post.frontmatter.banner.childImageSharp.fluid}
             title={post.frontmatter.title}
             excerpt={post.excerpt}
-            sx={sx.blogCard}
+            sx={{ ...sx.blogCard, marginTop: index === 0 ? 172 : 40 }}
           />
         )
       })}

@@ -57,21 +57,22 @@ const Footer = ({ className, ...props }) => {
 
 let sx = {
   container: {
-    height: 383,
     width: '100%',
     backgroundColor: 'b',
     marginTop: 128,
+    paddingBottom: 50,
   },
   leatherPinStripe: {
     borderBottom: 'leatherPinStripe',
     paddingTop: 14,
   },
   icons: {
-    width: '820px',
+    maxWidth: [520, 520, 820],
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'space-evenly',
     marginTop: 14,
+    flexWrap: 'wrap',
   },
   icon: {
     display: 'inline-flex',
@@ -79,6 +80,7 @@ let sx = {
     textDecoration: 'none',
     color: 'beige',
     fontSize: 2,
+    marginBottom: 10,
 
     svg: {
       width: 35,
@@ -92,7 +94,7 @@ let sx = {
 
   subscribeTitle: {
     display: 'block',
-    marginTop: 78,
+    marginTop: [40, 78],
     color: 'beige',
     fontSize: [2, 2, 3, 4],
     fontWeight: 'bold',

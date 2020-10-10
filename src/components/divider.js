@@ -33,36 +33,41 @@ const Divider = ({ className, ...props }) => {
   // })
 
   return (
-    <div sx={divider} className={className}>
-      <hr className="divider-line divider-line--left" />
-      <div className="divider-icons">
+    <div sx={sx.container} className={className}>
+      <hr sx={sx.dividerLine} className="divider-line--left" />
+      <div sx={sx.icons}>
         <a href="#">
-          <Instagram />
+          <Instagram sx={sx.icon} />
         </a>
         <a href="#">
-          <Twitter />
+          <Twitter sx={sx.icon} />
         </a>
         <a href="#">
-          <Github />
+          <Github sx={sx.icon} />
         </a>
         <a href="#">
-          <Youtube />
+          <Youtube sx={sx.icon} />
         </a>
         <a href="#">
-          <Patreon />
+          <Patreon sx={sx.icon} />
         </a>
       </div>
-      <hr className="divider-line divider-line--right" />
+      <hr sx={sx.dividerLine} className="divider-line--right" />
     </div>
   )
 }
 
-let divider = {
-  display: 'flex',
-  alignItems: 'center',
-  backgroundColor: 'w',
+let sx = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'w',
+    position: 'absolute',
+    left: 0,
+    width: '100%',
+  },
 
-  '.divider-icons': {
+  icons: {
     '> a:first-of-type': {
       marginLeft: 35,
     },
@@ -76,17 +81,21 @@ let divider = {
     },
   },
 
-  '.divider-line': {
+  icon: {
+    width: [25, 25, 31],
+  },
+
+  dividerLine: {
     borderTop: (theme) => `2px dashed ${theme.colors.lightBlack}`,
 
-    '&--left': {
-      flex: 4,
+    '&.divider-line--left': {
+      flex: [1, 4],
 
       '@media (min-width: 2000px)': {
         flex: 2,
       },
     },
-    '&--right': {
+    '&.divider-line--right': {
       flex: 1,
     },
   },

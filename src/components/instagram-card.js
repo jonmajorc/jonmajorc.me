@@ -32,7 +32,7 @@ const InstagramCard = ({ className, ...props }) => {
 
 let sx = {
   container: {
-    width: 516,
+    maxWidth: 516,
     height: 295,
     borderRadius: 10,
     backgroundColor: 'b',
@@ -52,7 +52,7 @@ let sx = {
     display: 'flex',
   },
   image: {
-    width: 172,
+    maxWidth: [110, 130, 172],
     objectFit: 'cover',
   },
   igLink: {

@@ -6,6 +6,7 @@
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
+import { useMedia } from 'react-media'
 
 /***************************************************************************\
  components
@@ -15,10 +16,11 @@ import { CollaborateCTA } from '../components/collaborate-cta'
 import { ContentCard } from '../components/content-card'
 import { PageHeader } from '../components/page-header'
 import Layout from '../components/main-layout'
+import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
 
 /***************************************************************************\
-  assets
-\***************************************************************************/
+ assets
+ \***************************************************************************/
 import Mercedes from '../images/mercedes.png'
 import MelSuge from '../images/mel-suge.png'
 import Walking from '../images/walking.png'
@@ -26,7 +28,7 @@ import SEO from '../components/seo'
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const { author } = data.site.siteMetadata
+  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -35,21 +37,68 @@ const Home = ({ data, location }) => {
         sx={sx.pageHeader}
         header={
           <React.Fragment>
-            <Styled.h1>&#47;&#47; Welcome,</Styled.h1>
-            <Styled.h1>&#47;&#47; to my Journey!</Styled.h1>
+            <Styled.h1
+              sx={{
+                ...(matches.small && { color: 'w' }),
+                ...(matches.medium && { color: 'w', whiteSpace: 'pre-wrap' }),
+                ...(matches.large && { color: 'text', whiteSpace: 'nowrap' }),
+                '&&': {
+                  fontSize: matches.medium && 5,
+                  fontSize: matches.small && 4,
+                },
+              }}
+            >
+              &#47;&#47; Welcome,
+            </Styled.h1>
+            <Styled.h1
+              sx={{
+                ...(matches.small && { color: 'w' }),
+                ...(matches.medium && { color: 'w', whiteSpace: 'pre-wrap' }),
+                ...(matches.large && { color: 'text', whiteSpace: 'nowrap' }),
+                '&&': {
+                  fontSize: matches.medium && 5,
+                  fontSize: matches.small && 4,
+                },
+              }}
+            >
+              &#47;&#47; to my Journey!
+            </Styled.h1>
           </React.Fragment>
         }
         text={
-          <React.Fragment>
+          <span
+            sx={{
+              ...(matches.small && { color: 'w' }),
+              ...(matches.medium && { color: 'w' }),
+              ...(matches.large && { color: 'text' }),
+            }}
+          >
             I write code. I run with <strong>Jesus, the Son of God.</strong>{' '}
             Coffee in one hand and a camera in the other...
-          </React.Fragment>
+          </span>
         }
-        image={{ src: data.banner.childImageSharp.fluid }}
+        image={{
+          src: data.banner.childImageSharp.fluid,
+          ...(matches.small && { className: 'full-width-banner' }),
+          ...(matches.medium && { className: 'full-width-banner' }),
+          ...(matches.large && { className: null }),
+        }}
         alt="a long road resembling the journey of life."
       />
-      <Divider sx={sx.divider} />
-      <CollaborateCTA sx={sx.collaborateCard} />
+      <Divider
+        sx={{
+          ...(matches.small && { marginTop: 175 }),
+          ...(matches.medium && { marginTop: 125 }),
+          ...(matches.large && { marginTop: 75 }),
+        }}
+      />
+      <CollaborateCTA
+        sx={{
+          ...sx.collaborateCard,
+          ...(matches.small && { marginTop: 240 }),
+          ...(matches.medium && { marginTop: 190 }),
+        }}
+      />
       <ContentCard
         reverse
         header="// Business stills / movers"
@@ -78,16 +127,12 @@ let sx = {
     marginTop: 144,
     margin: '0 auto',
   },
-  divider: {
-    marginTop: 72,
-  },
   collaborateCard: {
-    width: 1048,
+    maxWidth: 1048,
     margin: '0 auto',
-    marginTop: 72,
   },
   contentCard: {
-    width: 1048,
+    maxWidth: 1048,
     margin: '0 auto',
     marginTop: 72,
   },

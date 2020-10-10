@@ -1,12 +1,34 @@
 /** @jsx jsx */
+
+/***************************************************************************\
+  modules
+\***************************************************************************/
 import { jsx, Styled } from 'theme-ui'
+import { useMedia } from 'react-media'
+
+/***************************************************************************\
+ components
+ \***************************************************************************/
 import { Button } from './button'
+import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
 
 const CollaborateCTA = ({ className, ...props }) => {
+  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
   return (
     <div sx={{ ...sx.container }} className={className}>
-      <div sx={sx.leatherPinStripe}>
-        <div sx={sx.left}>
+      <div
+        sx={{
+          ...sx.leatherPinStripe,
+          ...(matches.small && { padding: 20 }),
+          ...(matches.medium && { padding: 20 }),
+          ...(matches.large && { padding: '31px 102px 23px 63px' }),
+        }}
+      >
+        <div
+          sx={{
+            ...(matches.medium && { flex: 1 }),
+          }}
+        >
           <Styled.h3 className="bold" sx={sx.header}>
             Let's Collaborate!
           </Styled.h3>
@@ -17,7 +39,13 @@ const CollaborateCTA = ({ className, ...props }) => {
             elementum sit amet augue vitae ornare.{' '}
           </span>
         </div>
-        <div sx={sx.right}>
+        <div
+          sx={{
+            ...sx.right,
+            ...(matches.medium && { paddingLeft: 50 }),
+            ...(matches.large && { paddingLeft: 178 }),
+          }}
+        >
           <Button>contact</Button>
         </div>
       </div>
@@ -34,8 +62,8 @@ let sx = {
   leatherPinStripe: {
     border: 'leatherPinStripe',
     borderRadius: 5,
-    padding: '31px 102px 23px 63px',
     display: 'flex',
+    flexWrap: 'wrap',
   },
   header: {
     color: 'beige',
@@ -47,12 +75,11 @@ let sx = {
     color: 'w',
     lineHeight: '182.5%',
   },
-  left: {},
   right: {
-    paddingLeft: 178,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    margin: '15px auto',
   },
 }
 

@@ -8,12 +8,15 @@ import '../styles.css'
 const Layout = ({ location, children, ...props }) => {
   return (
     <Fragment>
-      <Nav location={location} />
+      <div className="nav-wrapper">
+        <Nav location={location} />
+      </div>
       <main
         sx={{
           width: '100%',
           margin: '0 auto',
-          marginTop: 144,
+          marginTop: [50, 50, 50, 144],
+          padding: ['0 20px', '0 50px'],
         }}
       >
         {children}
