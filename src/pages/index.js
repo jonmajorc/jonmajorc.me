@@ -26,11 +26,18 @@ import MelSuge from 'images/mel-suge.png'
 import Walking from 'images/walking.png'
 import SEO from 'components/seo'
 
+import parser from 'ua-parser-js'
+
+function isUserAgentSignallingMobile() {
+  const ua = parser(window.navigator.userAgent)
+  return ua.device.type === 'mobile'
+}
+
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const matches = useMedia({
     queries: GLOBAL_MEDIA_QUERIES,
-    defaultMatches: { small: true },
+    defaultMatches: isUserAgentSignallingMobile(),
   })
 
   return (

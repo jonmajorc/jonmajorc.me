@@ -45,6 +45,7 @@
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19",
+    "ua-parser-js": "^0.7.22",
     "what-input": "^5.2.10"
   },
   "devDependencies": {

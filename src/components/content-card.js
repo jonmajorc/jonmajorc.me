@@ -10,9 +10,18 @@ import { useMedia } from 'react-media'
   components
 \***************************************************************************/
 import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
+import parser from 'ua-parser-js'
+
+function isUserAgentSignallingMobile() {
+  const ua = parser(window.navigator.userAgent)
+  return ua.device.type === 'mobile'
+}
 
 const ContentCard = ({ className, ...props }) => {
-  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
+  const matches = useMedia({
+    queries: GLOBAL_MEDIA_QUERIES,
+    defaultMatches: { small: isUserAgentSignallingMobile() },
+  })
   return (
     <div
       sx={{
