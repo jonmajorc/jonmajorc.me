@@ -1,11 +1,28 @@
+const proxy = require('http-proxy-middleware')
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
+  developMiddleware: (app) => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   siteMetadata: {
-    title: `Jon Major`,
+    title: 'Jon Major',
+    description: 'Portfolio',
+    siteUrl: 'https://jonmajorc.me',
     author: {
       name: `Jon Major`,
     },
     description: `Jon Major Condon's Site`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `jonmajorc`,
     },
