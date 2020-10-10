@@ -37,7 +37,7 @@ const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const matches = useMedia({
     queries: GLOBAL_MEDIA_QUERIES,
-    defaultMatches: isUserAgentSignallingMobile(),
+    defaultMatches: { small: isUserAgentSignallingMobile() },
   })
 
   return (
