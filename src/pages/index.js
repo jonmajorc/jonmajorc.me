@@ -28,7 +28,10 @@ import SEO from 'components/seo'
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
+  const matches = useMedia({
+    queries: GLOBAL_MEDIA_QUERIES,
+    defaultMatches: { small: true },
+  })
 
   return (
     <Layout location={location} title={siteTitle}>

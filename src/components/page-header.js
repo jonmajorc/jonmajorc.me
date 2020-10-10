@@ -34,6 +34,7 @@ let sx = {
     display: 'flex',
     justifyContent: 'space-between',
     maxWidth: [, , 879, 1024],
+    flexWrap: 'wrap',
   },
   textLeft: {
     display: 'flex',
