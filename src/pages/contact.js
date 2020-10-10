@@ -9,9 +9,9 @@ import { graphql } from 'gatsby'
 /***************************************************************************\
   components 
 \***************************************************************************/
-import SEO from '../components/seo'
-import Layout from '../components/main-layout'
-import { ContactForm } from '../components/contact-form'
+import SEO from 'components/seo'
+import Layout from 'components/main-layout'
+import { ContactForm } from 'components/contact-form'
 
 const Contact = ({ data, location }) => {
   let siteTitle = data.site.siteMetadata.title

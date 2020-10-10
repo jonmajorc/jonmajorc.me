@@ -60,7 +60,6 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   allMdx.forEach((post, index) => {
-    console.log(post.node.slug)
     if (post.node.slug === 'links') {
       return createPage({
         path: post.node.slug,
