@@ -24,7 +24,7 @@ import { GLOBAL_MEDIA_QUERIES } from 'src/gatsby-plugin-theme-ui'
 \***************************************************************************/
 import Photographer from 'images/photographer.inline.svg'
 import Code from 'images/code.inline.svg'
-import Cinematographer from 'images/Cinematographer.inline.svg'
+import Cinematographer from 'images/cinematographer.inline.svg'
 import Mercedes from 'images/mercedes.png'
 import MelSuge from 'images/mel-suge.png'
 import Walking from 'images/walking.png'
