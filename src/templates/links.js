@@ -10,7 +10,7 @@ import { CollaborateCTA } from 'components/collaborate-cta'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import '../styles.css'
+import 'src/styles.css'
 
 const Layout = ({ location, children, ...props }) => {
   return (

@@ -10,24 +10,24 @@ import { useMedia } from 'react-media'
 /***************************************************************************\
   components 
 \***************************************************************************/
-import { Divider } from '../components/divider'
-import { PageHeader } from '../components/page-header'
-import SEO from '../components/seo'
-import { CollaborateCTA } from '../components/collaborate-cta'
-import { FavCard } from '../components/fav-card'
-import { InstagramCard } from '../components/instagram-card'
-import Layout from '../components/main-layout'
-import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
+import { Divider } from 'components/divider'
+import { PageHeader } from 'components/page-header'
+import SEO from 'components/seo'
+import { CollaborateCTA } from 'components/collaborate-cta'
+import { FavCard } from 'components/fav-card'
+import { InstagramCard } from 'components/instagram-card'
+import Layout from 'components/main-layout'
+import { GLOBAL_MEDIA_QUERIES } from 'src/gatsby-plugin-theme-ui'
 
 /***************************************************************************\
   Assets
 \***************************************************************************/
-import Photographer from '../images/photographer.inline.svg'
-import Code from '../images/code.inline.svg'
-import Cinematographer from '../images/Cinematographer.inline.svg'
-import Mercedes from '../images/mercedes.png'
-import MelSuge from '../images/mel-suge.png'
-import Walking from '../images/walking.png'
+import Photographer from 'images/photographer.inline.svg'
+import Code from 'images/code.inline.svg'
+import Cinematographer from 'images/Cinematographer.inline.svg'
+import Mercedes from 'images/mercedes.png'
+import MelSuge from 'images/mel-suge.png'
+import Walking from 'images/walking.png'
 
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title

@@ -10,9 +10,9 @@ import Image from 'gatsby-image'
 /***************************************************************************\
  components
  \***************************************************************************/
-import { FeaturedBlog } from '../components/featured-blog'
-import Layout from '../components/main-layout'
-import SEO from '../components/seo'
+import { FeaturedBlog } from 'components/featured-blog'
+import Layout from 'components/main-layout'
+import SEO from 'components/seo'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark

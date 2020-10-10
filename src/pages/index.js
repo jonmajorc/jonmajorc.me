@@ -11,20 +11,20 @@ import { useMedia } from 'react-media'
 /***************************************************************************\
  components
  \***************************************************************************/
-import { Divider } from '../components/divider'
-import { CollaborateCTA } from '../components/collaborate-cta'
-import { ContentCard } from '../components/content-card'
-import { PageHeader } from '../components/page-header'
-import Layout from '../components/main-layout'
-import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
+import { Divider } from 'components/divider'
+import { CollaborateCTA } from 'components/collaborate-cta'
+import { ContentCard } from 'components/content-card'
+import { PageHeader } from 'components/page-header'
+import Layout from 'components/main-layout'
+import { GLOBAL_MEDIA_QUERIES } from 'src/gatsby-plugin-theme-ui'
 
 /***************************************************************************\
  assets
  \***************************************************************************/
-import Mercedes from '../images/mercedes.png'
-import MelSuge from '../images/mel-suge.png'
-import Walking from '../images/walking.png'
-import SEO from '../components/seo'
+import Mercedes from 'images/mercedes.png'
+import MelSuge from 'images/mel-suge.png'
+import Walking from 'images/walking.png'
+import SEO from 'components/seo'
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title

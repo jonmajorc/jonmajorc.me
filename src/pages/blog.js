@@ -10,11 +10,11 @@ import { graphql } from 'gatsby'
 /***************************************************************************\
   components 
 \***************************************************************************/
-import { Divider } from '../components/divider'
-import { FeaturedBlog } from '../components/featured-blog'
-import { BlogCard } from '../components/blog-card'
-import SEO from '../components/seo'
-import Layout from '../components/main-layout'
+import { Divider } from 'components/divider'
+import { FeaturedBlog } from 'components/featured-blog'
+import { BlogCard } from 'components/blog-card'
+import SEO from 'components/seo'
+import Layout from 'components/main-layout'
 
 const Blog = ({ data, location }) => {
   let siteTitle = data.site.siteMetadata.title
