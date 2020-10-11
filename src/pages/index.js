@@ -58,6 +58,11 @@ const Home = ({ data, location }) => {
             zIndex: -1,
             height: 450,
             borderRadius: 0,
+
+            [mq[1]]: {
+              position: 'relative !important',
+              width: 348,
+            },
           },
         }}
         alt="a long road resembling the journey of life."

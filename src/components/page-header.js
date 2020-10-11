@@ -54,11 +54,6 @@ let sx = {
     borderRadius: 4,
     width: [248, 248, 248, 348],
     margin: '0 auto',
-
-    [mq[1]]: {
-      position: 'relative !important',
-      width: 348,
-    },
   },
   text: {
     marginTop: 37,
