@@ -124,6 +124,7 @@ export default {
     link: {
       color: 'beige',
       textDecoration: 'none',
+      fontFamily: 'body',
 
       '&:hover': {
         color: 'darkOrange',

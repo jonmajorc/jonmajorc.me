@@ -46,7 +46,9 @@ const Footer = ({ className, ...props }) => {
         </a>
       </div>
       <div sx={sx.subscribeContainer}>
-        <span sx={sx.subscribeTitle}>Subscribe to my newsletter!</span>
+        <Styled.h4 sx={sx.subscribeTitle}>
+          Subscribe to my newsletter!
+        </Styled.h4>
         <input placeholder="your email" type="email" sx={sx.emailInput} />
         <Button sx={sx.submitContact}>Subscribe</Button>
       </div>
@@ -109,6 +111,7 @@ let sx = {
     width: '100%',
     paddingTop: 64,
     fontSize: [2],
+    borderRadius: 0,
 
     ':placeholder': {
       color: '#C4C4C4',
@@ -122,7 +125,7 @@ let sx = {
 
   subscribeContainer: {
     margin: '0 auto',
-    width: 300,
+    width: 330,
     textAlign: 'center',
   },
 
