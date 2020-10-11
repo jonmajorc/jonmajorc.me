@@ -8,6 +8,7 @@ import { Divider } from 'components/divider'
 import { CollaborateCTA } from 'components/collaborate-cta'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { mq } from '../gatsby-plugin-theme-ui'
 
 import 'src/styles.css'
 
@@ -30,10 +31,14 @@ const Layout = ({ location, children, ...props }) => {
           header={
             <Styled.h1>&#47;&#47; {props.data.mdx.frontmatter.title}</Styled.h1>
           }
-          text={<Styled.p>{props.data.mdx.frontmatter.description}</Styled.p>}
+          text={
+            <Styled.p sx={sx.text}>
+              {props.data.mdx.frontmatter.description}
+            </Styled.p>
+          }
           image={{
             src: props.data.mdx.frontmatter.banner.childImageSharp.fluid,
-            sx: { height: [140, 240], width: [140, 240] },
+            sx: { height: 240, width: 240 },
           }}
           alt={null}
         />
@@ -72,6 +77,13 @@ let sx = {
   lastUpdatedText: {
     display: 'block',
     marginBottom: 30,
+  },
+  text: {
+    display: 'none',
+
+    [mq[2]]: {
+      display: 'block',
+    },
   },
   content: {
     maxWidth: 1024,

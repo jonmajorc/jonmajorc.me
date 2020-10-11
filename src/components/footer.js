@@ -69,7 +69,7 @@ let sx = {
     paddingTop: 14,
   },
   icons: {
-    maxWidth: [520, 520, 820],
+    maxWidth: [350, 520, 820],
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'space-evenly',
@@ -98,7 +98,7 @@ let sx = {
     display: 'block',
     marginTop: [40, 78],
     color: 'beige',
-    fontSize: [2, 2, 3, 4],
+    fontSize: [2, 2, 3, 3],
     fontWeight: 'bold',
   },
 

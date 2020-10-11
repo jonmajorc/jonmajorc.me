@@ -1,4 +1,5 @@
 import 'what-input'
+import 'typeface-lato'
 
 const breakpoints = ['600px', '900px', '1200px']
 
@@ -68,6 +69,8 @@ export default {
           transition: 'none !important',
         },
       },
+
+      body: {},
 
       '.nav-wrapper': {
         maxWidth: 1324,

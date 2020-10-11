@@ -3,13 +3,12 @@
 /***************************************************************************\
   modules
 \***************************************************************************/
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 
 /***************************************************************************\
   components
 \***************************************************************************/
 import Image from 'gatsby-image'
-import { mq } from 'src/gatsby-plugin-theme-ui'
 
 const PageHeader = (props) => {
   return (
@@ -34,7 +33,7 @@ let sx = {
   container: {
     display: 'flex',
     justifyContent: 'space-between',
-    maxWidth: [, , 879, 1024],
+    maxWidth: 1024,
     flexWrap: 'wrap',
   },
   textLeft: {
@@ -52,7 +51,7 @@ let sx = {
   },
   image: {
     borderRadius: 4,
-    width: [248, 248, 248, 348],
+    width: [248, 348],
     margin: '0 auto',
   },
   text: {
