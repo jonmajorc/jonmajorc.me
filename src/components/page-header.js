@@ -9,6 +9,7 @@ import { jsx, Styled } from 'theme-ui'
   components
 \***************************************************************************/
 import Image from 'gatsby-image'
+import { mq } from 'src/gatsby-plugin-theme-ui'
 
 const PageHeader = (props) => {
   return (
@@ -54,15 +55,9 @@ let sx = {
     width: [248, 248, 248, 348],
     margin: '0 auto',
 
-    '&.full-width-banner': {
-      position: 'absolute !important',
-      top: 0,
-      left: 0,
-      right: 0,
-      width: '100%',
-      zIndex: -1,
-      height: 450,
-      borderRadius: 0,
+    [mq[1]]: {
+      position: 'relative !important',
+      width: 348,
     },
   },
   text: {

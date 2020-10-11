@@ -52,7 +52,7 @@ let sx = {
     display: 'flex',
   },
   image: {
-    maxWidth: [110, 130, 172],
+    maxWidth: [110, 140, 165],
     objectFit: 'cover',
   },
   igLink: {

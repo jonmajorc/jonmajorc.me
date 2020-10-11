@@ -4,31 +4,18 @@
   modules
 \***************************************************************************/
 import { jsx, Styled } from 'theme-ui'
-import { useMedia } from 'react-media'
 
 /***************************************************************************\
  components
  \***************************************************************************/
 import { Button } from './button'
-import { GLOBAL_MEDIA_QUERIES } from '../gatsby-plugin-theme-ui'
+import { mq } from '../gatsby-plugin-theme-ui'
 
 const CollaborateCTA = ({ className, ...props }) => {
-  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
   return (
-    <div sx={{ ...sx.container }} className={className}>
-      <div
-        sx={{
-          ...sx.leatherPinStripe,
-          ...(matches.small && { padding: 20 }),
-          ...(matches.medium && { padding: 20 }),
-          ...(matches.large && { padding: '31px 102px 23px 63px' }),
-        }}
-      >
-        <div
-          sx={{
-            ...(matches.medium && { flex: 1 }),
-          }}
-        >
+    <div sx={sx.container} className={className}>
+      <div sx={sx.leatherPinStripe}>
+        <div sx={sx.left}>
           <Styled.h3 className="bold" sx={sx.header}>
             Let's Collaborate!
           </Styled.h3>
@@ -39,13 +26,7 @@ const CollaborateCTA = ({ className, ...props }) => {
             elementum sit amet augue vitae ornare.{' '}
           </span>
         </div>
-        <div
-          sx={{
-            ...sx.right,
-            ...(matches.medium && { paddingLeft: 50 }),
-            ...(matches.large && { paddingLeft: 178 }),
-          }}
-        >
+        <div sx={sx.right}>
           <Button>contact</Button>
         </div>
       </div>
@@ -58,12 +39,14 @@ let sx = {
     backgroundColor: 'b',
     borderRadius: 10,
     padding: 11,
+    maxWidth: 1024,
   },
   leatherPinStripe: {
     border: 'leatherPinStripe',
     borderRadius: 5,
     display: 'flex',
     flexWrap: 'wrap',
+    padding: [20, 20, '31px 102px 23px 63px'],
   },
   header: {
     color: 'beige',
@@ -75,11 +58,19 @@ let sx = {
     color: 'w',
     lineHeight: '182.5%',
   },
+  left: {
+    [mq[1]]: {
+      flex: 1,
+    },
+  },
   right: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
     margin: '15px auto',
+
+    [mq[1]]: { paddingLeft: 50 },
+    [mq[2]]: { paddingLeft: 178 },
   },
 }
 

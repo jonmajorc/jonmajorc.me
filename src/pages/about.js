@@ -5,7 +5,6 @@
 \***************************************************************************/
 import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
-import { useMedia } from 'react-media'
 
 /***************************************************************************\
   components 
@@ -17,7 +16,6 @@ import { CollaborateCTA } from 'components/collaborate-cta'
 import { FavCard } from 'components/fav-card'
 import { InstagramCard } from 'components/instagram-card'
 import Layout from 'components/main-layout'
-import { GLOBAL_MEDIA_QUERIES } from 'src/gatsby-plugin-theme-ui'
 
 /***************************************************************************\
   Assets
@@ -32,7 +30,6 @@ import Walking from 'images/walking.png'
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const { author } = data.site.siteMetadata
-  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES })
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -78,11 +75,10 @@ const About = ({ data, location }) => {
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem massa,."
         />
       </div>
-      <CollaborateCTA
-        sx={{ maxWidth: 1048, margin: '0 auto', marginTop: 72 }}
-      />
+      <CollaborateCTA sx={sx.letsCollaborate} />
       <div sx={sx.instagramCards}>
         <InstagramCard
+          sx={sx.instagramCardFirst}
           title="// Desk setup and BTS goodies"
           images={[
             { img: MelSuge, alt: 'mel and suge' },
@@ -92,10 +88,7 @@ const About = ({ data, location }) => {
           link="/jonmajorc"
         />
         <InstagramCard
-          sx={{
-            ...((matches.small || matches.medium) && { marginTop: 16 }),
-            ...(matches.xLarge && { marginTop: 0, marginLeft: 16 }),
-          }}
+          sx={sx.instagramCardLast}
           title="// Dope stills and movers"
           images={[
             { img: MelSuge, alt: 'mel and suge' },
@@ -117,19 +110,35 @@ let sx = {
   divider: {
     marginTop: 72,
   },
+  letsCollaborate: {
+    margin: '0 auto',
+    marginTop: 72,
+  },
   favCards: {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    maxWidth: [500, 500, 500, 1024],
+    maxWidth: [500, 500, 1024],
     margin: '0 auto',
     marginTop: 67,
   },
   instagramCards: {
+    maxWidth: 1024,
+    margin: '0 auto',
     marginTop: 90,
     display: 'flex',
-    justifyContent: 'center',
     flexWrap: 'wrap',
+    justifyContent: 'space-between',
+
+    ['@media (max-width: 1095px)']: {
+      justifyContent: 'center',
+    },
+  },
+  instagramCardFirst: {
+    marginTop: 10,
+  },
+  instagramCardLast: {
+    marginTop: 10,
   },
 }
 

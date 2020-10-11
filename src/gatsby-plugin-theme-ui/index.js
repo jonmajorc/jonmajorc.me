@@ -1,13 +1,8 @@
 import 'what-input'
 
-const breakpoints = ['599px', '600px', '900px', '1200px']
+const breakpoints = ['600px', '900px', '1200px']
 
-export const GLOBAL_MEDIA_QUERIES = {
-  small: `(max-width: ${breakpoints[0]})`,
-  medium: `(min-width: ${breakpoints[1]})`,
-  large: `(min-width: ${breakpoints[2]})`,
-  xLarge: `(min-width: ${breakpoints[3]})`,
-}
+export const mq = breakpoints.map((bp) => `@media (min-width: ${bp})`)
 
 export default {
   colors: {
