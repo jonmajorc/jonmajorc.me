@@ -20,14 +20,14 @@ const CollaborateCTA = ({ className, ...props }) => {
             Let's Collaborate!
           </Styled.h3>
           <span sx={sx.text}>
-            Ut aliquet ipsum leo, sit amet tempus justo lacinia vel. Fusce
-            ultrices leo justo, id faucibus est lacinia id. Phasellus eleifend
-            risus et augue vehicula sodales. Suspendisse potenti. Etiam
-            elementum sit amet augue vitae ornare.{' '}
+            YOU — ME — Let's do this! Although I am a full time software
+            developer at fm.co. I've been in the software industry for just over
+            7 years, but as of now I am only looking to collaborate on something
+            that will help boost my experience in photography and filmmaking!
           </span>
         </div>
         <div sx={sx.right}>
-          <Button>contact</Button>
+          <Button to="/contact">contact</Button>
         </div>
       </div>
     </div>

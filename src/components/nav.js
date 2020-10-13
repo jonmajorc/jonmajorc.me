@@ -49,10 +49,12 @@ const Nav = ({ location }) => {
           ...sx.navItems,
           ...(isOpen
             ? {
-                display: 'block',
+                visibility: 'visible',
+                opacity: 1,
               }
             : {
-                display: 'none',
+                visibility: 'hidden',
+                opacity: 0,
               }),
         }}
       >
@@ -155,6 +157,7 @@ let sx = {
     borderRadius: '0 0 25px 25px',
     padding: 30,
     paddingTop: 60,
+    transition: 'all 250ms cubic-bezier(0.74, 0.01, 0.32, 0.68)',
   },
   navLink: {
     display: 'block',

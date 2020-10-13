@@ -39,15 +39,14 @@ const About = ({ data, location }) => {
         header={<Styled.h1>&#47;&#47; About</Styled.h1>}
         text={
           <Styled.p>
-            Nam eu mollis sem. Nullam eleifend nulla molestie mauris aliquam
-            tincidunt. Praesent ex tortor, mollis eu enim in, elementum pulvinar
-            leo. Suspendisse sit amet neque libero. Mauris sit amet ligula vitae
-            sem molestie tempor id eget nisi. Nam dignissim malesuada est eget
-            commodo. Nulla feugiat massa sed pellentesque pretium. Nullam
-            eleifend tortor elit, in rhoncus nisl dictum a. Integer sed tempor
-            massa. Suspendisse ligula elit, mattis at condimentum vitae, ornare
-            auctor neque. Nulla facilisi. Pellentesque non ante eget odio
-            malesuada scelerisque.
+            Hello, my name is Jon Major Condon! I am a software developer @
+            fm.co, working on Musicbed and Filmsupply. I also love doing other
+            creative things outside of software, such as filmmaking and
+            photography. It's kinda funny, I bought a camera in the 2019 for the
+            intentions to start making coding content... BUT, I got distracted
+            trying to figure out how to work the camera and became interested in
+            something photography and filmmaking. I guess you'll see a hybrid of
+            filmmaking, photorgraphy, and software development from me!
           </Styled.p>
         }
         image={{ src: data.banner.childImageSharp.fluid }}
@@ -61,22 +60,25 @@ const About = ({ data, location }) => {
         <FavCard
           icon={<Cinematographer />}
           title="Filmmaking"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem massa,."
+          years="1"
+          text="vlogs, cinematic b roll, and I would love to do some extend films."
         />
         <FavCard
           isHighlighted
           icon={<Code />}
           title="Code"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem massa,."
+          years="8"
+          text="3 years consulting, 1 year corporate, 1 year startup. Currently @ fm.co "
         />
         <FavCard
           icon={<Photographer />}
           title="Photographer"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem massa,."
+          years="1"
+          text="So far I've done portraits, products, desk setup, and businesses shots."
         />
       </div>
       <CollaborateCTA sx={sx.letsCollaborate} />
-      <div sx={sx.instagramCards}>
+      {/* <div sx={sx.instagramCards}>
         <InstagramCard
           sx={sx.instagramCardFirst}
           title="// Desk setup and BTS goodies"
@@ -97,7 +99,7 @@ const About = ({ data, location }) => {
           ]}
           link="/jonmajorcmedia"
         />
-      </div>
+      </div> */}
     </Layout>
   )
 }

@@ -1,13 +1,11 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import Instagram from '../images/instagram_black.inline.svg'
 import Twitter from '../images/twitter_black.inline.svg'
 import Github from '../images/github_black.inline.svg'
 import Youtube from '../images/youtube_black.inline.svg'
-import Patreon from '../images/patreon_black.inline.svg'
 import { Button } from './button'
 
-// TODO (JMC) Replace social links
 const Footer = ({ className, ...props }) => {
   return (
     <footer
@@ -24,35 +22,45 @@ const Footer = ({ className, ...props }) => {
     >
       <div sx={sx.leatherPinStripe}></div>
       <div sx={sx.icons}>
-        <a sx={sx.icon} href="#">
+        <a
+          sx={sx.icon}
+          href="https://www.instagram.com/jonmajorc/"
+          target="_blank"
+        >
           <Instagram />
           Instagram
         </a>
-        <a sx={sx.icon} href="#">
+        <a
+          sx={sx.icon}
+          href="https://twitter.com/intent/user?screen_name=jonmajorc"
+          target="_blank"
+        >
           <Twitter />
           Twitter
         </a>
-        <a sx={sx.icon} href="#">
+        <a sx={sx.icon} href="https://github.com/jonmajorc" target="_blank">
           <Github />
           Github
         </a>
-        <a sx={sx.icon} href="#">
+        <a
+          sx={sx.icon}
+          href="https://www.youtube.com/channel/UCQB-QsEnKCvJX4e_ms9XvHA?sub_confirmation=1"
+          target="_blank"
+        >
           <Youtube />
           YouTube
         </a>
-        <a sx={sx.icon} href="#">
-          <Patreon />
-          Buy Me Coffee!
-        </a>
       </div>
-      <div sx={sx.subscribeContainer}>
+      {/* <div sx={sx.subscribeContainer}>
         <Styled.h4 sx={sx.subscribeTitle}>
           Subscribe to my newsletter!
         </Styled.h4>
         <input placeholder="your email" type="email" sx={sx.emailInput} />
         <Button sx={sx.submitContact}>Subscribe</Button>
-      </div>
-      © {new Date().getFullYear()}
+      </div> */}
+      <span sx={sx.copyright}>
+        By Jon Major Condon © {new Date().getFullYear()}
+      </span>
     </footer>
   )
 }
@@ -90,6 +98,16 @@ let sx = {
       paddingRight: 11,
       path: {
         fill: 'beige',
+      },
+    },
+
+    ':hover': {
+      transition: 'all 250ms linear',
+      color: 'darkOrange',
+
+      path: {
+        transition: 'all 250ms linear',
+        fill: 'darkOrange',
       },
     },
   },
@@ -131,6 +149,14 @@ let sx = {
 
   submitContact: {
     marginTop: 26,
+  },
+
+  copyright: {
+    marginTop: 25,
+    color: 'beige',
+    width: '100%',
+    textAlign: 'center',
+    display: 'block',
   },
 }
 

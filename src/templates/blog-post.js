@@ -105,6 +105,9 @@ let sx = {
     listStyle: `none`,
     padding: 0,
   },
+  section: {
+    color: 'darkText',
+  },
 }
 
 export default BlogPostTemplate

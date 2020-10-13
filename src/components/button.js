@@ -1,11 +1,16 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import { Link } from 'gatsby'
+
+const ButtonWrapper = (props) => <button {...props} />
 
 const Button = ({ className, ...props }) => {
+  let Container = props.to ? Link : ButtonWrapper
+
   return (
-    <button sx={sx.button} className={className}>
+    <Container sx={sx.button} className={className} to={props.to}>
       <span>{props.children}</span>
-    </button>
+    </Container>
   )
 }
 
@@ -17,11 +22,22 @@ let sx = {
     padding: '13px 52px',
     textTransform: 'lowercase',
     fontFamily: 'button',
+    textDecoration: 'none',
+    cursor: 'pointer',
 
     '& span': {
       color: 'orange',
       fontWeight: 'semibold',
       fontSize: 1,
+    },
+
+    ':hover': {
+      transition: 'all 250ms linear',
+      border: 'buttonBorderHover',
+
+      '& span': {
+        color: 'w',
+      },
     },
   },
 }

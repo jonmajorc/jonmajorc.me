@@ -18,6 +18,7 @@ export default {
     beige: '#ffe4c4',
     orange: '#F68D2D',
     darkOrange: '#BD5113',
+    brown: '##8a391c',
     teal: '#95D0B8',
   },
   breakpoints,
@@ -43,6 +44,7 @@ export default {
   borders: {
     leatherPinStripe: '2px dashed #F8E9D6',
     buttonBorder: '3px solid #F68D2D',
+    buttonBorderHover: '3px solid #BD5113',
     inputBottom: '1px solid #F8E9D6',
     inputBottomFocus: '1px solid #F68D2D',
   },

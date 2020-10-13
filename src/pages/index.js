@@ -62,6 +62,8 @@ const Home = ({ data, location }) => {
             [mq[1]]: {
               position: 'relative !important',
               width: 348,
+              height: 500,
+              borderRadius: 4,
             },
           },
         }}
@@ -71,22 +73,14 @@ const Home = ({ data, location }) => {
       <CollaborateCTA sx={sx.collaborateCard} />
       <ContentCard
         reverse
-        header="// Business stills / movers"
-        img={MelSuge}
-        alt="Urban Uplander Pet Sitting"
+        header="// stills & movers"
+        images={[
+          { src: MelSuge, alt: 'Urban Uplander Pet Sitting' },
+          { src: Mercedes, alt: 'Mercedes CLS 550' },
+          { src: Walking, alt: 'shoe kicking in the rain' },
+        ]}
         sx={sx.contentCard}
-      />
-      <ContentCard
-        header="// Car stills & movers"
-        img={Mercedes}
-        alt="Mercedes Benz"
-        sx={sx.contentCard}
-      />
-      <ContentCard
-        reverse
-        header="// Random stills & movers"
-        img={Walking}
-        sx={sx.contentCard}
+        text={`I've done "movers" that consist of silly vlogs to cinematic sequences. I've shot many "stills" that consist of desk setups, products, portraits and many more!`}
       />
     </Layout>
   )
@@ -118,7 +112,7 @@ let sx = {
     [mq[1]]: {
       whiteSpace: 'pre-wrap',
       fontSize: 6,
-      color: 'text',
+      color: 'b',
       whiteSpace: 'nowrap',
     },
   },
@@ -127,6 +121,9 @@ let sx = {
 
     [mq[1]]: {
       color: 'text',
+      strong: {
+        color: 'b',
+      },
     },
   },
   divider: {

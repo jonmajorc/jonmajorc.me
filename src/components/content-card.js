@@ -4,6 +4,7 @@
   modules
 \***************************************************************************/
 import { jsx, Styled } from 'theme-ui'
+import { Link } from 'gatsby'
 
 import { mq } from '../gatsby-plugin-theme-ui'
 
@@ -28,15 +29,19 @@ const ContentCard = ({ className, ...props }) => {
         }}
       >
         <Styled.h3 className="bold">{props.header}</Styled.h3>
-        <span sx={{ ...sx.text }}>
-          Nam eu mollis sem. Nullam eleifend nulla molestie mauris aliquam
-          tincidunt. Praesent ex tortor, mollis eu enim in, elementum pulvinar
-          leo. Suspendisse sit amet neque libero. Mauris sit amet ligula vitae
-          sem molestie tempor id eget nisi. Nam dignissim malesuada est eget
-          commodo.
-        </span>
+        <span sx={{ ...sx.text }}>{props.text}</span>
       </div>
-      <img sx={sx.image} src={props.img} alt={props.alt} />
+      {props.images.length > 1 ? (
+        <Link sx={sx.imgWrapperStyles} to="/contact">
+          {props.images.map((image) => {
+            return <img sx={sx.images} src={image.src} alt={image.alt} />
+          })}
+        </Link>
+      ) : (
+        props.images.length === 1 && (
+          <img sx={sx.image} src={props.img} alt={props.alt} />
+        )
+      )}
     </div>
   )
 }
@@ -53,10 +58,7 @@ let sx = {
     fontSize: 3,
     lineHeight: 1.5,
     marginTop: 25,
-
-    [mq[2]]: {
-      marginTop: 0,
-    },
+    width: '100%',
   },
   image: {
     objectFit: 'cover',
@@ -71,6 +73,25 @@ let sx = {
       flexDirection: 'column-reverse',
       width: 248,
       height: 231,
+    },
+  },
+  imgWrapperStyles: {
+    width: '100%',
+    display: 'flex',
+  },
+  images: {
+    objectFit: 'cover',
+    boxShadow: '0 4px 4px 2px #C9C9C9',
+    objectPosition: 'center',
+    overflowX: 'scroll',
+
+    [mq[2]]: {
+      width: 130,
+    },
+
+    ':hover': {
+      transition: 'all 150ms cubic-bezier(0.74, 0.01, 0.32, 0.68)',
+      transform: 'scale(1.2)',
     },
   },
 }

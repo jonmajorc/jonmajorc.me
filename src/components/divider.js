@@ -36,20 +36,23 @@ const Divider = ({ className, ...props }) => {
     <div sx={sx.container} className={className}>
       <hr sx={sx.dividerLine} className="divider-line--left" />
       <div sx={sx.icons}>
-        <a href="#">
+        <a href="https://www.instagram.com/jonmajorc/" target="_blank">
           <Instagram sx={sx.icon} />
         </a>
-        <a href="#">
+        <a
+          href="https://twitter.com/intent/user?screen_name=jonmajorc"
+          target="_blank"
+        >
           <Twitter sx={sx.icon} />
         </a>
-        <a href="#">
+        <a href="https://github.com/jonmajorc" target="_blank">
           <Github sx={sx.icon} />
         </a>
-        <a href="#">
+        <a
+          href="https://www.youtube.com/channel/UCQB-QsEnKCvJX4e_ms9XvHA?sub_confirmation=1"
+          target="_blank"
+        >
           <Youtube sx={sx.icon} />
-        </a>
-        <a href="#">
-          <Patreon sx={sx.icon} />
         </a>
       </div>
       <hr sx={sx.dividerLine} className="divider-line--right" />
@@ -83,6 +86,15 @@ let sx = {
 
   icon: {
     width: [25, 25, 31],
+
+    ':hover': {
+      transition: 'all 150ms cubic-bezier(0.74, 0.01, 0.32, 0.68)',
+      transform: 'scale(1.2)',
+
+      path: {
+        fill: 'darkOrange',
+      },
+    },
   },
 
   dividerLine: {

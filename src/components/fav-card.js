@@ -21,10 +21,12 @@ const FavCard = ({ className, ...props }) => {
         >
           {props.title}
         </Styled.h5>
-        <span sx={{ ...sx.text, color: props.isHighlighted ? 'beige' : 'b' }}>
+        <span
+          sx={{ ...sx.text, color: props.isHighlighted ? 'beige' : 'text' }}
+        >
           {props.text}
         </span>
-        <button sx={sx.button}>7 Years Exp.</button>
+        <button sx={sx.button}>{props.years} Years Exp.</button>
       </div>
     </div>
   )
