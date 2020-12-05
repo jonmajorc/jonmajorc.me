@@ -47,7 +47,7 @@ export default {
     shadow1: '0 4px 8px 2px rgba(0,0,0,.25)',
     shadowHover: '-1px 7px 16px 2px rgba(0,0,0,0.1)',
     shadow2:
-      'inset 0 4px 4px 0 #ffffff, inset 0 7px 4px 0 #d4d4d4, 0 4px 4px 0px #fff, 0 7px 4px 0px #d4d4d4',
+      'inset 0 4px 4px 0 #ffffff, inset 0 7px 4px 0 #d4d4d4, 0 4px 4px 0px #ffffff, 0 7px 4px 0px #d4d4d4',
   },
   borders: {
     borderBlack1px: '1px solid #1B1616',
