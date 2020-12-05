@@ -8,18 +8,21 @@ export const mq = breakpoints.map((bp) => `@media (min-width: ${bp})`)
 export default {
   colors: {
     text: '#1B1616',
+    darkRed: '#8A391C',
+    b: '#1B1616',
+    w: '#fff',
+    teal: '#95D0B8',
+
+    // Old
     lightBlack: '#484848',
     midnight: '#000',
-    b: '#1B1616',
     background: '#ffffff',
     greenPastel: '#16C79E',
     redPastel: '#E45261',
-    w: '#fff',
     beige: '#ffe4c4',
     orange: '#F68D2D',
     darkOrange: '#BD5113',
     brown: '##8a391c',
-    teal: '#95D0B8',
   },
   breakpoints,
   fontWeights: {
@@ -35,13 +38,19 @@ export default {
     button: 'Menlo, monospace',
     monospace: 'Menlo, monospace',
   },
+  filter: {
+    dropShadow1: `drop-shadow( 3px 3px 2px rgba(0, 0, 0, .2))`,
+  },
   shadows: {
     newTextShadow: '-4px 2px 3px #e0e0e0',
     newContentBox: '0 4px 20px 0px rgba(0,0, 0, .25)',
     shadow1: '0 4px 8px 2px rgba(0,0,0,.25)',
     shadowHover: '-1px 7px 16px 2px rgba(0,0,0,0.1)',
+    shadow2:
+      'inset 0 4px 4px 0 #ffffff, inset 0 7px 4px 0 #d4d4d4, 0 4px 4px 0px #fff, 0 7px 4px 0px #d4d4d4',
   },
   borders: {
+    borderBlack1px: '1px solid #1B1616',
     leatherPinStripe: '2px dashed #F8E9D6',
     buttonBorder: '3px solid #F68D2D',
     buttonBorderHover: '3px solid #BD5113',

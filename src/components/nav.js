@@ -9,6 +9,11 @@ import { Link } from 'gatsby'
 import { Button } from 'components/button'
 import Logo from '../images/jmc_v7.inline.svg'
 
+/***************************************************************************\
+  assets
+\***************************************************************************/
+import Arrow from '../images/arrow.inline.svg'
+
 const NavLink = ({ className, ...props }) => {
   return (
     <Link
@@ -37,23 +42,24 @@ const Nav = ({ location }) => {
   }, [])
 
   return (
-    <nav sx={sx.container} ref={navRef}>
-      <button sx={sx.navButton} onClick={() => setIsOpen(!isOpen)}>
+    <nav sx={sx.nav} ref={navRef} onClick={() => setIsOpen(!isOpen)}>
+      <div sx={sx.navActiveContainer}>
         <Logo sx={sx.logo} />
         <span sx={sx.activeLink}>
           {location.pathname === '/' ? 'home' : location.pathname.split('/')[1]}
         </span>
-      </button>
+        <Arrow sx={sx.arrow} />
+      </div>
       <ul
         sx={{
           ...sx.navItems,
           ...(isOpen
             ? {
-                visibility: 'visible',
+                display: 'block',
                 opacity: 1,
               }
             : {
-                visibility: 'hidden',
+                display: 'none',
                 opacity: 0,
               }),
         }}
@@ -107,57 +113,62 @@ const Nav = ({ location }) => {
   )
 }
 
-let LOGO_WIDTH = 110
 let sx = {
-  container: {
-    position: 'sticky',
-    minWidth: 240,
-    height: 70,
+  nav: {
+    position: 'fixed',
+    top: '20px',
+    minWidth: 200,
+    backgroundColor: 'w',
+    height: 'auto',
     display: 'inline-flex',
     flexDirection: 'column',
     zIndex: 99999,
-  },
-  navButton: {
     cursor: 'pointer',
-    borderRadius: 50,
-    boxShadow: 'shadow1',
-    zIndex: 10,
-    backgroundColor: 'b',
+    borderRadius: 35,
+    border: 'borderBlack1px',
+    boxShadow: 'shadow2',
+  },
+  navActiveContainer: {
+    border: 'none',
+    backgroundColor: 'transparent',
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    border: 'none',
     padding: 0,
   },
   logo: {
-    width: LOGO_WIDTH,
-    padding: '4px',
+    width: 62,
+    padding: '9px',
 
     path: {
-      fill: 'w',
+      fill: 'b',
     },
+  },
+  arrow: {
+    marginRight: 22,
+    filter: 'dropShadow1',
   },
   activeLink: {
     display: 'block',
     fontSize: [2],
-    width: '100%',
-    color: 'w',
     textAlign: 'center',
-    color: 'beige',
+    color: 'b',
     textDecoration: 'underline',
-    paddingRight: LOGO_WIDTH / 2,
+    padding: '0 20px',
     textTransform: 'capitalize',
+    filter: 'dropShadow1',
   },
   navItems: {
     position: 'relative',
-    top: -35,
     margin: 0,
     listStyle: 'none',
     backgroundColor: 'midnight',
     borderRadius: '0 0 25px 25px',
     padding: 30,
-    paddingTop: 60,
     transition: 'all 250ms cubic-bezier(0.74, 0.01, 0.32, 0.68)',
+    backgroundColor: 'w',
+    borderBottomLeftRadius: '35px',
+    borderBottomRightRadius: '35px',
   },
   navLink: {
     display: 'block',
