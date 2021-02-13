@@ -39,10 +39,8 @@ let sx = {
   textLeft: {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: 656,
-    paddingRight: 23,
+    maxWidth: 502,
     flex: 1,
-    paddingTop: 33,
 
     '> h3': {
       marginTop: 50,
@@ -52,10 +50,9 @@ let sx = {
   image: {
     borderRadius: 4,
     width: [248, 348],
-    margin: '0 auto',
   },
   text: {
-    marginTop: 37,
+    marginTop: 50,
     display: 'block',
     fontSize: [1, 1, 2, 3],
   },

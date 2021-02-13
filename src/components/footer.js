@@ -4,7 +4,7 @@ import Instagram from '../images/instagram_black.inline.svg'
 import Twitter from '../images/twitter_black.inline.svg'
 import Github from '../images/github_black.inline.svg'
 import Youtube from '../images/youtube_black.inline.svg'
-import { Button } from './button'
+// import { Button } from './button
 
 const Footer = ({ className, ...props }) => {
   return (
@@ -68,13 +68,8 @@ const Footer = ({ className, ...props }) => {
 let sx = {
   container: {
     width: '100%',
-    backgroundColor: 'b',
     marginTop: 128,
     paddingBottom: 50,
-  },
-  leatherPinStripe: {
-    borderBottom: 'leatherPinStripe',
-    paddingTop: 14,
   },
   icons: {
     maxWidth: [350, 520, 820],
@@ -88,7 +83,7 @@ let sx = {
     display: 'inline-flex',
     alignItems: 'center',
     textDecoration: 'none',
-    color: 'beige',
+    color: 'darkRed',
     fontSize: 2,
     marginBottom: 10,
 
@@ -97,7 +92,7 @@ let sx = {
       height: 35,
       paddingRight: 11,
       path: {
-        fill: 'beige',
+        fill: 'darkRed',
       },
     },
 
@@ -115,7 +110,7 @@ let sx = {
   subscribeTitle: {
     display: 'block',
     marginTop: [40, 78],
-    color: 'beige',
+    color: 'darkRed',
     fontSize: [2, 2, 3, 3],
     fontWeight: 'bold',
   },
@@ -153,7 +148,8 @@ let sx = {
 
   copyright: {
     marginTop: 25,
-    color: 'beige',
+    fontSize: 0,
+    color: 'b',
     width: '100%',
     textAlign: 'center',
     display: 'block',

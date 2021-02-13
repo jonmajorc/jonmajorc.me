@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import { Fragment } from 'react'
-import { Nav } from 'components/nav'
+import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { PageHeader } from 'components/page-header'
 import { Divider } from 'components/divider'
@@ -16,7 +16,7 @@ const Layout = ({ location, children, ...props }) => {
   return (
     <Fragment>
       <div className="nav-wrapper">
-        <Nav location={location} />
+        <Header location={location} />
       </div>
       <main
         sx={{

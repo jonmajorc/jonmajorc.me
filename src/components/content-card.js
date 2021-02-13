@@ -34,7 +34,14 @@ const ContentCard = ({ className, ...props }) => {
       {props.images.length > 1 ? (
         <Link sx={sx.imgWrapperStyles} to="/contact">
           {props.images.map((image) => {
-            return <img sx={sx.images} src={image.src} alt={image.alt} />
+            return (
+              <img
+                key={image.alt}
+                sx={sx.images}
+                src={image.src}
+                alt={image.alt}
+              />
+            )
           })}
         </Link>
       ) : (

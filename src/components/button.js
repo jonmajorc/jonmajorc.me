@@ -17,23 +17,18 @@ const Button = ({ className, ...props }) => {
 let sx = {
   button: {
     background: 'transparent',
-    border: 'buttonBorder',
-    borderRadius: 4,
-    padding: '13px 52px',
+    border: 'borderBlack1px',
+    borderRadius: '0px 25px 25px 25px',
+    padding: '16px 23px',
+    display: 'flex',
+    alignItems: 'center',
     textTransform: 'lowercase',
     fontFamily: 'button',
     textDecoration: 'none',
     cursor: 'pointer',
 
-    '& span': {
-      color: 'orange',
-      fontWeight: 'semibold',
-      fontSize: 1,
-    },
-
     ':hover': {
       transition: 'all 250ms linear',
-      border: 'buttonBorderHover',
 
       '& span': {
         color: 'w',

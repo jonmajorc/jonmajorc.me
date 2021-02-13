@@ -1,16 +1,14 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Fragment } from 'react'
-import { Nav } from 'components/nav'
+import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import '../styles.css'
 
 const Layout = ({ location, children, ...props }) => {
   return (
     <Fragment>
-      <div className="nav-wrapper">
-        <Nav location={location} />
-      </div>
+      <Header />
       <main
         sx={{
           width: '100%',

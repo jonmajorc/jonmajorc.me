@@ -9,9 +9,11 @@ export default {
   colors: {
     text: '#1B1616',
     darkRed: '#8A391C',
+    darkOrange: '#BD5113',
     b: '#1B1616',
     w: '#fff',
     teal: '#95D0B8',
+    disabled: '#BCBCBC',
 
     // Old
     lightBlack: '#484848',
@@ -21,8 +23,6 @@ export default {
     redPastel: '#E45261',
     beige: '#ffe4c4',
     orange: '#F68D2D',
-    darkOrange: '#BD5113',
-    brown: '##8a391c',
   },
   breakpoints,
   fontWeights: {
@@ -34,8 +34,8 @@ export default {
   fontSizes: [12, 14, 18, 20, 24, 36, 48, 64],
   fonts: {
     body: 'Lato',
-    heading: 'Menlo, monospace',
-    button: 'Menlo, monospace',
+    heading: 'Lato',
+    button: 'Lato',
     monospace: 'Menlo, monospace',
   },
   filter: {
@@ -68,6 +68,7 @@ export default {
       background: '#fdfdfd',
 
       '*': {
+        fontSize: [1, 2],
         boxSizing: 'border-box',
 
         '&::selection': {
@@ -82,23 +83,12 @@ export default {
       },
 
       body: {},
-
-      '.nav-wrapper': {
-        maxWidth: 1324,
-        margin: [, '0 50px', '0 50px', '0 auto'],
-        display: ['flex', 'block'],
-        justifyContent: 'center',
-        position: 'sticky',
-        top: 18,
-        zIndex: 10,
-        padding: '0 50px',
-      },
     },
     h1: {
       color: '#403D39',
       fontFamily: 'heading',
-      fontSize: [4, 5, 5, 6, 7],
-      letterSpacing: -1,
+      fontSize: [4, 5, 5],
+      letterSpacing: 3,
       margin: 0,
       whiteSpace: 'nowrap',
     },
@@ -153,7 +143,9 @@ export default {
       },
     },
     p: {
+      fontSize: 2,
       lineHeight: 1.5,
+      margin: 0,
     },
   },
 }

@@ -7,6 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.18",
+    "@theme-ui/color": "^0.3.5",
     "aws-sdk": "^2.771.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.23.3",
