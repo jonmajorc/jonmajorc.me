@@ -32,7 +32,7 @@ const Header = ({ location }) => {
     <header sx={sx.header}>
       <div sx={sx.border}>
         <Img
-          sx={sx.logo}
+          sx={sx.myself}
           fluid={jonmajorc.banner.childImageSharp.fluid}
           alt="Jon Major C taking sick pics"
         />
@@ -65,7 +65,6 @@ let sx = {
   header: {
     position: 'relative',
     maxWidth: 1200,
-    width: 1200,
     height: 70,
     margin: '0 auto',
     display: 'flex',
@@ -82,28 +81,23 @@ let sx = {
     userSelect: 'none',
     padding: '5px',
   },
-  logo: {
+  myself: {
     width: 62,
     height: 62,
     borderRadius: '50%',
     padding: '9px',
+    userSelect: 'none',
+    pointerEvents: 'none',
 
     path: {
       fill: 'b',
     },
   },
   icons: {
-    '> a:first-of-type': {
-      marginLeft: 35,
-    },
-
-    '> a': {
-      marginRight: 24,
-    },
-
-    '> a:last-of-type': {
-      marginRight: 35,
-    },
+    display: 'flex',
+    alignItems: 'center',
+    width: ['175px', '225px'],
+    justifyContent: 'space-around',
   },
   icon: {
     width: [25, 25, 31],

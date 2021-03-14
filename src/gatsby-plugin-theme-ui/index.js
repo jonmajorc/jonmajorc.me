@@ -68,7 +68,7 @@ export default {
       background: '#fdfdfd',
 
       '*': {
-        fontSize: [1, 2],
+        fontSize: 2,
         boxSizing: 'border-box',
 
         '&::selection': {

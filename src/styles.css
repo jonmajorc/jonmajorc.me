@@ -2,6 +2,12 @@
   outline: none;
 }
 
+.red-stroke-bold {
+  -webkit-text-fill-color: #8a391c;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #8a391c;
+}
+
 /* @keyframes pulse {
   from {
     box-shadow: 0 0 7px 0 #95d0a8;

@@ -26,13 +26,12 @@ let sx = {
     fontFamily: 'button',
     textDecoration: 'none',
     cursor: 'pointer',
+    boxShadow: 'shadow2',
+    transition: 'zoom',
 
     ':hover': {
-      transition: 'all 250ms linear',
-
-      '& span': {
-        color: 'w',
-      },
+      transform: 'scale(1.02)',
+      boxShadow: 'shadow1',
     },
   },
 }

@@ -13,7 +13,14 @@ const ServiceAvailability = ({ className, ...props }) => {
       <div sx={sx.dot} />
       <i sx={sx.services}>
         Available for filmmaking / photography /{' '}
-        <span sx={sx.unavailable}>coding</span>
+        <span sx={sx.unavailable}>
+          coding
+          <div className="tooltip">
+            I don't do any coding for folks on the side, but you can find me and
+            other awesome developers here:{' '}
+            <a href="http://infinite.red/">Infinite Red</a>
+          </div>
+        </span>
       </i>
     </div>
   )
@@ -46,8 +53,32 @@ let sx = {
   },
   services: {},
   unavailable: {
+    cursor: 'help',
     textDecoration: 'line-through',
     color: 'disabled',
+    position: 'relative',
+
+    '&:hover .tooltip': {
+      visibility: 'visible',
+    },
+
+    '.tooltip': {
+      color: 'text',
+      padding: 10,
+      visibility: 'hidden',
+      boxShadow: 'shadow1',
+      width: '220px',
+      backgroundColor: 'w',
+      textAlign: 'center',
+      borderRadius: '6px',
+
+      /* Position the tooltip */
+      position: 'absolute',
+      zIndex: '1',
+      bottom: '100%',
+      left: '50%',
+      marginLeft: '-80px',
+    },
   },
 }
 

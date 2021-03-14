@@ -6,7 +6,6 @@
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
-
 /***************************************************************************\
  components
  \***************************************************************************/
@@ -15,6 +14,7 @@ import { Button } from 'components/button'
 import Layout from 'components/main-layout'
 import { mq } from 'src/gatsby-plugin-theme-ui'
 import { ServiceAvailability } from 'components/service-availability'
+import { Categories } from 'components/categories'
 
 /***************************************************************************\
  assets
@@ -22,7 +22,7 @@ import { ServiceAvailability } from 'components/service-availability'
 import SEO from 'components/seo'
 
 const Home = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  let siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -59,16 +59,13 @@ const Home = ({ data, location }) => {
           src: data.banner.childImageSharp.fluid,
           sx: {
             position: 'absolute !important',
-            top: 0,
-            left: 0,
-            right: 0,
-            width: '100%',
-            zIndex: -1,
-            height: 450,
-            borderRadius: 0,
+            display: 'none',
 
             [mq[1]]: {
+              display: 'block',
               position: 'relative !important',
+              pointerEvents: 'none',
+              userSelect: 'none',
               width: 354,
               height: 354,
             },
@@ -76,6 +73,7 @@ const Home = ({ data, location }) => {
         }}
         alt="a long road resembling the journey of life."
       />
+      <Categories />
     </Layout>
   )
 }
@@ -106,35 +104,14 @@ let sx = {
     marginTop: 22,
   },
   welcomeHeader: {
-    color: 'w',
-
-    [mq[0]]: {
-      color: 'w',
-    },
-    [mq[1]]: {
-      whiteSpace: 'pre-wrap',
-      color: 'darkRed',
-      whiteSpace: 'nowrap',
-    },
+    whiteSpace: 'pre-wrap',
+    color: 'darkRed',
+    whiteSpace: 'nowrap',
   },
   welcomeSubText: {
-    color: 'w',
-
-    [mq[1]]: {
-      color: 'text',
-      strong: {
-        color: 'b',
-      },
-    },
-  },
-  divider: {
-    marginTop: 175,
-
-    [mq[0]]: {
-      marginTop: 125,
-    },
-    [mq[1]]: {
-      marginTop: 75,
+    color: 'text',
+    strong: {
+      color: 'b',
     },
   },
 }

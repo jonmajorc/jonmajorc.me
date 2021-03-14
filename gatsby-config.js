@@ -103,8 +103,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/content/pages`,
+        name: `blogs`,
+        path: `${__dirname}/content/blogs`,
       },
     },
     {
@@ -132,5 +132,13 @@ module.exports = {
         images: path.join(__dirname, 'src/images'),
       },
     },
+    // {
+    //   resolve: `gatsby-source-strapi`,
+    //   options: {
+    //     apiURL: `http://localhost:1337`,
+    //     queryLimit: 1000, // Default to 100
+    //     contentTypes: [`blogs`],
+    //   },
+    // },
   ],
 }

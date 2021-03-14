@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui'
 import { Fragment } from 'react'
 import { Header } from 'components/header'
 import { Footer } from 'components/footer'
+
 import '../styles.css'
 
 const Layout = ({ location, children, ...props }) => {

@@ -59,7 +59,7 @@ const Footer = ({ className, ...props }) => {
         <Button sx={sx.submitContact}>Subscribe</Button>
       </div> */}
       <span sx={sx.copyright}>
-        By Jon Major Condon © {new Date().getFullYear()}
+        Made by Jon Major Condon © {new Date().getFullYear()}
       </span>
     </footer>
   )
